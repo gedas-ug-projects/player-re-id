@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Track MixSort Simple",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/MixSort/tools/track_mixsort_simple.py",
+            "args": [
+                "-expn", "yolox_x_inference",
+                "-f", "exps/example/mot/yolox_x_inference.py",
+                "-c", "pretrained/yolox_x_sports_mix.pth.tar",
+                "-b", "1",
+                "-d", "1",
+                "--config", "track"
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "1"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
