@@ -1,1230 +1,2382 @@
 {
-    "Atlanta Hawks": {
-        "Kent Bazemore": {
-            "jersey_number": 24
-        },
-        "Tim Hardaway Jr.": {
-            "jersey_number": 10
-        },
-        "Kirk Hinrich": {
-            "jersey_number": 12
-        },
-        "Al Horford": {
-            "jersey_number": 15
-        },
-        "Kris Humphries": {
-            "jersey_number": 43
-        },
-        "Kyle Korver": {
-            "jersey_number": 26
-        },
-        "Paul Millsap": {
-            "jersey_number": 4
-        },
-        "Mike Muscala": {
-            "jersey_number": 31
-        },
-        "Lamar Patterson": {
-            "jersey_number": 13
-        },
-        "Dennis Schr\u00f6der": {
-            "jersey_number": 17
-        },
-        "Mike Scott": {
-            "jersey_number": 32
-        },
-        "Thabo Sefolosha": {
-            "jersey_number": 25
-        },
-        "Tiago Splitter": {
-            "jersey_number": 11
-        },
-        "Walter Tavares": {
-            "jersey_number": 22
-        },
-        "Jeff Teague": {
-            "jersey_number": 0
+    "boston_celtics": {
+        "players": {
+            "Bradley, Avery": {
+                "position": "PG",
+                "number": "0",
+                "name": "Bradley, Avery"
+            },
+            "Crowder, Jae": {
+                "position": "SF",
+                "number": "99",
+                "name": "Crowder, Jae"
+            },
+            "Holland, John": {
+                "position": "SG",
+                "number": "30",
+                "name": "Holland, John"
+            },
+            "Hunter, R. J.": {
+                "position": "SG",
+                "number": "28",
+                "name": "Hunter, R. J."
+            },
+            "Jerebko, Jonas": {
+                "position": "PF",
+                "number": "8",
+                "name": "Jerebko, Jonas"
+            },
+            "Johnson, Amir": {
+                "position": "PF",
+                "number": "90",
+                "name": "Johnson, Amir"
+            },
+            "Mickey, Jordan": {
+                "position": "PF",
+                "number": "55",
+                "name": "Mickey, Jordan"
+            },
+            "Olynyk, Kelly": {
+                "position": "C",
+                "number": "41",
+                "name": "Olynyk, Kelly"
+            },
+            "Rozier, Terry": {
+                "position": "PG",
+                "number": "12",
+                "name": "Rozier, Terry"
+            },
+            "Smart, Marcus": {
+                "position": "PG",
+                "number": "36",
+                "name": "Smart, Marcus"
+            },
+            "Sullinger, Jared": {
+                "position": "PF",
+                "number": "7",
+                "name": "Sullinger, Jared"
+            },
+            "Thomas, Isaiah": {
+                "position": "PG",
+                "number": "4",
+                "name": "Thomas, Isaiah"
+            },
+            "Turner, Evan": {
+                "position": "SF",
+                "number": "11",
+                "name": "Turner, Evan"
+            },
+            "Young, James": {
+                "position": "SG",
+                "number": "13",
+                "name": "Young, James"
+            },
+            "Zeller, Tyler": {
+                "position": "C",
+                "number": "44",
+                "name": "Zeller, Tyler"
+            }
         }
     },
-    "Brooklyn Nets": {
-        "Bojan Bogdanovi\u0107": {
-            "jersey_number": 44
-        },
-        "Markel Brown": {
-            "jersey_number": 22
-        },
-        "Wayne Ellington": {
-            "jersey_number": 21
-        },
-        "Rondae Hollis-Jefferson": {
-            "jersey_number": 24
-        },
-        "Jarrett Jack": {
-            "jersey_number": 2
-        },
-        "Sergey Karasev": {
-            "jersey_number": 10
-        },
-        "Sean Kilpatrick": {
-            "jersey_number": 6
-        },
-        "Shane Larkin": {
-            "jersey_number": 0
-        },
-        "Brook Lopez": {
-            "jersey_number": 11
-        },
-        "Chris McCullough": {
-            "jersey_number": 1
-        },
-        "Willie Reed": {
-            "jersey_number": 33
-        },
-        "Thomas Robinson": {
-            "jersey_number": 41
-        },
-        "Henry Sims": {
-            "jersey_number": 14
-        },
-        "Donald Sloan": {
-            "jersey_number": 15
-        },
-        "Thaddeus Young": {
-            "jersey_number": 30
+    "brooklyn_nets": {
+        "players": {
+            "Bogdanovi\u0107, Bojan": {
+                "position": "G/F",
+                "number": "44",
+                "name": "Bogdanovi\u0107, Bojan"
+            },
+            "Brown, Markel": {
+                "position": "G",
+                "number": "22",
+                "name": "Brown, Markel"
+            },
+            "Ellington, Wayne": {
+                "position": "G",
+                "number": "21",
+                "name": "Ellington, Wayne"
+            },
+            "Hollis-Jefferson, Rondae": {
+                "position": "F",
+                "number": "24",
+                "name": "Hollis-Jefferson, Rondae"
+            },
+            "Jack, Jarrett": {
+                "position": "G",
+                "number": "2",
+                "name": "Jack, Jarrett"
+            },
+            "Karasev, Sergey": {
+                "position": "G/F",
+                "number": "10",
+                "name": "Karasev, Sergey"
+            },
+            "Kilpatrick, Sean": {
+                "position": "G",
+                "number": "6",
+                "name": "Kilpatrick, Sean"
+            },
+            "Larkin, Shane": {
+                "position": "G",
+                "number": "0",
+                "name": "Larkin, Shane"
+            },
+            "Lopez, Brook": {
+                "position": "C",
+                "number": "11",
+                "name": "Lopez, Brook"
+            },
+            "McCullough, Chris": {
+                "position": "F",
+                "number": "1",
+                "name": "McCullough, Chris"
+            },
+            "Reed, Willie": {
+                "position": "F/C",
+                "number": "33",
+                "name": "Reed, Willie"
+            },
+            "Robinson, Thomas": {
+                "position": "F",
+                "number": "41",
+                "name": "Robinson, Thomas"
+            },
+            "Sims, Henry": {
+                "position": "F/C",
+                "number": "14",
+                "name": "Sims, Henry"
+            },
+            "Sloan, Donald": {
+                "position": "G",
+                "number": "15",
+                "name": "Sloan, Donald"
+            },
+            "Young, Thaddeus": {
+                "position": "F",
+                "number": "30",
+                "name": "Young, Thaddeus"
+            }
         }
     },
-    "Charlotte Hornets": {
-        "Nicolas Batum": {
-            "jersey_number": 5
-        },
-        "Troy Daniels": {
-            "jersey_number": 30
-        },
-        "Jorge Guti\u00e9rrez": {
-            "jersey_number": 12
-        },
-        "Tyler Hansbrough": {
-            "jersey_number": 50
-        },
-        "Aaron Harrison": {
-            "jersey_number": 9
-        },
-        "Spencer Hawes": {
-            "jersey_number": 0
-        },
-        "Al Jefferson": {
-            "jersey_number": 25
-        },
-        "Frank Kaminsky": {
-            "jersey_number": 44
-        },
-        "Michael Kidd-Gilchrist": {
-            "jersey_number": 14
-        },
-        "Jeremy Lamb": {
-            "jersey_number": 3
-        },
-        "Courtney Lee": {
-            "jersey_number": 1
-        },
-        "Jeremy Lin": {
-            "jersey_number": 7
-        },
-        "Kemba Walker": {
-            "jersey_number": 15
-        },
-        "Marvin Williams": {
-            "jersey_number": 2
-        },
-        "Cody Zeller": {
-            "jersey_number": 40
+    "new_york_knicks": {
+        "players": {
+            "Afflalo, Arron": {
+                "position": "G/F",
+                "number": "4",
+                "name": "Afflalo, Arron"
+            },
+            "Amundson, Lou": {
+                "position": "F/C",
+                "number": "17",
+                "name": "Amundson, Lou"
+            },
+            "Anthony, Carmelo": {
+                "position": "F",
+                "number": "7",
+                "name": "Anthony, Carmelo"
+            },
+            "Calder\u00f3n, Jos\u00e9": {
+                "position": "G",
+                "number": "3",
+                "name": "Calder\u00f3n, Jos\u00e9"
+            },
+            "Early, Cleanthony": {
+                "position": "F",
+                "number": "11",
+                "name": "Early, Cleanthony"
+            },
+            "Galloway, Langston": {
+                "position": "G",
+                "number": "2",
+                "name": "Galloway, Langston"
+            },
+            "Grant, Jerian": {
+                "position": "G",
+                "number": "13",
+                "name": "Grant, Jerian"
+            },
+            "Lopez, Robin": {
+                "position": "C",
+                "number": "8",
+                "name": "Lopez, Robin"
+            },
+            "O'Quinn, Kyle": {
+                "position": "F/C",
+                "number": "9",
+                "name": "O'Quinn, Kyle"
+            },
+            "Porzi\u0146\u0123is, Kristaps": {
+                "position": "F/C",
+                "number": "6",
+                "name": "Porzi\u0146\u0123is, Kristaps"
+            },
+            "S\u00e9raphin, Kevin": {
+                "position": "F/C",
+                "number": "1",
+                "name": "S\u00e9raphin, Kevin"
+            },
+            "Thomas, Lance": {
+                "position": "F",
+                "number": "42",
+                "name": "Thomas, Lance"
+            },
+            "Vuja\u010di\u0107, Sasha": {
+                "position": "G",
+                "number": "18",
+                "name": "Vuja\u010di\u0107, Sasha"
+            },
+            "Williams, Derrick": {
+                "position": "F",
+                "number": "23",
+                "name": "Williams, Derrick"
+            },
+            "Wroten, Tony": {
+                "position": "G",
+                "number": "5",
+                "name": "Wroten, Tony"
+            }
         }
     },
-    "Chicago Bulls": {
-        "Cameron Bairstow": {
-            "jersey_number": 41
-        },
-        "Aaron Brooks": {
-            "jersey_number": 0
-        },
-        "Jimmy Butler": {
-            "jersey_number": 21
-        },
-        "Mike Dunleavy Jr.": {
-            "jersey_number": 34
-        },
-        "Cristiano Felicio": {
-            "jersey_number": 6
-        },
-        "Pau Gasol": {
-            "jersey_number": 16
-        },
-        "Taj Gibson": {
-            "jersey_number": 22
-        },
-        "Justin Holiday": {
-            "jersey_number": 7
-        },
-        "Doug McDermott": {
-            "jersey_number": 3
-        },
-        "Nikola Miroti\u0107": {
-            "jersey_number": 44
-        },
-        "E&#39;Twaun Moore": {
-            "jersey_number": 55
-        },
-        "Joakim Noah": {
-            "jersey_number": 13
-        },
-        "Bobby Portis": {
-            "jersey_number": 5
-        },
-        "Derrick Rose": {
-            "jersey_number": 1
-        },
-        "Tony Snell": {
-            "jersey_number": 20
+    "philadelphia_76ers": {
+        "players": {
+            "Brand, Elton": {
+                "position": "F",
+                "number": "42",
+                "name": "Brand, Elton"
+            },
+            "Canaan, Isaiah": {
+                "position": "G",
+                "number": "0",
+                "name": "Canaan, Isaiah"
+            },
+            "Covington, Robert": {
+                "position": "F",
+                "number": "33",
+                "name": "Covington, Robert"
+            },
+            "Embiid, Joel": {
+                "position": "C",
+                "number": "21",
+                "name": "Embiid, Joel"
+            },
+            "Grant, Jerami": {
+                "position": "F",
+                "number": "39",
+                "name": "Grant, Jerami"
+            },
+            "Holmes, Richaun": {
+                "position": "F",
+                "number": "22",
+                "name": "Holmes, Richaun"
+            },
+            "Landry, Carl": {
+                "position": "F",
+                "number": "7",
+                "name": "Landry, Carl"
+            },
+            "Marshall, Kendall": {
+                "position": "G",
+                "number": "5",
+                "name": "Marshall, Kendall"
+            },
+            "McConnell, T. J.": {
+                "position": "G",
+                "number": "12",
+                "name": "McConnell, T. J."
+            },
+            "Noel, Nerlens": {
+                "position": "F/C",
+                "number": "4",
+                "name": "Noel, Nerlens"
+            },
+            "Okafor, Jahlil": {
+                "position": "C",
+                "number": "8",
+                "name": "Okafor, Jahlil"
+            },
+            "Smith, Ish": {
+                "position": "G",
+                "number": "1",
+                "name": "Smith, Ish"
+            },
+            "Stauskas, Nik": {
+                "position": "G",
+                "number": "11",
+                "name": "Stauskas, Nik"
+            },
+            "Thompson, Hollis": {
+                "position": "G/F",
+                "number": "31",
+                "name": "Thompson, Hollis"
+            },
+            "Wood, Christian": {
+                "position": "F",
+                "number": "35",
+                "name": "Wood, Christian"
+            }
         }
     },
-    "Dallas Mavericks": {
-        "Matthew Dellavedova": {
-            "jersey_number": 8
-        },
-        "Channing Frye": {
-            "jersey_number": 9
-        },
-        "Kyrie Irving": {
-            "jersey_number": 2
-        },
-        "LeBron James": {
-            "jersey_number": 23
-        },
-        "Richard Jefferson": {
-            "jersey_number": 24
-        },
-        "Dahntay Jones": {
-            "jersey_number": 30
-        },
-        "James Jones": {
-            "jersey_number": 1
-        },
-        "Sasha Kaun": {
-            "jersey_number": 14
-        },
-        "Kevin Love": {
-            "jersey_number": 0
-        },
-        "Jordan McRae": {
-            "jersey_number": 12
-        },
-        "Timofey Mozgov": {
-            "jersey_number": 20
-        },
-        "Iman Shumpert": {
-            "jersey_number": 4
-        },
-        "J. R. Smith": {
-            "jersey_number": 5
-        },
-        "Tristan Thompson": {
-            "jersey_number": 13
-        },
-        "Mo Williams": {
-            "jersey_number": 52
+    "toronto_raptors": {
+        "players": {
+            "Biyombo, Bismack": {
+                "position": "C",
+                "number": "8",
+                "name": "Biyombo, Bismack"
+            },
+            "Caboclo, Bruno": {
+                "position": "F",
+                "number": "20",
+                "name": "Caboclo, Bruno"
+            },
+            "Carroll, DeMarre": {
+                "position": "F",
+                "number": "5",
+                "name": "Carroll, DeMarre"
+            },
+            "DeRozan, DeMar": {
+                "position": "G",
+                "number": "10",
+                "name": "DeRozan, DeMar"
+            },
+            "Johnson, James": {
+                "position": "F",
+                "number": "3",
+                "name": "Johnson, James"
+            },
+            "Joseph, Cory": {
+                "position": "G",
+                "number": "6",
+                "name": "Joseph, Cory"
+            },
+            "Lowry, Kyle": {
+                "position": "G",
+                "number": "7",
+                "name": "Lowry, Kyle"
+            },
+            "Nogueira, Lucas": {
+                "position": "C",
+                "number": "92",
+                "name": "Nogueira, Lucas"
+            },
+            "Patterson, Patrick": {
+                "position": "F/C",
+                "number": "54",
+                "name": "Patterson, Patrick"
+            },
+            "Powell, Norman": {
+                "position": "G",
+                "number": "24",
+                "name": "Powell, Norman"
+            },
+            "Ross, Terrence": {
+                "position": "G/F",
+                "number": "31",
+                "name": "Ross, Terrence"
+            },
+            "Scola, Luis": {
+                "position": "F",
+                "number": "4",
+                "name": "Scola, Luis"
+            },
+            "Thompson, Jason": {
+                "position": "F/C",
+                "number": "1",
+                "name": "Thompson, Jason"
+            },
+            "Valan\u010di\u016bnas, Jonas": {
+                "position": "C",
+                "number": "17",
+                "name": "Valan\u010di\u016bnas, Jonas"
+            },
+            "Wright, Delon": {
+                "position": "G",
+                "number": "55",
+                "name": "Wright, Delon"
+            }
         }
     },
-    "Denver Nuggets": {
-        "Justin Anderson": {
-            "jersey_number": 1
-        },
-        "Jos\u00e9 Juan Barea": {
-            "jersey_number": 5
-        },
-        "Jeremy Evans": {
-            "jersey_number": 21
-        },
-        "Raymond Felton": {
-            "jersey_number": 2
-        },
-        "Devin Harris": {
-            "jersey_number": 34
-        },
-        "David Lee": {
-            "jersey_number": 42
-        },
-        "Wesley Matthews": {
-            "jersey_number": 23
-        },
-        "JaVale McGee": {
-            "jersey_number": 11
-        },
-        "Salah Mejri": {
-            "jersey_number": 50
-        },
-        "Dirk Nowitzki": {
-            "jersey_number": 41
-        },
-        "Zaza Pachulia": {
-            "jersey_number": 27
-        },
-        "Chandler Parsons": {
-            "jersey_number": 25
-        },
-        "Dwight Powell": {
-            "jersey_number": 7
-        },
-        "Charlie Villanueva": {
-            "jersey_number": 3
-        },
-        "Deron Williams": {
-            "jersey_number": 8
+    "chicago_bulls": {
+        "players": {
+            "Bairstow, Cameron": {
+                "position": "F/C",
+                "number": "41",
+                "name": "Bairstow, Cameron"
+            },
+            "Brooks, Aaron": {
+                "position": "G",
+                "number": "0",
+                "name": "Brooks, Aaron"
+            },
+            "Butler, Jimmy": {
+                "position": "G/F",
+                "number": "21",
+                "name": "Butler, Jimmy"
+            },
+            "Dunleavy Jr., Mike": {
+                "position": "F",
+                "number": "34",
+                "name": "Dunleavy Jr., Mike"
+            },
+            "Felicio, Cristiano": {
+                "position": "C",
+                "number": "6",
+                "name": "Felicio, Cristiano"
+            },
+            "Gasol, Pau": {
+                "position": "F/C",
+                "number": "16",
+                "name": "Gasol, Pau"
+            },
+            "Gibson, Taj": {
+                "position": "F",
+                "number": "22",
+                "name": "Gibson, Taj"
+            },
+            "Holiday, Justin": {
+                "position": "G",
+                "number": "7",
+                "name": "Holiday, Justin"
+            },
+            "McDermott, Doug": {
+                "position": "F",
+                "number": "3",
+                "name": "McDermott, Doug"
+            },
+            "Miroti\u0107, Nikola": {
+                "position": "F",
+                "number": "44",
+                "name": "Miroti\u0107, Nikola"
+            },
+            "Moore, E'Twaun": {
+                "position": "G",
+                "number": "55",
+                "name": "Moore, E'Twaun"
+            },
+            "Noah, Joakim": {
+                "position": "C",
+                "number": "13",
+                "name": "Noah, Joakim"
+            },
+            "Portis, Bobby": {
+                "position": "F",
+                "number": "5",
+                "name": "Portis, Bobby"
+            },
+            "Rose, Derrick": {
+                "position": "G",
+                "number": "1",
+                "name": "Rose, Derrick"
+            },
+            "Snell, Tony": {
+                "position": "G/F",
+                "number": "20",
+                "name": "Snell, Tony"
+            }
         }
     },
-    "Detroit Pistons": {
-        "Joel Anthony": {
-            "jersey_number": 50
-        },
-        "Aron Baynes": {
-            "jersey_number": 12
-        },
-        "Steve Blake": {
-            "jersey_number": 22
-        },
-        "Lorenzo Brown": {
-            "jersey_number": 17
-        },
-        "Reggie Bullock": {
-            "jersey_number": 25
-        },
-        "Kentavious Caldwell-Pope": {
-            "jersey_number": 5
-        },
-        "Spencer Dinwiddie": {
-            "jersey_number": 8
-        },
-        "Andre Drummond": {
-            "jersey_number": 0
-        },
-        "Tobias Harris": {
-            "jersey_number": 34
-        },
-        "Darrun Hilliard": {
-            "jersey_number": 6
-        },
-        "Reggie Jackson": {
-            "jersey_number": 1
-        },
-        "Stanley Johnson": {
-            "jersey_number": 3
-        },
-        "Jodie Meeks": {
-            "jersey_number": 20
-        },
-        "Marcus Morris": {
-            "jersey_number": 13
-        },
-        "Anthony Tolliver": {
-            "jersey_number": 43
+    "cleveland_cavaliers": {
+        "players": {
+            "Dellavedova, Matthew": {
+                "position": "PG",
+                "number": "8",
+                "name": "Dellavedova, Matthew"
+            },
+            "Frye, Channing": {
+                "position": "C",
+                "number": "9",
+                "name": "Frye, Channing"
+            },
+            "Irving, Kyrie": {
+                "position": "PG",
+                "number": "2",
+                "name": "Irving, Kyrie"
+            },
+            "James, LeBron": {
+                "position": "SF",
+                "number": "23",
+                "name": "James, LeBron"
+            },
+            "Jefferson, Richard": {
+                "position": "SF",
+                "number": "24",
+                "name": "Jefferson, Richard"
+            },
+            "Jones, Dahntay": {
+                "position": "SF",
+                "number": "30",
+                "name": "Jones, Dahntay"
+            },
+            "Jones, James": {
+                "position": "SF",
+                "number": "1",
+                "name": "Jones, James"
+            },
+            "Kaun, Sasha": {
+                "position": "C",
+                "number": "14",
+                "name": "Kaun, Sasha"
+            },
+            "Love, Kevin": {
+                "position": "PF",
+                "number": "0",
+                "name": "Love, Kevin"
+            },
+            "McRae, Jordan": {
+                "position": "PG",
+                "number": "12",
+                "name": "McRae, Jordan"
+            },
+            "Mozgov, Timofey": {
+                "position": "C",
+                "number": "20",
+                "name": "Mozgov, Timofey"
+            },
+            "Shumpert, Iman": {
+                "position": "SG",
+                "number": "4",
+                "name": "Shumpert, Iman"
+            },
+            "Smith, J. R.": {
+                "position": "SG",
+                "number": "5",
+                "name": "Smith, J. R."
+            },
+            "Thompson, Tristan": {
+                "position": "F/C",
+                "number": "13",
+                "name": "Thompson, Tristan"
+            },
+            "Williams, Mo": {
+                "position": "PG",
+                "number": "52",
+                "name": "Williams, Mo"
+            }
         }
     },
-    "Golden State Warriors": {
-        "Leandro Barbosa": {
-            "jersey_number": 19
-        },
-        "Harrison Barnes": {
-            "jersey_number": 40
-        },
-        "Andrew Bogut": {
-            "jersey_number": 12
-        },
-        "Ian Clark": {
-            "jersey_number": 21
-        },
-        "Stephen Curry": {
-            "jersey_number": 30
-        },
-        "Festus Ezeli": {
-            "jersey_number": 31
-        },
-        "Draymond Green": {
-            "jersey_number": 23
-        },
-        "Andre Iguodala": {
-            "jersey_number": 9
-        },
-        "Shaun Livingston": {
-            "jersey_number": 34
-        },
-        "Kevon Looney": {
-            "jersey_number": 36
-        },
-        "James Michael McAdoo": {
-            "jersey_number": 20
-        },
-        "Brandon Rush": {
-            "jersey_number": 4
-        },
-        "Marreese Speights": {
-            "jersey_number": 5
-        },
-        "Klay Thompson": {
-            "jersey_number": 11
-        },
-        "Anderson Varej\u00e3o": {
-            "jersey_number": 18
+    "detroit_pistons": {
+        "players": {
+            "Anthony, Joel": {
+                "position": "C",
+                "number": "50",
+                "name": "Anthony, Joel"
+            },
+            "Baynes, Aron": {
+                "position": "C",
+                "number": "12",
+                "name": "Baynes, Aron"
+            },
+            "Blake, Steve": {
+                "position": "G",
+                "number": "22",
+                "name": "Blake, Steve"
+            },
+            "Brown, Lorenzo": {
+                "position": "G",
+                "number": "17",
+                "name": "Brown, Lorenzo"
+            },
+            "Bullock, Reggie": {
+                "position": "G",
+                "number": "25",
+                "name": "Bullock, Reggie"
+            },
+            "Caldwell-Pope, Kentavious": {
+                "position": "G",
+                "number": "5",
+                "name": "Caldwell-Pope, Kentavious"
+            },
+            "Dinwiddie, Spencer": {
+                "position": "G",
+                "number": "8",
+                "name": "Dinwiddie, Spencer"
+            },
+            "Drummond, Andre": {
+                "position": "C",
+                "number": "0",
+                "name": "Drummond, Andre"
+            },
+            "Harris, Tobias": {
+                "position": "F",
+                "number": "34",
+                "name": "Harris, Tobias"
+            },
+            "Hilliard, Darrun": {
+                "position": "G",
+                "number": "6",
+                "name": "Hilliard, Darrun"
+            },
+            "Jackson, Reggie": {
+                "position": "G",
+                "number": "1",
+                "name": "Jackson, Reggie"
+            },
+            "Johnson, Stanley": {
+                "position": "F",
+                "number": "3",
+                "name": "Johnson, Stanley"
+            },
+            "Meeks, Jodie": {
+                "position": "G",
+                "number": "20",
+                "name": "Meeks, Jodie"
+            },
+            "Morris, Marcus": {
+                "position": "F",
+                "number": "13",
+                "name": "Morris, Marcus"
+            },
+            "Tolliver, Anthony": {
+                "position": "F",
+                "number": "43",
+                "name": "Tolliver, Anthony"
+            }
         }
     },
-    "Indiana Pacers": {
-        "Lavoy Allen": {
-            "jersey_number": 5
-        },
-        "Rakeem Christmas": {
-            "jersey_number": 25
-        },
-        "Monta Ellis": {
-            "jersey_number": 11
-        },
-        "Paul George": {
-            "jersey_number": 13
-        },
-        "George Hill": {
-            "jersey_number": 3
-        },
-        "Jordan Hill": {
-            "jersey_number": 27
-        },
-        "Solomon Hill": {
-            "jersey_number": 44
-        },
-        "Ty Lawson": {
-            "jersey_number": 10
-        },
-        "Ian Mahinmi": {
-            "jersey_number": 28
-        },
-        "C. J. Miles": {
-            "jersey_number": 0
-        },
-        "Glenn Robinson III": {
-            "jersey_number": 40
-        },
-        "Rodney Stuckey": {
-            "jersey_number": 2
-        },
-        "Myles Turner": {
-            "jersey_number": 33
-        },
-        "Shayne Whittington": {
-            "jersey_number": 42
-        },
-        "Joe Young": {
-            "jersey_number": 1
+    "indiana_pacers": {
+        "players": {
+            "Allen, Lavoy": {
+                "position": "F",
+                "number": "5",
+                "name": "Allen, Lavoy"
+            },
+            "Christmas, Rakeem": {
+                "position": "F",
+                "number": "25",
+                "name": "Christmas, Rakeem"
+            },
+            "Ellis, Monta": {
+                "position": "G",
+                "number": "11",
+                "name": "Ellis, Monta"
+            },
+            "George, Paul": {
+                "position": "F",
+                "number": "13",
+                "name": "George, Paul"
+            },
+            "Hill, George": {
+                "position": "G",
+                "number": "3",
+                "name": "Hill, George"
+            },
+            "Hill, Jordan": {
+                "position": "F",
+                "number": "27",
+                "name": "Hill, Jordan"
+            },
+            "Hill, Solomon": {
+                "position": "F",
+                "number": "44",
+                "name": "Hill, Solomon"
+            },
+            "Lawson, Ty": {
+                "position": "G",
+                "number": "10",
+                "name": "Lawson, Ty"
+            },
+            "Mahinmi, Ian": {
+                "position": "C",
+                "number": "28",
+                "name": "Mahinmi, Ian"
+            },
+            "Miles, C. J.": {
+                "position": "F",
+                "number": "0",
+                "name": "Miles, C. J."
+            },
+            "Robinson III, Glenn": {
+                "position": "F",
+                "number": "40",
+                "name": "Robinson III, Glenn"
+            },
+            "Stuckey, Rodney": {
+                "position": "G",
+                "number": "2",
+                "name": "Stuckey, Rodney"
+            },
+            "Turner, Myles": {
+                "position": "C",
+                "number": "33",
+                "name": "Turner, Myles"
+            },
+            "Whittington, Shayne": {
+                "position": "C",
+                "number": "42",
+                "name": "Whittington, Shayne"
+            },
+            "Young, Joe": {
+                "position": "G",
+                "number": "1",
+                "name": "Young, Joe"
+            }
         }
     },
-    "Los Angeles Clippers": {
-        "Cole Aldrich": {
-            "jersey_number": 45
-        },
-        "Jeff Ayres": {
-            "jersey_number": 19
-        },
-        "Jamal Crawford": {
-            "jersey_number": 11
-        },
-        "Branden Dawson": {
-            "jersey_number": 22
-        },
-        "Jeff Green": {
-            "jersey_number": 8
-        },
-        "Blake Griffin": {
-            "jersey_number": 32
-        },
-        "Wesley Johnson": {
-            "jersey_number": 33
-        },
-        "DeAndre Jordan": {
-            "jersey_number": 6
-        },
-        "Luc Mbah a Moute": {
-            "jersey_number": 12
-        },
-        "Chris Paul": {
-            "jersey_number": 3
-        },
-        "Paul Pierce": {
-            "jersey_number": 34
-        },
-        "Pablo Prigioni": {
-            "jersey_number": 9
-        },
-        "JJ Redick": {
-            "jersey_number": 4
-        },
-        "Austin Rivers": {
-            "jersey_number": 25
-        },
-        "C. J. Wilcox": {
-            "jersey_number": 30
+    "milwaukee_bucks": {
+        "players": {
+            "Antetokounmpo, Giannis": {
+                "position": "SF",
+                "number": "34",
+                "name": "Antetokounmpo, Giannis"
+            },
+            "Bayless, Jerryd": {
+                "position": "PG",
+                "number": "19",
+                "name": "Bayless, Jerryd"
+            },
+            "Carter-Williams, Michael": {
+                "position": "SG",
+                "number": "5",
+                "name": "Carter-Williams, Michael"
+            },
+            "Ennis, Tyler": {
+                "position": "PG",
+                "number": "11",
+                "name": "Ennis, Tyler"
+            },
+            "Henson, John": {
+                "position": "PF",
+                "number": "31",
+                "name": "Henson, John"
+            },
+            "Inglis, Damien": {
+                "position": "SF",
+                "number": "17",
+                "name": "Inglis, Damien"
+            },
+            "Mayo, O. J.": {
+                "position": "SG",
+                "number": "3",
+                "name": "Mayo, O. J."
+            },
+            "Middleton, Khris": {
+                "position": "SG",
+                "number": "22",
+                "name": "Middleton, Khris"
+            },
+            "Monroe, Greg": {
+                "position": "C",
+                "number": "15",
+                "name": "Monroe, Greg"
+            },
+            "Novak, Steve": {
+                "position": "PF",
+                "number": "6",
+                "name": "Novak, Steve"
+            },
+            "O'Bryant III, Johnny": {
+                "position": "PF",
+                "number": "77",
+                "name": "O'Bryant III, Johnny"
+            },
+            "Parker, Jabari": {
+                "position": "SF",
+                "number": "12",
+                "name": "Parker, Jabari"
+            },
+            "Plumlee, Miles": {
+                "position": "C",
+                "number": "18",
+                "name": "Plumlee, Miles"
+            },
+            "V\u00e1squez, Greivis": {
+                "position": "SG",
+                "number": "21",
+                "name": "V\u00e1squez, Greivis"
+            },
+            "Vaughn, Rashad": {
+                "position": "SG",
+                "number": "20",
+                "name": "Vaughn, Rashad"
+            }
         }
     },
-    "Los Angeles Lakers": {
-        "Brandon Bass": {
-            "jersey_number": 2
-        },
-        "Tarik Black": {
-            "jersey_number": 28
-        },
-        "Anthony Brown": {
-            "jersey_number": 3
-        },
-        "Kobe Bryant": {
-            "jersey_number": 24
-        },
-        "Jordan Clarkson": {
-            "jersey_number": 6
-        },
-        "Roy Hibbert": {
-            "jersey_number": 17
-        },
-        "Marcelo Huertas": {
-            "jersey_number": 9
-        },
-        "Ryan Kelly": {
-            "jersey_number": 4
-        },
-        "Larry Nance Jr.": {
-            "jersey_number": 7
-        },
-        "Julius Randle": {
-            "jersey_number": 30
-        },
-        "D&#39;Angelo Russell": {
-            "jersey_number": 1
-        },
-        "Robert Sacre": {
-            "jersey_number": 50
-        },
-        "Lou Williams": {
-            "jersey_number": 23
-        },
-        "Metta World Peace": {
-            "jersey_number": 37
-        },
-        "Nick Young": {
-            "jersey_number": 0
+    "atlanta_hawks": {
+        "players": {
+            "Bazemore, Kent": {
+                "position": "G",
+                "number": "24",
+                "name": "Bazemore, Kent"
+            },
+            "Hardaway Jr., Tim": {
+                "position": "G",
+                "number": "10",
+                "name": "Hardaway Jr., Tim"
+            },
+            "Hinrich, Kirk": {
+                "position": "G",
+                "number": "12",
+                "name": "Hinrich, Kirk"
+            },
+            "Horford, Al": {
+                "position": "F/C",
+                "number": "15",
+                "name": "Horford, Al"
+            },
+            "Humphries, Kris": {
+                "position": "F",
+                "number": "43",
+                "name": "Humphries, Kris"
+            },
+            "Korver, Kyle": {
+                "position": "G/F",
+                "number": "26",
+                "name": "Korver, Kyle"
+            },
+            "Millsap, Paul": {
+                "position": "F",
+                "number": "4",
+                "name": "Millsap, Paul"
+            },
+            "Muscala, Mike": {
+                "position": "F/C",
+                "number": "31",
+                "name": "Muscala, Mike"
+            },
+            "Patterson, Lamar": {
+                "position": "G/F",
+                "number": "13",
+                "name": "Patterson, Lamar"
+            },
+            "Schr\u00f6der, Dennis": {
+                "position": "G",
+                "number": "17",
+                "name": "Schr\u00f6der, Dennis"
+            },
+            "Scott, Mike": {
+                "position": "F",
+                "number": "32",
+                "name": "Scott, Mike"
+            },
+            "Sefolosha, Thabo": {
+                "position": "G/F",
+                "number": "25",
+                "name": "Sefolosha, Thabo"
+            },
+            "Splitter, Tiago": {
+                "position": "C",
+                "number": "11",
+                "name": "Splitter, Tiago"
+            },
+            "Tavares, Walter": {
+                "position": "C",
+                "number": "22",
+                "name": "Tavares, Walter"
+            },
+            "Teague, Jeff": {
+                "position": "G",
+                "number": "0",
+                "name": "Teague, Jeff"
+            }
         }
     },
-    "Memphis Grizzlies": {
-        "Jordan Adams": {
-            "jersey_number": 3
-        },
-        "Tony Allen": {
-            "jersey_number": 9
-        },
-        "Chris Andersen": {
-            "jersey_number": 7
-        },
-        "Matt Barnes": {
-            "jersey_number": 22
-        },
-        "Vince Carter": {
-            "jersey_number": 15
-        },
-        "Mike Conley Jr.": {
-            "jersey_number": 11
-        },
-        "Bryce Cotton": {
-            "jersey_number": 8
-        },
-        "Jordan Farmar": {
-            "jersey_number": 4
-        },
-        "Marc Gasol": {
-            "jersey_number": 33
-        },
-        "JaMychal Green": {
-            "jersey_number": 0
-        },
-        "P. J. Hairston": {
-            "jersey_number": 19
-        },
-        "Jarell Martin": {
-            "jersey_number": 10
-        },
-        "Xavier Munford": {
-            "jersey_number": 14
-        },
-        "Zach Randolph": {
-            "jersey_number": 50
-        },
-        "Lance Stephenson": {
-            "jersey_number": 1
-        },
-        "Brandan Wright": {
-            "jersey_number": 34
+    "charlotte_hornets": {
+        "players": {
+            "Batum, Nicolas": {
+                "position": "G/F",
+                "number": "5",
+                "name": "Batum, Nicolas"
+            },
+            "Daniels, Troy": {
+                "position": "G",
+                "number": "30",
+                "name": "Daniels, Troy"
+            },
+            "Guti\u00e9rrez, Jorge": {
+                "position": "G",
+                "number": "12",
+                "name": "Guti\u00e9rrez, Jorge"
+            },
+            "Hansbrough, Tyler": {
+                "position": "F",
+                "number": "50",
+                "name": "Hansbrough, Tyler"
+            },
+            "Harrison, Aaron": {
+                "position": "G",
+                "number": "9",
+                "name": "Harrison, Aaron"
+            },
+            "Hawes, Spencer": {
+                "position": "C",
+                "number": "00",
+                "name": "Hawes, Spencer"
+            },
+            "Jefferson, Al": {
+                "position": "C",
+                "number": "25",
+                "name": "Jefferson, Al"
+            },
+            "Kaminsky, Frank": {
+                "position": "C",
+                "number": "44",
+                "name": "Kaminsky, Frank"
+            },
+            "Kidd-Gilchrist, Michael": {
+                "position": "F",
+                "number": "14",
+                "name": "Kidd-Gilchrist, Michael"
+            },
+            "Lamb, Jeremy": {
+                "position": "G",
+                "number": "3",
+                "name": "Lamb, Jeremy"
+            },
+            "Lee, Courtney": {
+                "position": "G",
+                "number": "1",
+                "name": "Lee, Courtney"
+            },
+            "Lin, Jeremy": {
+                "position": "G",
+                "number": "7",
+                "name": "Lin, Jeremy"
+            },
+            "Walker, Kemba": {
+                "position": "G",
+                "number": "15",
+                "name": "Walker, Kemba"
+            },
+            "Williams, Marvin": {
+                "position": "F",
+                "number": "2",
+                "name": "Williams, Marvin"
+            },
+            "Zeller, Cody": {
+                "position": "F/C",
+                "number": "40",
+                "name": "Zeller, Cody"
+            }
         }
     },
-    "Miami Heat": {
-        "Chris Bosh": {
-            "jersey_number": 1
-        },
-        "Luol Deng": {
-            "jersey_number": 9
-        },
-        "Goran Dragi\u0107": {
-            "jersey_number": 7
-        },
-        "Gerald Green": {
-            "jersey_number": 14
-        },
-        "Udonis Haslem": {
-            "jersey_number": 40
-        },
-        "Joe Johnson": {
-            "jersey_number": 2
-        },
-        "Tyler Johnson": {
-            "jersey_number": 8
-        },
-        "Josh McRoberts": {
-            "jersey_number": 4
-        },
-        "Josh Richardson": {
-            "jersey_number": 0
-        },
-        "Jarnell Stokes": {
-            "jersey_number": 12
-        },
-        "Amar&#39;e Stoudemire": {
-            "jersey_number": 5
-        },
-        "Dwyane Wade": {
-            "jersey_number": 3
-        },
-        "Briant\u00e9 Weber": {
-            "jersey_number": 12
-        },
-        "Hassan Whiteside": {
-            "jersey_number": 21
-        },
-        "Justise Winslow": {
-            "jersey_number": 20
-        },
-        "Dorell Wright": {
-            "jersey_number": 11
+    "miami_heat": {
+        "players": {
+            "Bosh, Chris": {
+                "position": "F",
+                "number": "1",
+                "name": "Bosh, Chris"
+            },
+            "Deng, Luol": {
+                "position": "F",
+                "number": "9",
+                "name": "Deng, Luol"
+            },
+            "Dragi\u0107, Goran": {
+                "position": "G",
+                "number": "7",
+                "name": "Dragi\u0107, Goran"
+            },
+            "Green, Gerald": {
+                "position": "G/F",
+                "number": "14",
+                "name": "Green, Gerald"
+            },
+            "Haslem, Udonis": {
+                "position": "F",
+                "number": "40",
+                "name": "Haslem, Udonis"
+            },
+            "Johnson, Joe": {
+                "position": "G/F",
+                "number": "2",
+                "name": "Johnson, Joe"
+            },
+            "Johnson, Tyler": {
+                "position": "G",
+                "number": "8",
+                "name": "Johnson, Tyler"
+            },
+            "McRoberts, Josh": {
+                "position": "F",
+                "number": "4",
+                "name": "McRoberts, Josh"
+            },
+            "Richardson, Josh": {
+                "position": "G",
+                "number": "0",
+                "name": "Richardson, Josh"
+            },
+            "Stokes, Jarnell\u00a0(TW)": {
+                "position": "F/C",
+                "number": "12",
+                "name": "Stokes, Jarnell\u00a0(TW)"
+            },
+            "Stoudemire, Amar'e": {
+                "position": "C",
+                "number": "5",
+                "name": "Stoudemire, Amar'e"
+            },
+            "Wade, Dwyane": {
+                "position": "G",
+                "number": "3",
+                "name": "Wade, Dwyane"
+            },
+            "Weber, Briant\u00e9": {
+                "position": "G",
+                "number": "12",
+                "name": "Weber, Briant\u00e9"
+            },
+            "Whiteside, Hassan": {
+                "position": "C",
+                "number": "21",
+                "name": "Whiteside, Hassan"
+            },
+            "Winslow, Justise": {
+                "position": "F",
+                "number": "20",
+                "name": "Winslow, Justise"
+            },
+            "Wright, Dorell": {
+                "position": "F",
+                "number": "11",
+                "name": "Wright, Dorell"
+            }
         }
     },
-    "Milwaukee Bucks": {
-        "Giannis Antetokounmpo": {
-            "jersey_number": 34
-        },
-        "Jerryd Bayless": {
-            "jersey_number": 19
-        },
-        "Michael Carter-Williams": {
-            "jersey_number": 5
-        },
-        "Tyler Ennis": {
-            "jersey_number": 11
-        },
-        "John Henson": {
-            "jersey_number": 31
-        },
-        "Damien Inglis": {
-            "jersey_number": 17
-        },
-        "O. J. Mayo": {
-            "jersey_number": 3
-        },
-        "Khris Middleton": {
-            "jersey_number": 22
-        },
-        "Greg Monroe": {
-            "jersey_number": 15
-        },
-        "Steve Novak": {
-            "jersey_number": 6
-        },
-        "Johnny O&#39;Bryant III": {
-            "jersey_number": 77
-        },
-        "Jabari Parker": {
-            "jersey_number": 12
-        },
-        "Miles Plumlee": {
-            "jersey_number": 18
-        },
-        "Greivis V\u00e1squez": {
-            "jersey_number": 21
-        },
-        "Rashad Vaughn": {
-            "jersey_number": 20
+    "orlando_magic": {
+        "players": {
+            "Dedmon, Dewayne": {
+                "position": "C",
+                "number": "3",
+                "name": "Dedmon, Dewayne"
+            },
+            "Fournier, Evan": {
+                "position": "G/F",
+                "number": "10",
+                "name": "Fournier, Evan"
+            },
+            "Gordon, Aaron": {
+                "position": "F",
+                "number": "00",
+                "name": "Gordon, Aaron"
+            },
+            "Hezonja, Mario": {
+                "position": "G/F",
+                "number": "23",
+                "name": "Hezonja, Mario"
+            },
+            "\u0130lyasova, Ersan": {
+                "position": "F",
+                "number": "7",
+                "name": "\u0130lyasova, Ersan"
+            },
+            "Jennings, Brandon": {
+                "position": "G",
+                "number": "55",
+                "name": "Jennings, Brandon"
+            },
+            "Marble, Devyn": {
+                "position": "G/F",
+                "number": "11",
+                "name": "Marble, Devyn"
+            },
+            "Napier, Shabazz": {
+                "position": "G",
+                "number": "13",
+                "name": "Napier, Shabazz"
+            },
+            "Nicholson, Andrew": {
+                "position": "F",
+                "number": "44",
+                "name": "Nicholson, Andrew"
+            },
+            "Oladipo, Victor": {
+                "position": "G",
+                "number": "5",
+                "name": "Oladipo, Victor"
+            },
+            "Payton, Elfrid": {
+                "position": "G",
+                "number": "4",
+                "name": "Payton, Elfrid"
+            },
+            "Smith, Jason": {
+                "position": "F/C",
+                "number": "14",
+                "name": "Smith, Jason"
+            },
+            "Vu\u010devi\u0107, Nikola": {
+                "position": "C",
+                "number": "9",
+                "name": "Vu\u010devi\u0107, Nikola"
+            },
+            "Watson, C. J.": {
+                "position": "G",
+                "number": "32",
+                "name": "Watson, C. J."
+            }
         }
     },
-    "Minnesota Timberwolves": {
-        "Nemanja Bjelica": {
-            "jersey_number": 88
-        },
-        "Kevin Garnett": {
-            "jersey_number": 21
-        },
-        "Gorgui Dieng": {
-            "jersey_number": 5
-        },
-        "Tyus Jones": {
-            "jersey_number": 1
-        },
-        "Zach LaVine": {
-            "jersey_number": 8
-        },
-        "Shabazz Muhammad": {
-            "jersey_number": 15
-        },
-        "Adreian Payne": {
-            "jersey_number": 33
-        },
-        "Nikola Pekovi\u0107": {
-            "jersey_number": 14
-        },
-        "Tayshaun Prince": {
-            "jersey_number": 12
-        },
-        "Ricky Rubio": {
-            "jersey_number": 9
-        },
-        "Damjan Rude\u017e": {
-            "jersey_number": 10
-        },
-        "Greg Smith": {
-            "jersey_number": 4
-        },
-        "Karl-Anthony Towns": {
-            "jersey_number": 32
-        },
-        "Andrew Wiggins": {
-            "jersey_number": 22
+    "washington_wizards": {
+        "players": {
+            "Anderson, Alan": {
+                "position": "SG",
+                "number": "6",
+                "name": "Anderson, Alan"
+            },
+            "Beal, Bradley": {
+                "position": "SG",
+                "number": "3",
+                "name": "Beal, Bradley"
+            },
+            "Dudley, Jared": {
+                "position": "PF",
+                "number": "1",
+                "name": "Dudley, Jared"
+            },
+            "Eddie, Jarell": {
+                "position": "SF",
+                "number": "8",
+                "name": "Eddie, Jarell"
+            },
+            "Gooden, Drew": {
+                "position": "PF",
+                "number": "90",
+                "name": "Gooden, Drew"
+            },
+            "Gortat, Marcin": {
+                "position": "C",
+                "number": "13",
+                "name": "Gortat, Marcin"
+            },
+            "Hickson, JJ": {
+                "position": "C",
+                "number": "21",
+                "name": "Hickson, JJ"
+            },
+            "Morris, Markieff": {
+                "position": "PF",
+                "number": "5",
+                "name": "Morris, Markieff"
+            },
+            "Nen\u00ea": {
+                "position": "PF",
+                "number": "42",
+                "name": "Nen\u00ea"
+            },
+            "Oubre Jr., Kelly": {
+                "position": "SF",
+                "number": "12",
+                "name": "Oubre Jr., Kelly"
+            },
+            "Porter, Otto": {
+                "position": "SF",
+                "number": "22",
+                "name": "Porter, Otto"
+            },
+            "Sessions, Ramon": {
+                "position": "PG",
+                "number": "7",
+                "name": "Sessions, Ramon"
+            },
+            "Temple, Garrett": {
+                "position": "SF",
+                "number": "17",
+                "name": "Temple, Garrett"
+            },
+            "Thornton, Marcus": {
+                "position": "SG",
+                "number": "15",
+                "name": "Thornton, Marcus"
+            },
+            "Wall, John": {
+                "position": "PG",
+                "number": "2",
+                "name": "Wall, John"
+            }
         }
     },
-    "New Orleans Pelicans": {
-        "Alexis Ajin\u00e7a": {
-            "jersey_number": 42
-        },
-        "Ryan Anderson": {
-            "jersey_number": 33
-        },
-        "\u00d6mer A\u015f\u0131k": {
-            "jersey_number": 3
-        },
-        "Luke Babbitt": {
-            "jersey_number": 8
-        },
-        "Norris Cole": {
-            "jersey_number": 30
-        },
-        "Dante Cunningham": {
-            "jersey_number": 44
-        },
-        "Anthony Davis": {
-            "jersey_number": 23
-        },
-        "Bryce Dejean-Jones": {
-            "jersey_number": 31
-        },
-        "Toney Douglas": {
-            "jersey_number": 16
-        },
-        "James Ennis": {
-            "jersey_number": 4
-        },
-        "Tyreke Evans": {
-            "jersey_number": 1
-        },
-        "Tim Frazier": {
-            "jersey_number": 2
-        },
-        "Alonzo Gee": {
-            "jersey_number": 15
-        },
-        "Eric Gordon": {
-            "jersey_number": 10
-        },
-        "Jordan Hamilton": {
-            "jersey_number": 25
-        },
-        "Jrue Holiday": {
-            "jersey_number": 11
-        },
-        "Kendrick Perkins": {
-            "jersey_number": 5
-        },
-        "Quincy Pondexter": {
-            "jersey_number": 20
+    "denver_nuggets": {
+        "players": {
+            "Arthur, Darrell": {
+                "position": "PF",
+                "number": "00",
+                "name": "Arthur, Darrell"
+            },
+            "Augustin, D. J.": {
+                "position": "PG",
+                "number": "12",
+                "name": "Augustin, D. J."
+            },
+            "Barton, Will": {
+                "position": "SG",
+                "number": "5",
+                "name": "Barton, Will"
+            },
+            "Chandler, Wilson": {
+                "position": "SF",
+                "number": "21",
+                "name": "Chandler, Wilson"
+            },
+            "Faried, Kenneth": {
+                "position": "PF",
+                "number": "35",
+                "name": "Faried, Kenneth"
+            },
+            "Gallinari, Danilo": {
+                "position": "SF",
+                "number": "8",
+                "name": "Gallinari, Danilo"
+            },
+            "Harris, Gary": {
+                "position": "SG",
+                "number": "14",
+                "name": "Harris, Gary"
+            },
+            "Joki\u0107, Nikola": {
+                "position": "C",
+                "number": "15",
+                "name": "Joki\u0107, Nikola"
+            },
+            "Lauvergne, Joffrey": {
+                "position": "C",
+                "number": "77",
+                "name": "Lauvergne, Joffrey"
+            },
+            "Miller, Mike": {
+                "position": "SG",
+                "number": "3",
+                "name": "Miller, Mike"
+            },
+            "Mudiay, Emmanuel": {
+                "position": "SG",
+                "number": "0",
+                "name": "Mudiay, Emmanuel"
+            },
+            "Nelson, Jameer": {
+                "position": "PG",
+                "number": "1",
+                "name": "Nelson, Jameer"
+            },
+            "Nurki\u0107, Jusuf": {
+                "position": "C",
+                "number": "23",
+                "name": "Nurki\u0107, Jusuf"
+            },
+            "Sampson, JaKarr": {
+                "position": "SF",
+                "number": "9",
+                "name": "Sampson, JaKarr"
+            },
+            "Toupane, Axel": {
+                "position": "SG",
+                "number": "6",
+                "name": "Toupane, Axel"
+            }
         }
     },
-    "New York Knicks": {
-        "Arron Afflalo": {
-            "jersey_number": 4
-        },
-        "Lou Amundson": {
-            "jersey_number": 17
-        },
-        "Carmelo Anthony": {
-            "jersey_number": 7
-        },
-        "Jos\u00e9 Calder\u00f3n": {
-            "jersey_number": 3
-        },
-        "Cleanthony Early": {
-            "jersey_number": 11
-        },
-        "Langston Galloway": {
-            "jersey_number": 2
-        },
-        "Jerian Grant": {
-            "jersey_number": 13
-        },
-        "Robin Lopez": {
-            "jersey_number": 8
-        },
-        "Kyle O&#39;Quinn": {
-            "jersey_number": 9
-        },
-        "Kristaps Porzi\u0146\u0123is": {
-            "jersey_number": 6
-        },
-        "Kevin S\u00e9raphin": {
-            "jersey_number": 1
-        },
-        "Lance Thomas": {
-            "jersey_number": 42
-        },
-        "Sasha Vuja\u010di\u0107": {
-            "jersey_number": 18
-        },
-        "Derrick Williams": {
-            "jersey_number": 23
-        },
-        "Tony Wroten": {
-            "jersey_number": 5
+    "minnesota_timberwolves": {
+        "players": {
+            "Bjelica, Nemanja": {
+                "position": "PF",
+                "number": "88",
+                "name": "Bjelica, Nemanja"
+            },
+            "Garnett, Kevin": {
+                "position": "PF",
+                "number": "21",
+                "name": "Garnett, Kevin"
+            },
+            "Dieng, Gorgui": {
+                "position": "C",
+                "number": "5",
+                "name": "Dieng, Gorgui"
+            },
+            "Jones, Tyus": {
+                "position": "PG",
+                "number": "1",
+                "name": "Jones, Tyus"
+            },
+            "LaVine, Zach": {
+                "position": "SG",
+                "number": "8",
+                "name": "LaVine, Zach"
+            },
+            "Muhammad, Shabazz": {
+                "position": "SG",
+                "number": "15",
+                "name": "Muhammad, Shabazz"
+            },
+            "Payne, Adreian": {
+                "position": "PF",
+                "number": "33",
+                "name": "Payne, Adreian"
+            },
+            "Pekovi\u0107, Nikola": {
+                "position": "C",
+                "number": "14",
+                "name": "Pekovi\u0107, Nikola"
+            },
+            "Prince, Tayshaun": {
+                "position": "SF",
+                "number": "12",
+                "name": "Prince, Tayshaun"
+            },
+            "Rubio, Ricky": {
+                "position": "PG",
+                "number": "9",
+                "name": "Rubio, Ricky"
+            },
+            "Rude\u017e, Damjan": {
+                "position": "SF",
+                "number": "10",
+                "name": "Rude\u017e, Damjan"
+            },
+            "Smith, Greg": {
+                "position": "PF",
+                "number": "4",
+                "name": "Smith, Greg"
+            },
+            "Towns, Karl-Anthony": {
+                "position": "C",
+                "number": "32",
+                "name": "Towns, Karl-Anthony"
+            },
+            "Wiggins, Andrew": {
+                "position": "SG",
+                "number": "22",
+                "name": "Wiggins, Andrew"
+            }
         }
     },
-    "Oklahoma City Thunder": {
-        "Steven Adams": {
-            "jersey_number": 12
-        },
-        "Nick Collison": {
-            "jersey_number": 4
-        },
-        "Kevin Durant": {
-            "jersey_number": 35
-        },
-        "Randy Foye": {
-            "jersey_number": 6
-        },
-        "Josh Huestis": {
-            "jersey_number": 34
-        },
-        "Serge Ibaka": {
-            "jersey_number": 9
-        },
-        "Center": {
-            "jersey_number": 11
-        },
-        "Mitch McGary": {
-            "jersey_number": 33
-        },
-        "Nazr Mohammed": {
-            "jersey_number": 13
-        },
-        "Anthony Morrow": {
-            "jersey_number": 2
-        },
-        "Cameron Payne": {
-            "jersey_number": 22
-        },
-        "Andr\u00e9 Roberson": {
-            "jersey_number": 21
-        },
-        "Kyle Singler": {
-            "jersey_number": 5
-        },
-        "Dion Waiters": {
-            "jersey_number": 3
-        },
-        "Russell Westbrook": {
-            "jersey_number": 0
+    "oklahoma_city_thunder": {
+        "players": {
+            "Adams, Steven": {
+                "position": "C",
+                "number": "12",
+                "name": "Adams, Steven"
+            },
+            "Collison, Nick": {
+                "position": "PF",
+                "number": "4",
+                "name": "Collison, Nick"
+            },
+            "Durant, Kevin": {
+                "position": "SF",
+                "number": "35",
+                "name": "Durant, Kevin"
+            },
+            "Foye, Randy": {
+                "position": "SG",
+                "number": "6",
+                "name": "Foye, Randy"
+            },
+            "Huestis, Josh": {
+                "position": "SF",
+                "number": "34",
+                "name": "Huestis, Josh"
+            },
+            "Ibaka, Serge": {
+                "position": "PF",
+                "number": "9",
+                "name": "Ibaka, Serge"
+            },
+            "Kanter, Enes": {
+                "position": "PF/C",
+                "number": "11",
+                "name": "Kanter, Enes"
+            },
+            "McGary, Mitch": {
+                "position": "C",
+                "number": "33",
+                "name": "McGary, Mitch"
+            },
+            "Mohammed, Nazr": {
+                "position": "C",
+                "number": "13",
+                "name": "Mohammed, Nazr"
+            },
+            "Morrow, Anthony": {
+                "position": "SG",
+                "number": "2",
+                "name": "Morrow, Anthony"
+            },
+            "Payne, Cameron": {
+                "position": "PG",
+                "number": "22",
+                "name": "Payne, Cameron"
+            },
+            "Roberson, Andr\u00e9": {
+                "position": "SG",
+                "number": "21",
+                "name": "Roberson, Andr\u00e9"
+            },
+            "Singler, Kyle": {
+                "position": "SF",
+                "number": "5",
+                "name": "Singler, Kyle"
+            },
+            "Waiters, Dion": {
+                "position": "SG",
+                "number": "3",
+                "name": "Waiters, Dion"
+            },
+            "Westbrook, Russell": {
+                "position": "PG",
+                "number": "0",
+                "name": "Westbrook, Russell"
+            }
         }
     },
-    "Philadelphia 76ers": {
-        "Dewayne Dedmon": {
-            "jersey_number": 3
-        },
-        "Evan Fournier": {
-            "jersey_number": 10
-        },
-        "Aaron Gordon": {
-            "jersey_number": 0
-        },
-        "Mario Hezonja": {
-            "jersey_number": 23
-        },
-        "Ersan \u0130lyasova": {
-            "jersey_number": 7
-        },
-        "Brandon Jennings": {
-            "jersey_number": 55
-        },
-        "Devyn Marble": {
-            "jersey_number": 11
-        },
-        "Shabazz Napier": {
-            "jersey_number": 13
-        },
-        "Andrew Nicholson": {
-            "jersey_number": 44
-        },
-        "Victor Oladipo": {
-            "jersey_number": 5
-        },
-        "Elfrid Payton": {
-            "jersey_number": 4
-        },
-        "Jason Smith": {
-            "jersey_number": 14
-        },
-        "Nikola Vu\u010devi\u0107": {
-            "jersey_number": 9
-        },
-        "C. J. Watson": {
-            "jersey_number": 32
+    "portland_trail_blazers": {
+        "players": {
+            "Alexander, Cliff": {
+                "position": "F",
+                "number": "34",
+                "name": "Alexander, Cliff"
+            },
+            "Aminu, Al-Farouq": {
+                "position": "F",
+                "number": "8",
+                "name": "Aminu, Al-Farouq"
+            },
+            "Connaughton, Pat": {
+                "position": "G",
+                "number": "5",
+                "name": "Connaughton, Pat"
+            },
+            "Crabbe, Allen": {
+                "position": "F",
+                "number": "23",
+                "name": "Crabbe, Allen"
+            },
+            "Davis, Ed": {
+                "position": "F",
+                "number": "17",
+                "name": "Davis, Ed"
+            },
+            "Harkless, Maurice": {
+                "position": "F",
+                "number": "4",
+                "name": "Harkless, Maurice"
+            },
+            "Henderson, Gerald": {
+                "position": "G",
+                "number": "9",
+                "name": "Henderson, Gerald"
+            },
+            "Kaman, Chris": {
+                "position": "C",
+                "number": "35",
+                "name": "Kaman, Chris"
+            },
+            "Leonard, Meyers": {
+                "position": "F/C",
+                "number": "11",
+                "name": "Leonard, Meyers"
+            },
+            "Lillard, Damian": {
+                "position": "G",
+                "number": "0",
+                "name": "Lillard, Damian"
+            },
+            "McCollum, CJ": {
+                "position": "G",
+                "number": "3",
+                "name": "McCollum, CJ"
+            },
+            "Montero, Luis": {
+                "position": "G",
+                "number": "44",
+                "name": "Montero, Luis"
+            },
+            "Plumlee, Mason": {
+                "position": "C",
+                "number": "24",
+                "name": "Plumlee, Mason"
+            },
+            "Roberts, Brian": {
+                "position": "G",
+                "number": "2",
+                "name": "Roberts, Brian"
+            },
+            "Vonleh, Noah": {
+                "position": "F",
+                "number": "21",
+                "name": "Vonleh, Noah"
+            }
         }
     },
-    "Phoenix Suns": {
-        "Eric Bledsoe": {
-            "jersey_number": 2
-        },
-        "Devin Booker": {
-            "jersey_number": 1
-        },
-        "Chase Budinger": {
-            "jersey_number": 10
-        },
-        "Tyson Chandler": {
-            "jersey_number": 4
-        },
-        "Archie Goodwin": {
-            "jersey_number": 20
-        },
-        "John Jenkins": {
-            "jersey_number": 23
-        },
-        "Brandon Knight": {
-            "jersey_number": 3
-        },
-        "Alex Len": {
-            "jersey_number": 21
-        },
-        "Jon Leuer": {
-            "jersey_number": 30
-        },
-        "Ronnie Price": {
-            "jersey_number": 14
-        },
-        "Mirza Teletovi\u0107": {
-            "jersey_number": 35
-        },
-        "P. J. Tucker": {
-            "jersey_number": 17
-        },
-        "T. J. Warren": {
-            "jersey_number": 12
-        },
-        "Alan Williams": {
-            "jersey_number": 15
+    "utah_jazz": {
+        "players": {
+            "Booker, Trevor": {
+                "position": "PF",
+                "number": "33",
+                "name": "Booker, Trevor"
+            },
+            "Burke, Trey": {
+                "position": "PG",
+                "number": "3",
+                "name": "Burke, Trey"
+            },
+            "Burks, Alec": {
+                "position": "SG",
+                "number": "10",
+                "name": "Burks, Alec"
+            },
+            "Exum, Dante": {
+                "position": "SG",
+                "number": "11",
+                "name": "Exum, Dante"
+            },
+            "Favors, Derrick": {
+                "position": "PF",
+                "number": "15",
+                "name": "Favors, Derrick"
+            },
+            "Gobert, Rudy": {
+                "position": "C",
+                "number": "27",
+                "name": "Gobert, Rudy"
+            },
+            "Hayward, Gordon": {
+                "position": "SF",
+                "number": "20",
+                "name": "Hayward, Gordon"
+            },
+            "Hood, Rodney": {
+                "position": "SG",
+                "number": "5",
+                "name": "Hood, Rodney"
+            },
+            "Ingles, Joe": {
+                "position": "SF",
+                "number": "2",
+                "name": "Ingles, Joe"
+            },
+            "Johnson, Chris": {
+                "position": "SG",
+                "number": "23",
+                "name": "Johnson, Chris"
+            },
+            "Lyles, Trey": {
+                "position": "PF",
+                "number": "41",
+                "name": "Lyles, Trey"
+            },
+            "Mack, Shelvin": {
+                "position": "PG",
+                "number": "8",
+                "name": "Mack, Shelvin"
+            },
+            "Neto, Raul": {
+                "position": "PG",
+                "number": "25",
+                "name": "Neto, Raul"
+            },
+            "Plei\u00df, Tibor": {
+                "position": "C",
+                "number": "21",
+                "name": "Plei\u00df, Tibor"
+            },
+            "Withey, Jeff": {
+                "position": "C",
+                "number": "24",
+                "name": "Withey, Jeff"
+            }
         }
     },
-    "Portland Trail Blazers": {
-        "Cliff Alexander": {
-            "jersey_number": 34
-        },
-        "Al-Farouq Aminu": {
-            "jersey_number": 8
-        },
-        "Pat Connaughton": {
-            "jersey_number": 5
-        },
-        "Allen Crabbe": {
-            "jersey_number": 23
-        },
-        "Ed Davis": {
-            "jersey_number": 17
-        },
-        "Maurice Harkless": {
-            "jersey_number": 4
-        },
-        "Gerald Henderson Jr.": {
-            "jersey_number": 9
-        },
-        "Chris Kaman": {
-            "jersey_number": 35
-        },
-        "Meyers Leonard": {
-            "jersey_number": 11
-        },
-        "Damian Lillard": {
-            "jersey_number": 0
-        },
-        "CJ McCollum": {
-            "jersey_number": 3
-        },
-        "Luis Montero": {
-            "jersey_number": 44
-        },
-        "Mason Plumlee": {
-            "jersey_number": 24
-        },
-        "Brian Roberts": {
-            "jersey_number": 2
-        },
-        "Noah Vonleh": {
-            "jersey_number": 21
+    "golden_state_warriors": {
+        "players": {
+            "Barbosa, Leandro": {
+                "position": "G",
+                "number": "19",
+                "name": "Barbosa, Leandro"
+            },
+            "Barnes, Harrison": {
+                "position": "F",
+                "number": "40",
+                "name": "Barnes, Harrison"
+            },
+            "Bogut, Andrew": {
+                "position": "C",
+                "number": "12",
+                "name": "Bogut, Andrew"
+            },
+            "Clark, Ian": {
+                "position": "G",
+                "number": "21",
+                "name": "Clark, Ian"
+            },
+            "Curry, Stephen": {
+                "position": "G",
+                "number": "30",
+                "name": "Curry, Stephen"
+            },
+            "Ezeli, Festus": {
+                "position": "C",
+                "number": "31",
+                "name": "Ezeli, Festus"
+            },
+            "Green, Draymond": {
+                "position": "F",
+                "number": "23",
+                "name": "Green, Draymond"
+            },
+            "Iguodala, Andre": {
+                "position": "G/F",
+                "number": "9",
+                "name": "Iguodala, Andre"
+            },
+            "Livingston, Shaun": {
+                "position": "G",
+                "number": "34",
+                "name": "Livingston, Shaun"
+            },
+            "Looney, Kevon": {
+                "position": "F",
+                "number": "36",
+                "name": "Looney, Kevon"
+            },
+            "McAdoo, James Michael": {
+                "position": "F",
+                "number": "20",
+                "name": "McAdoo, James Michael"
+            },
+            "Rush, Brandon": {
+                "position": "G/F",
+                "number": "4",
+                "name": "Rush, Brandon"
+            },
+            "Speights, Marreese": {
+                "position": "F/C",
+                "number": "5",
+                "name": "Speights, Marreese"
+            },
+            "Thompson, Klay": {
+                "position": "G",
+                "number": "11",
+                "name": "Thompson, Klay"
+            },
+            "Varej\u00e3o, Anderson": {
+                "position": "F/C",
+                "number": "18",
+                "name": "Varej\u00e3o, Anderson"
+            }
         }
     },
-    "Sacramento Kings": {
-        "Quincy Acy": {
-            "jersey_number": 13
-        },
-        "James Anderson": {
-            "jersey_number": 5
-        },
-        "Marco Belinelli": {
-            "jersey_number": 3
-        },
-        "Caron Butler": {
-            "jersey_number": 31
-        },
-        "Omri Casspi": {
-            "jersey_number": 18
-        },
-        "Willie Cauley-Stein": {
-            "jersey_number": 0
-        },
-        "Darren Collison": {
-            "jersey_number": 7
-        },
-        "DeMarcus Cousins": {
-            "jersey_number": 15
-        },
-        "Seth Curry": {
-            "jersey_number": 30
-        },
-        "Duje Dukan": {
-            "jersey_number": 26
-        },
-        "Rudy Gay": {
-            "jersey_number": 8
-        },
-        "Kosta Koufos": {
-            "jersey_number": 41
-        },
-        "Ben McLemore": {
-            "jersey_number": 23
-        },
-        "Eric Moreland": {
-            "jersey_number": 25
-        },
-        "Rajon Rondo": {
-            "jersey_number": 9
+    "los_angeles_clippers": {
+        "players": {
+            "Aldrich, Cole": {
+                "position": "C",
+                "number": "45",
+                "name": "Aldrich, Cole"
+            },
+            "Ayres, Jeff\u00a0(DL)": {
+                "position": "C",
+                "number": "19",
+                "name": "Ayres, Jeff\u00a0(DL)"
+            },
+            "Crawford, Jamal": {
+                "position": "SG",
+                "number": "11",
+                "name": "Crawford, Jamal"
+            },
+            "Dawson, Branden": {
+                "position": "SF",
+                "number": "22",
+                "name": "Dawson, Branden"
+            },
+            "Green, Jeff": {
+                "position": "SF",
+                "number": "8",
+                "name": "Green, Jeff"
+            },
+            "Griffin, Blake": {
+                "position": "PF",
+                "number": "32",
+                "name": "Griffin, Blake"
+            },
+            "Johnson, Wesley": {
+                "position": "SF",
+                "number": "33",
+                "name": "Johnson, Wesley"
+            },
+            "Jordan, DeAndre": {
+                "position": "C",
+                "number": "6",
+                "name": "Jordan, DeAndre"
+            },
+            "Mbah a Moute, Luc": {
+                "position": "SF",
+                "number": "12",
+                "name": "Mbah a Moute, Luc"
+            },
+            "Paul, Chris": {
+                "position": "PG",
+                "number": "3",
+                "name": "Paul, Chris"
+            },
+            "Pierce, Paul": {
+                "position": "SF",
+                "number": "34",
+                "name": "Pierce, Paul"
+            },
+            "Prigioni, Pablo": {
+                "position": "PG",
+                "number": "9",
+                "name": "Prigioni, Pablo"
+            },
+            "Redick, JJ": {
+                "position": "SG",
+                "number": "4",
+                "name": "Redick, JJ"
+            },
+            "Rivers, Austin": {
+                "position": "PG",
+                "number": "25",
+                "name": "Rivers, Austin"
+            },
+            "Wilcox, C. J.": {
+                "position": "SG",
+                "number": "30",
+                "name": "Wilcox, C. J."
+            }
         }
     },
-    "San Antonio Spurs": {
-        "LaMarcus Aldridge": {
-            "jersey_number": 12
-        },
-        "Kyle Anderson": {
-            "jersey_number": 1
-        },
-        "Matt Bonner": {
-            "jersey_number": 15
-        },
-        "Boris Diaw": {
-            "jersey_number": 33
-        },
-        "Tim Duncan": {
-            "jersey_number": 21
-        },
-        "Manu Gin\u00f3bili": {
-            "jersey_number": 20
-        },
-        "Danny Green": {
-            "jersey_number": 14
-        },
-        "Kawhi Leonard": {
-            "jersey_number": 2
-        },
-        "Boban Marjanovi\u0107": {
-            "jersey_number": 40
-        },
-        "Kevin Martin": {
-            "jersey_number": 23
-        },
-        "Andre Miller": {
-            "jersey_number": 24
-        },
-        "Patty Mills": {
-            "jersey_number": 8
-        },
-        "Tony Parker": {
-            "jersey_number": 9
-        },
-        "Jonathon Simmons": {
-            "jersey_number": 17
-        },
-        "David West": {
-            "jersey_number": 30
+    "los_angeles_lakers": {
+        "players": {
+            "Bass, Brandon": {
+                "position": "PF",
+                "number": "2",
+                "name": "Bass, Brandon"
+            },
+            "Black, Tarik": {
+                "position": "C",
+                "number": "28",
+                "name": "Black, Tarik"
+            },
+            "Brown, Anthony": {
+                "position": "SF",
+                "number": "3",
+                "name": "Brown, Anthony"
+            },
+            "Bryant, Kobe": {
+                "position": "SF",
+                "number": "24",
+                "name": "Bryant, Kobe"
+            },
+            "Clarkson, Jordan": {
+                "position": "SG",
+                "number": "6",
+                "name": "Clarkson, Jordan"
+            },
+            "Hibbert, Roy": {
+                "position": "C",
+                "number": "17",
+                "name": "Hibbert, Roy"
+            },
+            "Huertas, Marcelo": {
+                "position": "PG",
+                "number": "9",
+                "name": "Huertas, Marcelo"
+            },
+            "Kelly, Ryan": {
+                "position": "PF",
+                "number": "4",
+                "name": "Kelly, Ryan"
+            },
+            "Nance Jr., Larry": {
+                "position": "PF",
+                "number": "7",
+                "name": "Nance Jr., Larry"
+            },
+            "Randle, Julius": {
+                "position": "PF",
+                "number": "30",
+                "name": "Randle, Julius"
+            },
+            "Russell, D'Angelo": {
+                "position": "PG",
+                "number": "1",
+                "name": "Russell, D'Angelo"
+            },
+            "Sacre, Robert": {
+                "position": "C",
+                "number": "50",
+                "name": "Sacre, Robert"
+            },
+            "Williams, Lou": {
+                "position": "SG",
+                "number": "23",
+                "name": "Williams, Lou"
+            },
+            "World Peace, Metta": {
+                "position": "SF",
+                "number": "37",
+                "name": "World Peace, Metta"
+            },
+            "Young, Nick": {
+                "position": "SG",
+                "number": "0",
+                "name": "Young, Nick"
+            }
         }
     },
-    "Toronto Raptors": {
-        "Bismack Biyombo": {
-            "jersey_number": 8
-        },
-        "Bruno Caboclo": {
-            "jersey_number": 20
-        },
-        "DeMarre Carroll": {
-            "jersey_number": 5
-        },
-        "DeMar DeRozan": {
-            "jersey_number": 10
-        },
-        "James Johnson": {
-            "jersey_number": 3
-        },
-        "Cory Joseph": {
-            "jersey_number": 6
-        },
-        "Kyle Lowry": {
-            "jersey_number": 7
-        },
-        "Lucas Nogueira": {
-            "jersey_number": 92
-        },
-        "Patrick Patterson": {
-            "jersey_number": 54
-        },
-        "Norman Powell": {
-            "jersey_number": 24
-        },
-        "Terrence Ross": {
-            "jersey_number": 31
-        },
-        "Luis Scola": {
-            "jersey_number": 4
-        },
-        "Jason Thompson": {
-            "jersey_number": 1
-        },
-        "Jonas Valan\u010di\u016bnas": {
-            "jersey_number": 17
-        },
-        "Delon Wright": {
-            "jersey_number": 55
+    "phoenix_suns": {
+        "players": {
+            "Bledsoe, Eric": {
+                "position": "G",
+                "number": "2",
+                "name": "Bledsoe, Eric"
+            },
+            "Booker, Devin\u00a0(R)": {
+                "position": "G",
+                "number": "1",
+                "name": "Booker, Devin\u00a0(R)"
+            },
+            "Budinger, Chase": {
+                "position": "F",
+                "number": "10",
+                "name": "Budinger, Chase"
+            },
+            "Chandler, Tyson": {
+                "position": "C",
+                "number": "4",
+                "name": "Chandler, Tyson"
+            },
+            "Goodwin, Archie": {
+                "position": "G",
+                "number": "20",
+                "name": "Goodwin, Archie"
+            },
+            "Jenkins, John": {
+                "position": "G",
+                "number": "23",
+                "name": "Jenkins, John"
+            },
+            "Knight, Brandon": {
+                "position": "G",
+                "number": "3",
+                "name": "Knight, Brandon"
+            },
+            "Len, Alex": {
+                "position": "C",
+                "number": "21",
+                "name": "Len, Alex"
+            },
+            "Leuer, Jon": {
+                "position": "F/C",
+                "number": "30",
+                "name": "Leuer, Jon"
+            },
+            "Price, Ronnie": {
+                "position": "G",
+                "number": "14",
+                "name": "Price, Ronnie"
+            },
+            "Teletovi\u0107, Mirza": {
+                "position": "F",
+                "number": "35",
+                "name": "Teletovi\u0107, Mirza"
+            },
+            "Tucker, P. J.": {
+                "position": "G/F",
+                "number": "17",
+                "name": "Tucker, P. J."
+            },
+            "Warren, T. J.": {
+                "position": "F",
+                "number": "12",
+                "name": "Warren, T. J."
+            },
+            "Williams, Alan\u00a0(R)": {
+                "position": "F/C",
+                "number": "15",
+                "name": "Williams, Alan\u00a0(R)"
+            }
         }
     },
-    "Utah Jazz": {
-        "Trevor Booker": {
-            "jersey_number": 33
-        },
-        "Trey Burke": {
-            "jersey_number": 3
-        },
-        "Alec Burks": {
-            "jersey_number": 10
-        },
-        "Dante Exum": {
-            "jersey_number": 11
-        },
-        "Derrick Favors": {
-            "jersey_number": 15
-        },
-        "Rudy Gobert": {
-            "jersey_number": 27
-        },
-        "Gordon Hayward": {
-            "jersey_number": 20
-        },
-        "Rodney Hood": {
-            "jersey_number": 5
-        },
-        "Joe Ingles": {
-            "jersey_number": 2
-        },
-        "Chris Johnson": {
-            "jersey_number": 23
-        },
-        "Trey Lyles": {
-            "jersey_number": 41
-        },
-        "Shelvin Mack": {
-            "jersey_number": 8
-        },
-        "Raulzinho Neto": {
-            "jersey_number": 25
-        },
-        "Tibor Plei\u00df": {
-            "jersey_number": 21
-        },
-        "Jeff Withey": {
-            "jersey_number": 24
+    "sacramento_kings": {
+        "players": {
+            "Acy, Quincy": {
+                "position": "PF",
+                "number": "13",
+                "name": "Acy, Quincy"
+            },
+            "Anderson, James": {
+                "position": "SG",
+                "number": "5",
+                "name": "Anderson, James"
+            },
+            "Belinelli, Marco": {
+                "position": "SG",
+                "number": "3",
+                "name": "Belinelli, Marco"
+            },
+            "Butler, Caron": {
+                "position": "SF",
+                "number": "31",
+                "name": "Butler, Caron"
+            },
+            "Casspi, Omri": {
+                "position": "SF",
+                "number": "18",
+                "name": "Casspi, Omri"
+            },
+            "Cauley-Stein, Willie": {
+                "position": "C",
+                "number": "00",
+                "name": "Cauley-Stein, Willie"
+            },
+            "Collison, Darren": {
+                "position": "PG",
+                "number": "7",
+                "name": "Collison, Darren"
+            },
+            "Cousins, DeMarcus": {
+                "position": "C",
+                "number": "15",
+                "name": "Cousins, DeMarcus"
+            },
+            "Curry, Seth": {
+                "position": "SG",
+                "number": "30",
+                "name": "Curry, Seth"
+            },
+            "Dukan, Duje": {
+                "position": "SF",
+                "number": "26",
+                "name": "Dukan, Duje"
+            },
+            "Gay, Rudy": {
+                "position": "SF",
+                "number": "8",
+                "name": "Gay, Rudy"
+            },
+            "Koufos, Kosta": {
+                "position": "C",
+                "number": "41",
+                "name": "Koufos, Kosta"
+            },
+            "McLemore, Ben": {
+                "position": "SG",
+                "number": "23",
+                "name": "McLemore, Ben"
+            },
+            "Moreland, Eric": {
+                "position": "PF",
+                "number": "25",
+                "name": "Moreland, Eric"
+            },
+            "Rondo, Rajon": {
+                "position": "PG",
+                "number": "9",
+                "name": "Rondo, Rajon"
+            }
         }
     },
-    "Washington Wizards": {
-        "Alan Anderson": {
-            "jersey_number": 6
-        },
-        "Bradley Beal": {
-            "jersey_number": 3
-        },
-        "Jared Dudley": {
-            "jersey_number": 1
-        },
-        "Jarell Eddie": {
-            "jersey_number": 8
-        },
-        "Drew Gooden": {
-            "jersey_number": 90
-        },
-        "Marcin Gortat": {
-            "jersey_number": 13
-        },
-        "JJ Hickson": {
-            "jersey_number": 21
-        },
-        "Markieff Morris": {
-            "jersey_number": 5
-        },
-        "Nen\u00ea": {
-            "jersey_number": 42
-        },
-        "Kelly Oubre Jr.": {
-            "jersey_number": 12
-        },
-        "Otto Porter": {
-            "jersey_number": 22
-        },
-        "Ramon Sessions": {
-            "jersey_number": 7
-        },
-        "Garrett Temple": {
-            "jersey_number": 17
-        },
-        "Marcus Thornton": {
-            "jersey_number": 15
-        },
-        "John Wall": {
-            "jersey_number": 2
+    "dallas_mavericks": {
+        "players": {
+            "Anderson, Justin": {
+                "position": "G/F",
+                "number": "1",
+                "name": "Anderson, Justin"
+            },
+            "Barea, Jos\u00e9 Juan": {
+                "position": "G",
+                "number": "5",
+                "name": "Barea, Jos\u00e9 Juan"
+            },
+            "Evans, Jeremy": {
+                "position": "F",
+                "number": "21",
+                "name": "Evans, Jeremy"
+            },
+            "Felton, Raymond": {
+                "position": "G",
+                "number": "2",
+                "name": "Felton, Raymond"
+            },
+            "Harris, Devin": {
+                "position": "G",
+                "number": "34",
+                "name": "Harris, Devin"
+            },
+            "Lee, David": {
+                "position": "F/C",
+                "number": "42",
+                "name": "Lee, David"
+            },
+            "Matthews, Wesley": {
+                "position": "G",
+                "number": "23",
+                "name": "Matthews, Wesley"
+            },
+            "McGee, JaVale": {
+                "position": "C",
+                "number": "11",
+                "name": "McGee, JaVale"
+            },
+            "Mejri, Salah": {
+                "position": "C",
+                "number": "50",
+                "name": "Mejri, Salah"
+            },
+            "Nowitzki, Dirk": {
+                "position": "F",
+                "number": "41",
+                "name": "Nowitzki, Dirk"
+            },
+            "Pachulia, Zaza": {
+                "position": "C",
+                "number": "27",
+                "name": "Pachulia, Zaza"
+            },
+            "Parsons, Chandler": {
+                "position": "F",
+                "number": "25",
+                "name": "Parsons, Chandler"
+            },
+            "Powell, Dwight": {
+                "position": "F",
+                "number": "7",
+                "name": "Powell, Dwight"
+            },
+            "Villanueva, Charlie": {
+                "position": "F",
+                "number": "3",
+                "name": "Villanueva, Charlie"
+            },
+            "Williams, Deron": {
+                "position": "G",
+                "number": "8",
+                "name": "Williams, Deron"
+            }
+        }
+    },
+    "houston_rockets": {
+        "players": {
+            "Ariza, Trevor": {
+                "position": "F",
+                "number": "1",
+                "name": "Ariza, Trevor"
+            },
+            "Beasley, Michael": {
+                "position": "F",
+                "number": "8",
+                "name": "Beasley, Michael"
+            },
+            "Beverley, Patrick": {
+                "position": "G",
+                "number": "2",
+                "name": "Beverley, Patrick"
+            },
+            "Brewer, Corey": {
+                "position": "G/F",
+                "number": "33",
+                "name": "Brewer, Corey"
+            },
+            "Capela, Clint": {
+                "position": "F/C",
+                "number": "15",
+                "name": "Capela, Clint"
+            },
+            "Dekker, Sam": {
+                "position": "F",
+                "number": "7",
+                "name": "Dekker, Sam"
+            },
+            "Goudelock, Andrew": {
+                "position": "G",
+                "number": "0",
+                "name": "Goudelock, Andrew"
+            },
+            "Harden, James": {
+                "position": "G",
+                "number": "13",
+                "name": "Harden, James"
+            },
+            "Harrell, Montrezl": {
+                "position": "F",
+                "number": "35",
+                "name": "Harrell, Montrezl"
+            },
+            "Howard, Dwight": {
+                "position": "C",
+                "number": "12",
+                "name": "Howard, Dwight"
+            },
+            "Jones, Terrence": {
+                "position": "F",
+                "number": "6",
+                "name": "Jones, Terrence"
+            },
+            "McDaniels, K. J.": {
+                "position": "G/F",
+                "number": "32",
+                "name": "McDaniels, K. J."
+            },
+            "Motiej\u016bnas, Donatas": {
+                "position": "F/C",
+                "number": "20",
+                "name": "Motiej\u016bnas, Donatas"
+            },
+            "Smith, Josh": {
+                "position": "F",
+                "number": "5",
+                "name": "Smith, Josh"
+            },
+            "Terry, Jason": {
+                "position": "G",
+                "number": "31",
+                "name": "Terry, Jason"
+            }
+        }
+    },
+    "memphis_grizzlies": {
+        "players": {
+            "Adams, Jordan": {
+                "position": "SG",
+                "number": "3",
+                "name": "Adams, Jordan"
+            },
+            "Allen, Tony": {
+                "position": "SG",
+                "number": "9",
+                "name": "Allen, Tony"
+            },
+            "Andersen, Chris": {
+                "position": "C",
+                "number": "7",
+                "name": "Andersen, Chris"
+            },
+            "Barnes, Matt": {
+                "position": "SF",
+                "number": "22",
+                "name": "Barnes, Matt"
+            },
+            "Carter, Vince": {
+                "position": "SF",
+                "number": "15",
+                "name": "Carter, Vince"
+            },
+            "Conley Jr., Mike": {
+                "position": "PG",
+                "number": "11",
+                "name": "Conley Jr., Mike"
+            },
+            "Cotton, Bryce": {
+                "position": "PG",
+                "number": "8",
+                "name": "Cotton, Bryce"
+            },
+            "Farmar, Jordan": {
+                "position": "PG",
+                "number": "4",
+                "name": "Farmar, Jordan"
+            },
+            "Gasol, Marc": {
+                "position": "C",
+                "number": "33",
+                "name": "Gasol, Marc"
+            },
+            "Green, JaMychal": {
+                "position": "PF",
+                "number": "0",
+                "name": "Green, JaMychal"
+            },
+            "Hairston, P. J.": {
+                "position": "SG",
+                "number": "19",
+                "name": "Hairston, P. J."
+            },
+            "Martin, Jarell": {
+                "position": "PF",
+                "number": "10",
+                "name": "Martin, Jarell"
+            },
+            "Munford, Xavier": {
+                "position": "PG",
+                "number": "14",
+                "name": "Munford, Xavier"
+            },
+            "Randolph, Zach": {
+                "position": "PF",
+                "number": "50",
+                "name": "Randolph, Zach"
+            },
+            "Stephenson, Lance": {
+                "position": "SG",
+                "number": "1",
+                "name": "Stephenson, Lance"
+            },
+            "Wright, Brandan": {
+                "position": "PF",
+                "number": "34",
+                "name": "Wright, Brandan"
+            }
+        }
+    },
+    "new_orleans_pelicans": {
+        "players": {
+            "Ajin\u00e7a, Alexis": {
+                "position": "C",
+                "number": "42",
+                "name": "Ajin\u00e7a, Alexis"
+            },
+            "Anderson, Ryan": {
+                "position": "PF",
+                "number": "33",
+                "name": "Anderson, Ryan"
+            },
+            "A\u015f\u0131k, \u00d6mer": {
+                "position": "C",
+                "number": "3",
+                "name": "A\u015f\u0131k, \u00d6mer"
+            },
+            "Babbitt, Luke": {
+                "position": "SF",
+                "number": "8",
+                "name": "Babbitt, Luke"
+            },
+            "Cole, Norris": {
+                "position": "PG",
+                "number": "30",
+                "name": "Cole, Norris"
+            },
+            "Cunningham, Dante": {
+                "position": "SF",
+                "number": "44",
+                "name": "Cunningham, Dante"
+            },
+            "Davis, Anthony": {
+                "position": "PF",
+                "number": "23",
+                "name": "Davis, Anthony"
+            },
+            "Dejean-Jones, Bryce": {
+                "position": "SG",
+                "number": "31",
+                "name": "Dejean-Jones, Bryce"
+            },
+            "Douglas, Toney": {
+                "position": "PG",
+                "number": "16",
+                "name": "Douglas, Toney"
+            },
+            "Ennis, James": {
+                "position": "SF",
+                "number": "4",
+                "name": "Ennis, James"
+            },
+            "Evans, Tyreke": {
+                "position": "SG",
+                "number": "1",
+                "name": "Evans, Tyreke"
+            },
+            "Frazier, Tim": {
+                "position": "PG",
+                "number": "2",
+                "name": "Frazier, Tim"
+            },
+            "Gee, Alonzo": {
+                "position": "SF",
+                "number": "15",
+                "name": "Gee, Alonzo"
+            },
+            "Gordon, Eric": {
+                "position": "SG",
+                "number": "10",
+                "name": "Gordon, Eric"
+            },
+            "Hamilton, Jordan": {
+                "position": "SF",
+                "number": "25",
+                "name": "Hamilton, Jordan"
+            },
+            "Holiday, Jrue": {
+                "position": "PG",
+                "number": "11",
+                "name": "Holiday, Jrue"
+            },
+            "Perkins, Kendrick": {
+                "position": "C",
+                "number": "5",
+                "name": "Perkins, Kendrick"
+            },
+            "Pondexter, Quincy": {
+                "position": "G/F",
+                "number": "20",
+                "name": "Pondexter, Quincy"
+            }
+        }
+    },
+    "san_antonio_spurs": {
+        "players": {
+            "Aldridge, LaMarcus": {
+                "position": "PF",
+                "number": "12",
+                "name": "Aldridge, LaMarcus"
+            },
+            "Anderson, Kyle": {
+                "position": "SF",
+                "number": "1",
+                "name": "Anderson, Kyle"
+            },
+            "Bonner, Matt": {
+                "position": "C",
+                "number": "15",
+                "name": "Bonner, Matt"
+            },
+            "Diaw, Boris": {
+                "position": "PF",
+                "number": "33",
+                "name": "Diaw, Boris"
+            },
+            "Duncan, Tim": {
+                "position": "C",
+                "number": "21",
+                "name": "Duncan, Tim"
+            },
+            "Gin\u00f3bili, Manu": {
+                "position": "SG",
+                "number": "20",
+                "name": "Gin\u00f3bili, Manu"
+            },
+            "Green, Danny": {
+                "position": "SG",
+                "number": "14",
+                "name": "Green, Danny"
+            },
+            "Leonard, Kawhi": {
+                "position": "SF",
+                "number": "2",
+                "name": "Leonard, Kawhi"
+            },
+            "Marjanovi\u0107, Boban": {
+                "position": "C",
+                "number": "40",
+                "name": "Marjanovi\u0107, Boban"
+            },
+            "Martin, Kevin": {
+                "position": "SG",
+                "number": "23",
+                "name": "Martin, Kevin"
+            },
+            "Miller, Andre": {
+                "position": "PG",
+                "number": "24",
+                "name": "Miller, Andre"
+            },
+            "Mills, Patty": {
+                "position": "PG",
+                "number": "8",
+                "name": "Mills, Patty"
+            },
+            "Parker, Tony": {
+                "position": "PG",
+                "number": "9",
+                "name": "Parker, Tony"
+            },
+            "Simmons, Jonathon": {
+                "position": "SG",
+                "number": "17",
+                "name": "Simmons, Jonathon"
+            },
+            "West, David": {
+                "position": "PF",
+                "number": "30",
+                "name": "West, David"
+            }
         }
     }
 }
