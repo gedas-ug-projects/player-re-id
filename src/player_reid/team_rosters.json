@@ -1,0 +1,1230 @@
+{
+    "Atlanta Hawks": {
+        "Kent Bazemore": {
+            "jersey_number": 24
+        },
+        "Tim Hardaway Jr.": {
+            "jersey_number": 10
+        },
+        "Kirk Hinrich": {
+            "jersey_number": 12
+        },
+        "Al Horford": {
+            "jersey_number": 15
+        },
+        "Kris Humphries": {
+            "jersey_number": 43
+        },
+        "Kyle Korver": {
+            "jersey_number": 26
+        },
+        "Paul Millsap": {
+            "jersey_number": 4
+        },
+        "Mike Muscala": {
+            "jersey_number": 31
+        },
+        "Lamar Patterson": {
+            "jersey_number": 13
+        },
+        "Dennis Schr\u00f6der": {
+            "jersey_number": 17
+        },
+        "Mike Scott": {
+            "jersey_number": 32
+        },
+        "Thabo Sefolosha": {
+            "jersey_number": 25
+        },
+        "Tiago Splitter": {
+            "jersey_number": 11
+        },
+        "Walter Tavares": {
+            "jersey_number": 22
+        },
+        "Jeff Teague": {
+            "jersey_number": 0
+        }
+    },
+    "Brooklyn Nets": {
+        "Bojan Bogdanovi\u0107": {
+            "jersey_number": 44
+        },
+        "Markel Brown": {
+            "jersey_number": 22
+        },
+        "Wayne Ellington": {
+            "jersey_number": 21
+        },
+        "Rondae Hollis-Jefferson": {
+            "jersey_number": 24
+        },
+        "Jarrett Jack": {
+            "jersey_number": 2
+        },
+        "Sergey Karasev": {
+            "jersey_number": 10
+        },
+        "Sean Kilpatrick": {
+            "jersey_number": 6
+        },
+        "Shane Larkin": {
+            "jersey_number": 0
+        },
+        "Brook Lopez": {
+            "jersey_number": 11
+        },
+        "Chris McCullough": {
+            "jersey_number": 1
+        },
+        "Willie Reed": {
+            "jersey_number": 33
+        },
+        "Thomas Robinson": {
+            "jersey_number": 41
+        },
+        "Henry Sims": {
+            "jersey_number": 14
+        },
+        "Donald Sloan": {
+            "jersey_number": 15
+        },
+        "Thaddeus Young": {
+            "jersey_number": 30
+        }
+    },
+    "Charlotte Hornets": {
+        "Nicolas Batum": {
+            "jersey_number": 5
+        },
+        "Troy Daniels": {
+            "jersey_number": 30
+        },
+        "Jorge Guti\u00e9rrez": {
+            "jersey_number": 12
+        },
+        "Tyler Hansbrough": {
+            "jersey_number": 50
+        },
+        "Aaron Harrison": {
+            "jersey_number": 9
+        },
+        "Spencer Hawes": {
+            "jersey_number": 0
+        },
+        "Al Jefferson": {
+            "jersey_number": 25
+        },
+        "Frank Kaminsky": {
+            "jersey_number": 44
+        },
+        "Michael Kidd-Gilchrist": {
+            "jersey_number": 14
+        },
+        "Jeremy Lamb": {
+            "jersey_number": 3
+        },
+        "Courtney Lee": {
+            "jersey_number": 1
+        },
+        "Jeremy Lin": {
+            "jersey_number": 7
+        },
+        "Kemba Walker": {
+            "jersey_number": 15
+        },
+        "Marvin Williams": {
+            "jersey_number": 2
+        },
+        "Cody Zeller": {
+            "jersey_number": 40
+        }
+    },
+    "Chicago Bulls": {
+        "Cameron Bairstow": {
+            "jersey_number": 41
+        },
+        "Aaron Brooks": {
+            "jersey_number": 0
+        },
+        "Jimmy Butler": {
+            "jersey_number": 21
+        },
+        "Mike Dunleavy Jr.": {
+            "jersey_number": 34
+        },
+        "Cristiano Felicio": {
+            "jersey_number": 6
+        },
+        "Pau Gasol": {
+            "jersey_number": 16
+        },
+        "Taj Gibson": {
+            "jersey_number": 22
+        },
+        "Justin Holiday": {
+            "jersey_number": 7
+        },
+        "Doug McDermott": {
+            "jersey_number": 3
+        },
+        "Nikola Miroti\u0107": {
+            "jersey_number": 44
+        },
+        "E&#39;Twaun Moore": {
+            "jersey_number": 55
+        },
+        "Joakim Noah": {
+            "jersey_number": 13
+        },
+        "Bobby Portis": {
+            "jersey_number": 5
+        },
+        "Derrick Rose": {
+            "jersey_number": 1
+        },
+        "Tony Snell": {
+            "jersey_number": 20
+        }
+    },
+    "Dallas Mavericks": {
+        "Matthew Dellavedova": {
+            "jersey_number": 8
+        },
+        "Channing Frye": {
+            "jersey_number": 9
+        },
+        "Kyrie Irving": {
+            "jersey_number": 2
+        },
+        "LeBron James": {
+            "jersey_number": 23
+        },
+        "Richard Jefferson": {
+            "jersey_number": 24
+        },
+        "Dahntay Jones": {
+            "jersey_number": 30
+        },
+        "James Jones": {
+            "jersey_number": 1
+        },
+        "Sasha Kaun": {
+            "jersey_number": 14
+        },
+        "Kevin Love": {
+            "jersey_number": 0
+        },
+        "Jordan McRae": {
+            "jersey_number": 12
+        },
+        "Timofey Mozgov": {
+            "jersey_number": 20
+        },
+        "Iman Shumpert": {
+            "jersey_number": 4
+        },
+        "J. R. Smith": {
+            "jersey_number": 5
+        },
+        "Tristan Thompson": {
+            "jersey_number": 13
+        },
+        "Mo Williams": {
+            "jersey_number": 52
+        }
+    },
+    "Denver Nuggets": {
+        "Justin Anderson": {
+            "jersey_number": 1
+        },
+        "Jos\u00e9 Juan Barea": {
+            "jersey_number": 5
+        },
+        "Jeremy Evans": {
+            "jersey_number": 21
+        },
+        "Raymond Felton": {
+            "jersey_number": 2
+        },
+        "Devin Harris": {
+            "jersey_number": 34
+        },
+        "David Lee": {
+            "jersey_number": 42
+        },
+        "Wesley Matthews": {
+            "jersey_number": 23
+        },
+        "JaVale McGee": {
+            "jersey_number": 11
+        },
+        "Salah Mejri": {
+            "jersey_number": 50
+        },
+        "Dirk Nowitzki": {
+            "jersey_number": 41
+        },
+        "Zaza Pachulia": {
+            "jersey_number": 27
+        },
+        "Chandler Parsons": {
+            "jersey_number": 25
+        },
+        "Dwight Powell": {
+            "jersey_number": 7
+        },
+        "Charlie Villanueva": {
+            "jersey_number": 3
+        },
+        "Deron Williams": {
+            "jersey_number": 8
+        }
+    },
+    "Detroit Pistons": {
+        "Joel Anthony": {
+            "jersey_number": 50
+        },
+        "Aron Baynes": {
+            "jersey_number": 12
+        },
+        "Steve Blake": {
+            "jersey_number": 22
+        },
+        "Lorenzo Brown": {
+            "jersey_number": 17
+        },
+        "Reggie Bullock": {
+            "jersey_number": 25
+        },
+        "Kentavious Caldwell-Pope": {
+            "jersey_number": 5
+        },
+        "Spencer Dinwiddie": {
+            "jersey_number": 8
+        },
+        "Andre Drummond": {
+            "jersey_number": 0
+        },
+        "Tobias Harris": {
+            "jersey_number": 34
+        },
+        "Darrun Hilliard": {
+            "jersey_number": 6
+        },
+        "Reggie Jackson": {
+            "jersey_number": 1
+        },
+        "Stanley Johnson": {
+            "jersey_number": 3
+        },
+        "Jodie Meeks": {
+            "jersey_number": 20
+        },
+        "Marcus Morris": {
+            "jersey_number": 13
+        },
+        "Anthony Tolliver": {
+            "jersey_number": 43
+        }
+    },
+    "Golden State Warriors": {
+        "Leandro Barbosa": {
+            "jersey_number": 19
+        },
+        "Harrison Barnes": {
+            "jersey_number": 40
+        },
+        "Andrew Bogut": {
+            "jersey_number": 12
+        },
+        "Ian Clark": {
+            "jersey_number": 21
+        },
+        "Stephen Curry": {
+            "jersey_number": 30
+        },
+        "Festus Ezeli": {
+            "jersey_number": 31
+        },
+        "Draymond Green": {
+            "jersey_number": 23
+        },
+        "Andre Iguodala": {
+            "jersey_number": 9
+        },
+        "Shaun Livingston": {
+            "jersey_number": 34
+        },
+        "Kevon Looney": {
+            "jersey_number": 36
+        },
+        "James Michael McAdoo": {
+            "jersey_number": 20
+        },
+        "Brandon Rush": {
+            "jersey_number": 4
+        },
+        "Marreese Speights": {
+            "jersey_number": 5
+        },
+        "Klay Thompson": {
+            "jersey_number": 11
+        },
+        "Anderson Varej\u00e3o": {
+            "jersey_number": 18
+        }
+    },
+    "Indiana Pacers": {
+        "Lavoy Allen": {
+            "jersey_number": 5
+        },
+        "Rakeem Christmas": {
+            "jersey_number": 25
+        },
+        "Monta Ellis": {
+            "jersey_number": 11
+        },
+        "Paul George": {
+            "jersey_number": 13
+        },
+        "George Hill": {
+            "jersey_number": 3
+        },
+        "Jordan Hill": {
+            "jersey_number": 27
+        },
+        "Solomon Hill": {
+            "jersey_number": 44
+        },
+        "Ty Lawson": {
+            "jersey_number": 10
+        },
+        "Ian Mahinmi": {
+            "jersey_number": 28
+        },
+        "C. J. Miles": {
+            "jersey_number": 0
+        },
+        "Glenn Robinson III": {
+            "jersey_number": 40
+        },
+        "Rodney Stuckey": {
+            "jersey_number": 2
+        },
+        "Myles Turner": {
+            "jersey_number": 33
+        },
+        "Shayne Whittington": {
+            "jersey_number": 42
+        },
+        "Joe Young": {
+            "jersey_number": 1
+        }
+    },
+    "Los Angeles Clippers": {
+        "Cole Aldrich": {
+            "jersey_number": 45
+        },
+        "Jeff Ayres": {
+            "jersey_number": 19
+        },
+        "Jamal Crawford": {
+            "jersey_number": 11
+        },
+        "Branden Dawson": {
+            "jersey_number": 22
+        },
+        "Jeff Green": {
+            "jersey_number": 8
+        },
+        "Blake Griffin": {
+            "jersey_number": 32
+        },
+        "Wesley Johnson": {
+            "jersey_number": 33
+        },
+        "DeAndre Jordan": {
+            "jersey_number": 6
+        },
+        "Luc Mbah a Moute": {
+            "jersey_number": 12
+        },
+        "Chris Paul": {
+            "jersey_number": 3
+        },
+        "Paul Pierce": {
+            "jersey_number": 34
+        },
+        "Pablo Prigioni": {
+            "jersey_number": 9
+        },
+        "JJ Redick": {
+            "jersey_number": 4
+        },
+        "Austin Rivers": {
+            "jersey_number": 25
+        },
+        "C. J. Wilcox": {
+            "jersey_number": 30
+        }
+    },
+    "Los Angeles Lakers": {
+        "Brandon Bass": {
+            "jersey_number": 2
+        },
+        "Tarik Black": {
+            "jersey_number": 28
+        },
+        "Anthony Brown": {
+            "jersey_number": 3
+        },
+        "Kobe Bryant": {
+            "jersey_number": 24
+        },
+        "Jordan Clarkson": {
+            "jersey_number": 6
+        },
+        "Roy Hibbert": {
+            "jersey_number": 17
+        },
+        "Marcelo Huertas": {
+            "jersey_number": 9
+        },
+        "Ryan Kelly": {
+            "jersey_number": 4
+        },
+        "Larry Nance Jr.": {
+            "jersey_number": 7
+        },
+        "Julius Randle": {
+            "jersey_number": 30
+        },
+        "D&#39;Angelo Russell": {
+            "jersey_number": 1
+        },
+        "Robert Sacre": {
+            "jersey_number": 50
+        },
+        "Lou Williams": {
+            "jersey_number": 23
+        },
+        "Metta World Peace": {
+            "jersey_number": 37
+        },
+        "Nick Young": {
+            "jersey_number": 0
+        }
+    },
+    "Memphis Grizzlies": {
+        "Jordan Adams": {
+            "jersey_number": 3
+        },
+        "Tony Allen": {
+            "jersey_number": 9
+        },
+        "Chris Andersen": {
+            "jersey_number": 7
+        },
+        "Matt Barnes": {
+            "jersey_number": 22
+        },
+        "Vince Carter": {
+            "jersey_number": 15
+        },
+        "Mike Conley Jr.": {
+            "jersey_number": 11
+        },
+        "Bryce Cotton": {
+            "jersey_number": 8
+        },
+        "Jordan Farmar": {
+            "jersey_number": 4
+        },
+        "Marc Gasol": {
+            "jersey_number": 33
+        },
+        "JaMychal Green": {
+            "jersey_number": 0
+        },
+        "P. J. Hairston": {
+            "jersey_number": 19
+        },
+        "Jarell Martin": {
+            "jersey_number": 10
+        },
+        "Xavier Munford": {
+            "jersey_number": 14
+        },
+        "Zach Randolph": {
+            "jersey_number": 50
+        },
+        "Lance Stephenson": {
+            "jersey_number": 1
+        },
+        "Brandan Wright": {
+            "jersey_number": 34
+        }
+    },
+    "Miami Heat": {
+        "Chris Bosh": {
+            "jersey_number": 1
+        },
+        "Luol Deng": {
+            "jersey_number": 9
+        },
+        "Goran Dragi\u0107": {
+            "jersey_number": 7
+        },
+        "Gerald Green": {
+            "jersey_number": 14
+        },
+        "Udonis Haslem": {
+            "jersey_number": 40
+        },
+        "Joe Johnson": {
+            "jersey_number": 2
+        },
+        "Tyler Johnson": {
+            "jersey_number": 8
+        },
+        "Josh McRoberts": {
+            "jersey_number": 4
+        },
+        "Josh Richardson": {
+            "jersey_number": 0
+        },
+        "Jarnell Stokes": {
+            "jersey_number": 12
+        },
+        "Amar&#39;e Stoudemire": {
+            "jersey_number": 5
+        },
+        "Dwyane Wade": {
+            "jersey_number": 3
+        },
+        "Briant\u00e9 Weber": {
+            "jersey_number": 12
+        },
+        "Hassan Whiteside": {
+            "jersey_number": 21
+        },
+        "Justise Winslow": {
+            "jersey_number": 20
+        },
+        "Dorell Wright": {
+            "jersey_number": 11
+        }
+    },
+    "Milwaukee Bucks": {
+        "Giannis Antetokounmpo": {
+            "jersey_number": 34
+        },
+        "Jerryd Bayless": {
+            "jersey_number": 19
+        },
+        "Michael Carter-Williams": {
+            "jersey_number": 5
+        },
+        "Tyler Ennis": {
+            "jersey_number": 11
+        },
+        "John Henson": {
+            "jersey_number": 31
+        },
+        "Damien Inglis": {
+            "jersey_number": 17
+        },
+        "O. J. Mayo": {
+            "jersey_number": 3
+        },
+        "Khris Middleton": {
+            "jersey_number": 22
+        },
+        "Greg Monroe": {
+            "jersey_number": 15
+        },
+        "Steve Novak": {
+            "jersey_number": 6
+        },
+        "Johnny O&#39;Bryant III": {
+            "jersey_number": 77
+        },
+        "Jabari Parker": {
+            "jersey_number": 12
+        },
+        "Miles Plumlee": {
+            "jersey_number": 18
+        },
+        "Greivis V\u00e1squez": {
+            "jersey_number": 21
+        },
+        "Rashad Vaughn": {
+            "jersey_number": 20
+        }
+    },
+    "Minnesota Timberwolves": {
+        "Nemanja Bjelica": {
+            "jersey_number": 88
+        },
+        "Kevin Garnett": {
+            "jersey_number": 21
+        },
+        "Gorgui Dieng": {
+            "jersey_number": 5
+        },
+        "Tyus Jones": {
+            "jersey_number": 1
+        },
+        "Zach LaVine": {
+            "jersey_number": 8
+        },
+        "Shabazz Muhammad": {
+            "jersey_number": 15
+        },
+        "Adreian Payne": {
+            "jersey_number": 33
+        },
+        "Nikola Pekovi\u0107": {
+            "jersey_number": 14
+        },
+        "Tayshaun Prince": {
+            "jersey_number": 12
+        },
+        "Ricky Rubio": {
+            "jersey_number": 9
+        },
+        "Damjan Rude\u017e": {
+            "jersey_number": 10
+        },
+        "Greg Smith": {
+            "jersey_number": 4
+        },
+        "Karl-Anthony Towns": {
+            "jersey_number": 32
+        },
+        "Andrew Wiggins": {
+            "jersey_number": 22
+        }
+    },
+    "New Orleans Pelicans": {
+        "Alexis Ajin\u00e7a": {
+            "jersey_number": 42
+        },
+        "Ryan Anderson": {
+            "jersey_number": 33
+        },
+        "\u00d6mer A\u015f\u0131k": {
+            "jersey_number": 3
+        },
+        "Luke Babbitt": {
+            "jersey_number": 8
+        },
+        "Norris Cole": {
+            "jersey_number": 30
+        },
+        "Dante Cunningham": {
+            "jersey_number": 44
+        },
+        "Anthony Davis": {
+            "jersey_number": 23
+        },
+        "Bryce Dejean-Jones": {
+            "jersey_number": 31
+        },
+        "Toney Douglas": {
+            "jersey_number": 16
+        },
+        "James Ennis": {
+            "jersey_number": 4
+        },
+        "Tyreke Evans": {
+            "jersey_number": 1
+        },
+        "Tim Frazier": {
+            "jersey_number": 2
+        },
+        "Alonzo Gee": {
+            "jersey_number": 15
+        },
+        "Eric Gordon": {
+            "jersey_number": 10
+        },
+        "Jordan Hamilton": {
+            "jersey_number": 25
+        },
+        "Jrue Holiday": {
+            "jersey_number": 11
+        },
+        "Kendrick Perkins": {
+            "jersey_number": 5
+        },
+        "Quincy Pondexter": {
+            "jersey_number": 20
+        }
+    },
+    "New York Knicks": {
+        "Arron Afflalo": {
+            "jersey_number": 4
+        },
+        "Lou Amundson": {
+            "jersey_number": 17
+        },
+        "Carmelo Anthony": {
+            "jersey_number": 7
+        },
+        "Jos\u00e9 Calder\u00f3n": {
+            "jersey_number": 3
+        },
+        "Cleanthony Early": {
+            "jersey_number": 11
+        },
+        "Langston Galloway": {
+            "jersey_number": 2
+        },
+        "Jerian Grant": {
+            "jersey_number": 13
+        },
+        "Robin Lopez": {
+            "jersey_number": 8
+        },
+        "Kyle O&#39;Quinn": {
+            "jersey_number": 9
+        },
+        "Kristaps Porzi\u0146\u0123is": {
+            "jersey_number": 6
+        },
+        "Kevin S\u00e9raphin": {
+            "jersey_number": 1
+        },
+        "Lance Thomas": {
+            "jersey_number": 42
+        },
+        "Sasha Vuja\u010di\u0107": {
+            "jersey_number": 18
+        },
+        "Derrick Williams": {
+            "jersey_number": 23
+        },
+        "Tony Wroten": {
+            "jersey_number": 5
+        }
+    },
+    "Oklahoma City Thunder": {
+        "Steven Adams": {
+            "jersey_number": 12
+        },
+        "Nick Collison": {
+            "jersey_number": 4
+        },
+        "Kevin Durant": {
+            "jersey_number": 35
+        },
+        "Randy Foye": {
+            "jersey_number": 6
+        },
+        "Josh Huestis": {
+            "jersey_number": 34
+        },
+        "Serge Ibaka": {
+            "jersey_number": 9
+        },
+        "Center": {
+            "jersey_number": 11
+        },
+        "Mitch McGary": {
+            "jersey_number": 33
+        },
+        "Nazr Mohammed": {
+            "jersey_number": 13
+        },
+        "Anthony Morrow": {
+            "jersey_number": 2
+        },
+        "Cameron Payne": {
+            "jersey_number": 22
+        },
+        "Andr\u00e9 Roberson": {
+            "jersey_number": 21
+        },
+        "Kyle Singler": {
+            "jersey_number": 5
+        },
+        "Dion Waiters": {
+            "jersey_number": 3
+        },
+        "Russell Westbrook": {
+            "jersey_number": 0
+        }
+    },
+    "Philadelphia 76ers": {
+        "Dewayne Dedmon": {
+            "jersey_number": 3
+        },
+        "Evan Fournier": {
+            "jersey_number": 10
+        },
+        "Aaron Gordon": {
+            "jersey_number": 0
+        },
+        "Mario Hezonja": {
+            "jersey_number": 23
+        },
+        "Ersan \u0130lyasova": {
+            "jersey_number": 7
+        },
+        "Brandon Jennings": {
+            "jersey_number": 55
+        },
+        "Devyn Marble": {
+            "jersey_number": 11
+        },
+        "Shabazz Napier": {
+            "jersey_number": 13
+        },
+        "Andrew Nicholson": {
+            "jersey_number": 44
+        },
+        "Victor Oladipo": {
+            "jersey_number": 5
+        },
+        "Elfrid Payton": {
+            "jersey_number": 4
+        },
+        "Jason Smith": {
+            "jersey_number": 14
+        },
+        "Nikola Vu\u010devi\u0107": {
+            "jersey_number": 9
+        },
+        "C. J. Watson": {
+            "jersey_number": 32
+        }
+    },
+    "Phoenix Suns": {
+        "Eric Bledsoe": {
+            "jersey_number": 2
+        },
+        "Devin Booker": {
+            "jersey_number": 1
+        },
+        "Chase Budinger": {
+            "jersey_number": 10
+        },
+        "Tyson Chandler": {
+            "jersey_number": 4
+        },
+        "Archie Goodwin": {
+            "jersey_number": 20
+        },
+        "John Jenkins": {
+            "jersey_number": 23
+        },
+        "Brandon Knight": {
+            "jersey_number": 3
+        },
+        "Alex Len": {
+            "jersey_number": 21
+        },
+        "Jon Leuer": {
+            "jersey_number": 30
+        },
+        "Ronnie Price": {
+            "jersey_number": 14
+        },
+        "Mirza Teletovi\u0107": {
+            "jersey_number": 35
+        },
+        "P. J. Tucker": {
+            "jersey_number": 17
+        },
+        "T. J. Warren": {
+            "jersey_number": 12
+        },
+        "Alan Williams": {
+            "jersey_number": 15
+        }
+    },
+    "Portland Trail Blazers": {
+        "Cliff Alexander": {
+            "jersey_number": 34
+        },
+        "Al-Farouq Aminu": {
+            "jersey_number": 8
+        },
+        "Pat Connaughton": {
+            "jersey_number": 5
+        },
+        "Allen Crabbe": {
+            "jersey_number": 23
+        },
+        "Ed Davis": {
+            "jersey_number": 17
+        },
+        "Maurice Harkless": {
+            "jersey_number": 4
+        },
+        "Gerald Henderson Jr.": {
+            "jersey_number": 9
+        },
+        "Chris Kaman": {
+            "jersey_number": 35
+        },
+        "Meyers Leonard": {
+            "jersey_number": 11
+        },
+        "Damian Lillard": {
+            "jersey_number": 0
+        },
+        "CJ McCollum": {
+            "jersey_number": 3
+        },
+        "Luis Montero": {
+            "jersey_number": 44
+        },
+        "Mason Plumlee": {
+            "jersey_number": 24
+        },
+        "Brian Roberts": {
+            "jersey_number": 2
+        },
+        "Noah Vonleh": {
+            "jersey_number": 21
+        }
+    },
+    "Sacramento Kings": {
+        "Quincy Acy": {
+            "jersey_number": 13
+        },
+        "James Anderson": {
+            "jersey_number": 5
+        },
+        "Marco Belinelli": {
+            "jersey_number": 3
+        },
+        "Caron Butler": {
+            "jersey_number": 31
+        },
+        "Omri Casspi": {
+            "jersey_number": 18
+        },
+        "Willie Cauley-Stein": {
+            "jersey_number": 0
+        },
+        "Darren Collison": {
+            "jersey_number": 7
+        },
+        "DeMarcus Cousins": {
+            "jersey_number": 15
+        },
+        "Seth Curry": {
+            "jersey_number": 30
+        },
+        "Duje Dukan": {
+            "jersey_number": 26
+        },
+        "Rudy Gay": {
+            "jersey_number": 8
+        },
+        "Kosta Koufos": {
+            "jersey_number": 41
+        },
+        "Ben McLemore": {
+            "jersey_number": 23
+        },
+        "Eric Moreland": {
+            "jersey_number": 25
+        },
+        "Rajon Rondo": {
+            "jersey_number": 9
+        }
+    },
+    "San Antonio Spurs": {
+        "LaMarcus Aldridge": {
+            "jersey_number": 12
+        },
+        "Kyle Anderson": {
+            "jersey_number": 1
+        },
+        "Matt Bonner": {
+            "jersey_number": 15
+        },
+        "Boris Diaw": {
+            "jersey_number": 33
+        },
+        "Tim Duncan": {
+            "jersey_number": 21
+        },
+        "Manu Gin\u00f3bili": {
+            "jersey_number": 20
+        },
+        "Danny Green": {
+            "jersey_number": 14
+        },
+        "Kawhi Leonard": {
+            "jersey_number": 2
+        },
+        "Boban Marjanovi\u0107": {
+            "jersey_number": 40
+        },
+        "Kevin Martin": {
+            "jersey_number": 23
+        },
+        "Andre Miller": {
+            "jersey_number": 24
+        },
+        "Patty Mills": {
+            "jersey_number": 8
+        },
+        "Tony Parker": {
+            "jersey_number": 9
+        },
+        "Jonathon Simmons": {
+            "jersey_number": 17
+        },
+        "David West": {
+            "jersey_number": 30
+        }
+    },
+    "Toronto Raptors": {
+        "Bismack Biyombo": {
+            "jersey_number": 8
+        },
+        "Bruno Caboclo": {
+            "jersey_number": 20
+        },
+        "DeMarre Carroll": {
+            "jersey_number": 5
+        },
+        "DeMar DeRozan": {
+            "jersey_number": 10
+        },
+        "James Johnson": {
+            "jersey_number": 3
+        },
+        "Cory Joseph": {
+            "jersey_number": 6
+        },
+        "Kyle Lowry": {
+            "jersey_number": 7
+        },
+        "Lucas Nogueira": {
+            "jersey_number": 92
+        },
+        "Patrick Patterson": {
+            "jersey_number": 54
+        },
+        "Norman Powell": {
+            "jersey_number": 24
+        },
+        "Terrence Ross": {
+            "jersey_number": 31
+        },
+        "Luis Scola": {
+            "jersey_number": 4
+        },
+        "Jason Thompson": {
+            "jersey_number": 1
+        },
+        "Jonas Valan\u010di\u016bnas": {
+            "jersey_number": 17
+        },
+        "Delon Wright": {
+            "jersey_number": 55
+        }
+    },
+    "Utah Jazz": {
+        "Trevor Booker": {
+            "jersey_number": 33
+        },
+        "Trey Burke": {
+            "jersey_number": 3
+        },
+        "Alec Burks": {
+            "jersey_number": 10
+        },
+        "Dante Exum": {
+            "jersey_number": 11
+        },
+        "Derrick Favors": {
+            "jersey_number": 15
+        },
+        "Rudy Gobert": {
+            "jersey_number": 27
+        },
+        "Gordon Hayward": {
+            "jersey_number": 20
+        },
+        "Rodney Hood": {
+            "jersey_number": 5
+        },
+        "Joe Ingles": {
+            "jersey_number": 2
+        },
+        "Chris Johnson": {
+            "jersey_number": 23
+        },
+        "Trey Lyles": {
+            "jersey_number": 41
+        },
+        "Shelvin Mack": {
+            "jersey_number": 8
+        },
+        "Raulzinho Neto": {
+            "jersey_number": 25
+        },
+        "Tibor Plei\u00df": {
+            "jersey_number": 21
+        },
+        "Jeff Withey": {
+            "jersey_number": 24
+        }
+    },
+    "Washington Wizards": {
+        "Alan Anderson": {
+            "jersey_number": 6
+        },
+        "Bradley Beal": {
+            "jersey_number": 3
+        },
+        "Jared Dudley": {
+            "jersey_number": 1
+        },
+        "Jarell Eddie": {
+            "jersey_number": 8
+        },
+        "Drew Gooden": {
+            "jersey_number": 90
+        },
+        "Marcin Gortat": {
+            "jersey_number": 13
+        },
+        "JJ Hickson": {
+            "jersey_number": 21
+        },
+        "Markieff Morris": {
+            "jersey_number": 5
+        },
+        "Nen\u00ea": {
+            "jersey_number": 42
+        },
+        "Kelly Oubre Jr.": {
+            "jersey_number": 12
+        },
+        "Otto Porter": {
+            "jersey_number": 22
+        },
+        "Ramon Sessions": {
+            "jersey_number": 7
+        },
+        "Garrett Temple": {
+            "jersey_number": 17
+        },
+        "Marcus Thornton": {
+            "jersey_number": 15
+        },
+        "John Wall": {
+            "jersey_number": 2
+        }
+    }
+}
