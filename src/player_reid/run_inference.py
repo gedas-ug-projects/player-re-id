@@ -1,7 +1,10 @@
 import os
-from loguru import logger
+import warnings
 
+from loguru import logger
 from MixSort.tools.track_mixsort_simple import *
+
+warnings.filterwarnings("ignore", message="torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument")
 
 MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/src/player_reid/MixSort"
 DATA_DIR = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
