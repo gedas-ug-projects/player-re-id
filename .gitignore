@@ -4,6 +4,7 @@
 *.txt
 *.ini
 *.pyc
+*.out
 __old__
 __vish__
 launch.json
