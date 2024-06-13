@@ -1,5 +1,9 @@
 *.mp4
 *.jpeg
+*.json
+*.txt
+*.ini
+*.pyc
 src/player_reid/MixSort
 __old__
 __vish__
