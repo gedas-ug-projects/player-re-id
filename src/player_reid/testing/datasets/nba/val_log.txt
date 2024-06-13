@@ -1,0 +1,174 @@
+2024-06-13 04:40:01.026 | INFO     | MixSort.tools.track_mixsort_simple:main:157 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 04:40:02.021 | INFO     | MixSort.tools.track_mixsort_simple:main:167 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 04:40:02.022 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 04:40:02.023 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 04:40:02.023 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 04:40:02.023 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 04:40:02.242 | INFO     | MixSort.tools.track_mixsort_simple:main:191 - loading checkpoint
+2024-06-13 04:40:02.658 | INFO     | MixSort.tools.track_mixsort_simple:main:201 - loaded checkpoint done.
+2024-06-13 04:40:18.607 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to /playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/.txt
+2024-06-13 04:40:18.683 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1108 - Evaluate in main process...
+2024-06-13 04:40:18.714 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1137 - Loading and preparing results...
+2024-06-13 04:40:18.724 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1137 - DONE (t=0.01s)
+2024-06-13 04:40:18.724 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2024-06-13 04:40:18.725 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2024-06-13 04:40:18.751 | INFO     | MixSort.tools.track_mixsort_simple:main:218 - 
+Average forward time: 19.42 ms, Average track time: 21.15 ms, Average inference time: 40.57 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2024-06-13 04:40:18.751 | INFO     | MixSort.tools.track_mixsort_simple:main:219 - Completed
+2024-06-13 06:20:37.760 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:20:38.698 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:20:38.699 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:20:38.700 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:20:38.700 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:20:38.700 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:20:38.927 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:20:39.367 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:20:53.686 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to /playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/.txt
+2024-06-13 06:20:53.770 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1100 - Evaluate in main process...
+2024-06-13 06:20:53.802 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - Loading and preparing results...
+2024-06-13 06:20:53.812 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - DONE (t=0.01s)
+2024-06-13 06:20:53.812 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2024-06-13 06:20:53.813 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2024-06-13 06:20:53.837 | INFO     | MixSort.tools.track_mixsort_simple:main:212 - 
+Average forward time: 19.52 ms, Average track time: 21.06 ms, Average inference time: 40.58 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2024-06-13 06:20:53.837 | INFO     | MixSort.tools.track_mixsort_simple:main:213 - Completed
+2024-06-13 06:22:59.692 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:23:00.641 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:23:00.642 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:23:00.643 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:23:00.643 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:23:00.644 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:23:00.869 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:23:01.309 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:23:15.701 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to /playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/.txt
+2024-06-13 06:23:15.772 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1100 - Evaluate in main process...
+2024-06-13 06:23:15.804 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - Loading and preparing results...
+2024-06-13 06:23:15.813 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - DONE (t=0.01s)
+2024-06-13 06:23:15.814 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2024-06-13 06:23:15.814 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2024-06-13 06:23:15.838 | INFO     | MixSort.tools.track_mixsort_simple:main:212 - 
+Average forward time: 20.02 ms, Average track time: 21.23 ms, Average inference time: 41.25 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2024-06-13 06:23:15.839 | INFO     | MixSort.tools.track_mixsort_simple:main:213 - Completed
+2024-06-13 06:24:09.943 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:24:10.896 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:24:10.897 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:24:10.898 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:24:10.898 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:24:10.899 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:24:11.126 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:24:11.651 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:25:14.613 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:25:15.601 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:25:15.602 | ERROR    | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:25:15.603 | ERROR    | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:25:15.604 | ERROR    | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:25:15.604 | ERROR    | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:25:15.836 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:25:16.359 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:25:55.126 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:25:56.190 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:25:56.191 | ERROR    | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:25:56.193 | ERROR    | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:25:56.193 | ERROR    | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:25:56.193 | ERROR    | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:25:56.468 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:25:56.974 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:26:11.575 | INFO     | yolox.evaluators.mot_evaluator:write_results:41 - save results to /playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/.txt
+2024-06-13 06:26:11.641 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1100 - Evaluate in main process...
+2024-06-13 06:26:11.673 | ERROR    | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - Loading and preparing results...
+2024-06-13 06:26:11.683 | ERROR    | yolox.evaluators.mot_evaluator:evaluate_prediction:1129 - DONE (t=0.01s)
+2024-06-13 06:26:11.683 | ERROR    | pycocotools.coco:loadRes:366 - creating index...
+2024-06-13 06:26:11.684 | ERROR    | pycocotools.coco:loadRes:366 - index created!
+2024-06-13 06:26:11.710 | INFO     | MixSort.tools.track_mixsort_simple:main:212 - 
+Average forward time: 20.20 ms, Average track time: 21.39 ms, Average inference time: 41.59 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2024-06-13 06:26:11.710 | INFO     | MixSort.tools.track_mixsort_simple:main:213 - Completed
+2024-06-13 06:27:11.700 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:27:12.674 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:27:12.675 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:27:12.676 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:27:12.676 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:27:12.676 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:27:12.910 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:27:13.363 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:27:44.252 | INFO     | MixSort.tools.track_mixsort_simple:main:152 - Args: Namespace(alpha=0.6, batch_size=1, ckpt='pretrained/yolox_x_sportsmot_mix.pth.tar', conf=0.01, config='track', devices=1, dist_backend='nccl', dist_url=None, experiment_name='levi-test-exp', f='exps/example/mot/yolox_x_sportsmot.py', fp16=False, fuse=False, iou_only=False, iou_thresh=0.3, local_rank=0, machine_rank=0, match_thresh=0.9, min_box_area=100, mot20=False, name='yolox_x_sportsmot_mix', nms=0.7, num_machines=1, opts=['--config track'], radius=0, script='mixformer_deit', seed=None, speed=False, test=True, track_buffer=30, track_thresh=0.6, trt=False, tsize=640)
+2024-06-13 06:27:45.227 | INFO     | MixSort.tools.track_mixsort_simple:main:162 - Model Summary: Params: 99.00M, Gflops: 282.03
+2024-06-13 06:27:45.229 | INFO     | yolox.data.datasets.mot:__init__:40 - loading annotations into memory...
+2024-06-13 06:27:45.230 | INFO     | yolox.data.datasets.mot:__init__:40 - Done (t=0.00s)
+2024-06-13 06:27:45.230 | INFO     | pycocotools.coco:__init__:86 - creating index...
+2024-06-13 06:27:45.230 | INFO     | pycocotools.coco:__init__:86 - index created!
+2024-06-13 06:27:45.458 | INFO     | MixSort.tools.track_mixsort_simple:main:186 - loading checkpoint
+2024-06-13 06:27:45.919 | INFO     | MixSort.tools.track_mixsort_simple:main:196 - loaded checkpoint done.
+2024-06-13 06:28:00.246 | INFO     | yolox.evaluators.mot_evaluator:write_results:40 - save results to /playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/test.txt
+2024-06-13 06:28:00.337 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1099 - Evaluate in main process...
+2024-06-13 06:28:00.370 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1128 - Loading and preparing results...
+2024-06-13 06:28:00.379 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:1128 - DONE (t=0.01s)
+2024-06-13 06:28:00.380 | INFO     | pycocotools.coco:loadRes:366 - creating index...
+2024-06-13 06:28:00.381 | INFO     | pycocotools.coco:loadRes:366 - index created!
+2024-06-13 06:28:00.407 | INFO     | MixSort.tools.track_mixsort_simple:main:212 - 
+Average forward time: 19.67 ms, Average track time: 21.23 ms, Average inference time: 40.90 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2024-06-13 06:28:00.407 | INFO     | MixSort.tools.track_mixsort_simple:main:213 - Completed

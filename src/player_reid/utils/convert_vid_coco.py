@@ -3,7 +3,6 @@ import subprocess
 import json
 
 from PIL import Image
-from tqdm import tqdm
 
 ANNOTATIONS_DIR = 'annotations'
 VAL_DIR = 'val'
@@ -16,7 +15,7 @@ GT_ANNOTATIONS_FP = 'gt.txt'
 
 IMG_EXT = '.jpeg'
 
-MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/__vish__/player-reidentification/MixSort"
+MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/src/player_reid/MixSort"
 os.chdir(MIXSORT_FP)
 
 
@@ -127,6 +126,6 @@ def format_video_to_coco_dataset(video_path: str, to_path: str):
 
 if __name__ == "__main__":
 
-    vid_path = "/playpen-storage/levlevi/player-re-id/__vish__/player-reidentification/sample-videos/clips/Rockets_2_Warriors_10_31_2015_clip_1.mp4"
-    dst_path = "/playpen-storage/levlevi/player-re-id/__vish__/player-reidentification/MixSort/datasets/levi-test-ds-2"
+    vid_path = "/playpen-storage/levlevi/player-re-id/src/player_reid/sample-videos/clips/Rockets_2_Warriors_10_31_2015_clip_1.mp4"
+    dst_path = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
     format_video_to_coco_dataset(vid_path, dst_path)

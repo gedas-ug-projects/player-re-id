@@ -1,4 +1,5 @@
 *.mp4
+*.jpeg
 src/player_reid/MixSort
 __old__
 __vish__

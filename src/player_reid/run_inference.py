@@ -1,11 +1,16 @@
 import os
-
-MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/__vish__/player-reidentification/MixSort"
-os.chdir(MIXSORT_FP)
+from loguru import logger
 
 from MixSort.tools.track_mixsort_simple import *
 
-if __name__ == '__main__':
+MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/src/player_reid/MixSort"
+DATA_DIR = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
+
+os.chdir(MIXSORT_FP)
+
+
+def generate_player_tracks(coco_dataset_path: str, track_out_path: str):
+    
     parser = make_parser()
     args = parser.parse_args([
         "-expn", "levi-test-exp",
@@ -22,20 +27,14 @@ if __name__ == '__main__':
         "--track_thresh", "0.6",
         "--config track"
     ])
-
+    
     exp = get_exp(args.f, args.name)
     exp.merge(args.opts)
 
     if not args.experiment_name:
         args.experiment_name = exp.exp_name
 
-    # num_gpu = torch.cuda.device_count() if args.devices is None else args.devices
     num_gpu = 1
-    print(torch.cuda.is_available())
-    print(num_gpu, torch.cuda.device_count())
-    assert num_gpu <= torch.cuda.device_count()
-
-    data_dir = "/playpen-storage/levlevi/player-re-id/__vish__/player-reidentification/MixSort/datasets/levi-test-ds-2"
     launch(
         main,
         num_gpu,
@@ -43,5 +42,11 @@ if __name__ == '__main__':
         args.machine_rank,
         backend=args.dist_backend,
         dist_url=args.dist_url,
-        args=(exp, args, num_gpu, data_dir),
+        args=(exp, args, num_gpu, coco_dataset_path, track_out_path),
     )
+
+
+if __name__ == '__main__':
+    dataset_fp = '/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba'
+    track_out_fp = '/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/test.txt'
+    generate_player_tracks(dataset_fp, track_out_fp)
