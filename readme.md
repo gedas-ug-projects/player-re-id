@@ -1,6 +1,5 @@
 ## Player Re-Identification Pipeline
 ---
-![[assets/player-re-id.png]]
 #### Overview
 - This codebase contains a data processing pipeline for spatial grounding and identification of basketball players from broadcast footage. We modify a dataset of NBA broadcast videos and labeled 2D player tracking info to containing corresponding spatial tracking information.
 #### Structure and Format
