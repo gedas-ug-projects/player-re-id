@@ -6,6 +6,7 @@
 *.ini
 *.pyc
 *.out
+*.bmp
 __old__
 __vish__
 launch.json

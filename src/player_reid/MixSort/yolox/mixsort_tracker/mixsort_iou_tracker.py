@@ -29,7 +29,7 @@ class STrack(BaseTrack):
     def __init__(self, tlwh, score, iou):
 
         # wait activate
-        self._tlwh = np.asarray(tlwh, dtype=np.float)
+        self._tlwh = np.asarray(tlwh, dtype=float)
         self.tlwh=self._tlwh
         self.is_activated = False
         self.template = None
@@ -129,7 +129,7 @@ class STrack(BaseTrack):
 
 
 class MIXTracker(object):
-    def __init__(self, args, frame_rate=30):
+    def __init__(self, args, frame_rate=30, rank=0):
         self.tracked_stracks = []  # type: list[STrack]
         self.lost_stracks = []  # type: list[STrack]
         self.removed_stracks = []  # type: list[STrack]
@@ -152,6 +152,8 @@ class MIXTracker(object):
         self.settings = ws_settings.Settings()
         self.settings.script_name = args.script
         self.settings.config_name = args.config
+        self.rank = rank
+        
         prj_dir = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "../../MixViT")
         )
@@ -167,7 +169,7 @@ class MIXTracker(object):
 
         # need modification, for distributed
         network = build_mixformer_deit(self.cfg)
-        self.network = network.cuda(torch.device(f"cuda:{args.local_rank}"))
+        self.network = network.cuda(torch.device(f"cuda:{self.rank}"))
         self.network.eval()
 
     def re_init(self, args, frame_rate=30):
@@ -215,7 +217,7 @@ class MIXTracker(object):
             Union[Tuple[torch.Tensor,torch.Tensor],torch.Tensor]: transfromed image (and boxes)
         """
         # compute params
-        center = torch.from_numpy(center.astype(np.int))
+        center = torch.from_numpy(center.astype(int))
         search_area_factor = self.settings.search_area_factor[s]
         output_sz = self.settings.output_sz[s]
         x, y, w, h = [int(i) for i in center]
@@ -274,7 +276,7 @@ class MIXTracker(object):
 
         # for every strack, compute its vit-dist with dets
         search_bbox = torch.stack(
-            [torch.from_numpy(det.tlwh.astype(np.int)) for det in dets]
+            [torch.from_numpy(det.tlwh.astype(int)) for det in dets]
         )
         search_imgs = []
         search_boxes = []

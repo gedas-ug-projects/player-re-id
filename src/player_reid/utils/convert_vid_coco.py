@@ -1,8 +1,12 @@
+import av
 import os
 import subprocess
 import json
-
+import logging
+from pathlib import Path
 from PIL import Image
+
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ANNOTATIONS_DIR = 'annotations'
 VAL_DIR = 'val'
@@ -13,13 +17,10 @@ ANNOTATIONS_FILE_NAME = 'val.json'
 SEQINFO_FILE_NAME = 'seqinfo.ini'
 GT_ANNOTATIONS_FP = 'gt.txt'
 
-IMG_EXT = '.jpeg'
-
-MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/src/player_reid/MixSort"
-os.chdir(MIXSORT_FP)
-
+IMG_EXT = '.bmp'
 
 def get_video_metadata(video_path):
+    logging.info(f'Getting video metadata for {os.path.basename(video_path)}')
     cmd = [
         'ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries',
         'stream=width,height,r_frame_rate', '-of', 'json', video_path
@@ -29,31 +30,32 @@ def get_video_metadata(video_path):
     width = metadata['streams'][0]['width']
     height = metadata['streams'][0]['height']
     fps = eval(metadata['streams'][0]['r_frame_rate'])
+    logging.info(f'Obtained metadata: width={width}, height={height}, fps={fps}')
     return fps, width, height
 
-
 def extract_frames(video_path: str, to_path: str):
-    assert os.path.exists(to_path)
+    logging.info(f'Extracting frames from {os.path.basename(video_path)} to {to_path}')
+    os.makedirs(to_path, exist_ok=True)
     command = [
         'ffmpeg',
         '-i', video_path,
-        os.path.join(to_path, '%06d.jpeg'),
+        os.path.join(to_path, '%06d' + IMG_EXT),
         '-loglevel', 'panic'
     ]
     subprocess.run(command, check=True)
-
+    logging.info(f'Frames extracted to {to_path}')
 
 def create_annotations(video_path: str, image_dir: str, annotations_dir: str):
-
-    vid_name = os.path.basename(video_path).replace('.mp4', '').lower()
-    anotations = {
+    logging.info(f'Creating annotations for {video_path} in {annotations_dir}')
+    vid_name = Path(video_path).stem.lower()
+    annotations = {
         'images': [],
         'annotations': [],
         'videos': {
             "id": 1,
             "file_name": vid_name
-            },
-        'categories':[{
+        },
+        'categories': [{
             "id": 1,
             "name": "pedestrian"
         }]
@@ -77,55 +79,54 @@ def create_annotations(video_path: str, image_dir: str, annotations_dir: str):
             "height": height,
             "width": width
         }
-        anotations["images"].append(image_data)
+        annotations["images"].append(image_data)
 
+    os.makedirs(annotations_dir, exist_ok=True)
     annotation_out_path = os.path.join(annotations_dir, ANNOTATIONS_FILE_NAME)
     with open(annotation_out_path, 'w') as f:
-        json.dump(anotations, f, indent=2)
-        
+        json.dump(annotations, f, indent=2)
+    logging.info(f'Annotations created at {annotation_out_path}')
 
 def create_misc_metadata(vid_out_dir: str, video_path: str, img_dir: str):
-
-    vid_name = os.path.basename(video_path).replace('.mp4', '').lower()
+    logging.info(f'Creating miscellaneous metadata for {video_path} in {vid_out_dir}')
+    vid_name = Path(video_path).stem.lower()
     gt_dir = os.path.join(vid_out_dir, GT_ANNOTATIONS_DIR)
     os.makedirs(gt_dir, exist_ok=True)
 
     gt_txt_fp = os.path.join(gt_dir, GT_ANNOTATIONS_FP)
-    with open(gt_txt_fp, 'w') as f:
-        f.write('')
+    Path(gt_txt_fp).touch()
 
     frame_rate, im_width, im_height = get_video_metadata(video_path)
     num_images = len([f for f in os.listdir(img_dir) if f.endswith(IMG_EXT)])
 
     sequence_path = os.path.join(vid_out_dir, SEQINFO_FILE_NAME)
-    sequence_str = f"[Sequence]\nname={vid_name}]\nimDir={img_dir}\nframeRate={int(frame_rate)}\nseqLength={num_images}\nimWidth={im_width}\nimHeight={im_height}\nimExt={IMG_EXT}"
+    sequence_str = (
+        f"[Sequence]\nname={vid_name}\nimDir={img_dir}\nframeRate={int(frame_rate)}"
+        f"\nseqLength={num_images}\nimWidth={im_width}\nimHeight={im_height}\nimExt={IMG_EXT}"
+    )
 
     with open(sequence_path, 'w') as f:
         f.write(sequence_str)
-
+    logging.info(f'Miscellaneous metadata created at {sequence_path}')
 
 def format_video_to_coco_dataset(video_path: str, to_path: str):
-
-    # make dirs
+    logging.info(f'Formatting video {video_path} to COCO dataset at {to_path}')
     os.makedirs(to_path, exist_ok=True)
-    os.makedirs(os.path.join(to_path, ANNOTATIONS_DIR), exist_ok=True)
-    os.makedirs(os.path.join(to_path, VAL_DIR), exist_ok=True)
+    annotations_dir = os.path.join(to_path, ANNOTATIONS_DIR)
+    os.makedirs(annotations_dir, exist_ok=True)
 
-    vid_name = os.path.basename(video_path).replace('.mp4', '').lower()
+    vid_name = Path(video_path).stem.lower()
     vid_dir = os.path.join(to_path, VAL_DIR, vid_name)
     os.makedirs(vid_dir, exist_ok=True)
-    os.makedirs(os.path.join(to_path, VAL_DIR, vid_name, GT_ANNOTATIONS_DIR), exist_ok=True)
-
-    frames_dir = os.path.join(to_path, VAL_DIR, vid_name, FRAMES_DIR)
+    frames_dir = os.path.join(vid_dir, FRAMES_DIR)
     os.makedirs(frames_dir, exist_ok=True)
 
-    annotations_dir = os.path.join(to_path, ANNOTATIONS_DIR)
     extract_frames(video_path, frames_dir)
     create_annotations(video_path, frames_dir, annotations_dir)
-    create_misc_metadata(vid_dir, video_path, frames_dir)   
+    create_misc_metadata(vid_dir, video_path, frames_dir)
+    logging.info(f'Formatted video {video_path} to COCO dataset at {to_path}')
 
 if __name__ == "__main__":
-
     vid_path = "/playpen-storage/levlevi/player-re-id/src/player_reid/sample-videos/clips/Rockets_2_Warriors_10_31_2015_clip_1.mp4"
     dst_path = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
     format_video_to_coco_dataset(vid_path, dst_path)

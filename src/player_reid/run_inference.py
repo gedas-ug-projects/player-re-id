@@ -12,7 +12,7 @@ DATA_DIR = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datase
 os.chdir(MIXSORT_FP)
 
 
-def generate_player_tracks(coco_dataset_path: str, track_out_path: str):
+def generate_player_tracks(coco_dataset_path: str, track_out_path: str, rank: int=0):
     
     parser = make_parser()
     args = parser.parse_args([
@@ -38,6 +38,7 @@ def generate_player_tracks(coco_dataset_path: str, track_out_path: str):
         args.experiment_name = exp.exp_name
 
     num_gpu = 1
+    
     launch(
         main,
         num_gpu,
@@ -45,7 +46,7 @@ def generate_player_tracks(coco_dataset_path: str, track_out_path: str):
         args.machine_rank,
         backend=args.dist_backend,
         dist_url=args.dist_url,
-        args=(exp, args, num_gpu, coco_dataset_path, track_out_path),
+        args=(exp, args, num_gpu, coco_dataset_path, track_out_path, rank),
     )
 
 

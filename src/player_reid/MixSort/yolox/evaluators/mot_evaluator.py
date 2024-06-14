@@ -13,10 +13,12 @@ from yolox.utils import (
     time_synchronized,
     xyxy2xywh
 )
+
 # from yolox.tracker.byte_tracker import BYTETracker
 from yolox.sort_tracker.sort import Sort
 from yolox.deepsort_tracker.deepsort import DeepSort
 from yolox.motdt_tracker.motdt_tracker import OnlineTracker
+from yolox.mixsort_tracker.mixsort_iou_tracker import MIXTracker
 
 import contextlib
 import io
@@ -225,16 +227,7 @@ class MOTEvaluator:
         synchronize()
         return eval_results
 
-    def evaluate_mixsort(
-        self,
-        model,
-        distributed=False,
-        half=False,
-        trt_file=None,
-        decoder=None,
-        test_size=None,
-        result_path=None
-    ):
+    def evaluate_mixsort(self, model, distributed=False, half=False, trt_file=None, decoder=None, test_size=None, result_path=None, rank=0):
         """
         COCO average precision (AP) Evaluation. Iterate inference on the test dataset
         and the results are evaluated by COCO API.
@@ -252,85 +245,52 @@ class MOTEvaluator:
         
         assert result_path.endswith('.txt'), f"Result path must end with .txt, but got {result_path}"
         
-        if self.args.iou_only:
-            from yolox.mixsort_tracker.mixsort_iou_tracker import MIXTracker
-        else:
-            from yolox.mixsort_tracker.mixsort_tracker import MIXTracker
 
-        # like ByteTrack, we use different setting for different videos
-        setting = {
-                    'MOT17-01-FRCNN':{
-                        'track_buffer':27,
-                        'track_thresh':0.6275
-                    },
-                    'MOT17-03-FRCNN':{
-                        'track_buffer':31,
-                        'track_thresh':0.5722
-                    },
-                    'MOT17-06-FRCNN':{
-                        'track_buffer':16,
-                        'track_thresh':0.5446
-                    },
-                    'MOT17-07-FRCNN':{
-                        'track_buffer':24,
-                        'track_thresh':0.5939
-                    },
-                    'MOT17-08-FRCNN':{
-                        'track_buffer':24,
-                        'track_thresh':0.7449
-                    },
-                    'MOT17-12-FRCNN':{
-                        'track_buffer':29,
-                        'track_thresh':0.7036
-                    },
-                    'MOT17-14-FRCNN':{
-                        'track_buffer':28,
-                        'track_thresh':0.5436
-                    },
-                }
-        
+        settings = {
+            'MOT17-01-FRCNN': {'track_buffer': 27, 'track_thresh': 0.6275},
+            'MOT17-03-FRCNN': {'track_buffer': 31, 'track_thresh': 0.5722},
+            'MOT17-06-FRCNN': {'track_buffer': 16, 'track_thresh': 0.5446},
+            'MOT17-07-FRCNN': {'track_buffer': 24, 'track_thresh': 0.5939},
+            'MOT17-08-FRCNN': {'track_buffer': 24, 'track_thresh': 0.7449},
+            'MOT17-12-FRCNN': {'track_buffer': 29, 'track_thresh': 0.7036},
+            'MOT17-14-FRCNN': {'track_buffer': 28, 'track_thresh': 0.5436}
+        }
+
         def set_args(args, video):
-            if video not in setting.keys():
-                return args
-            for k,v in setting[video].items():
-                args.__setattr__(k,v)
+            if video in settings:
+                for k, v in settings[video].items():
+                    setattr(args, k, v)
             return args
         
-        # TODO half to amp_test
         tensor_type = torch.cuda.HalfTensor if half else torch.cuda.FloatTensor
-        
-        model = model.eval()
-
+        model.eval()
         if half:
             model = model.half()
-        ids = []
-        data_list = []
-        results = []
-        video_names = defaultdict()
-        progress_bar = tqdm if is_main_process() else iter
-        
-        inference_time = 0
-        track_time = 0
-        n_samples = len(self.dataloader) - 1
         
         if trt_file is not None:
-            from torch2trt import TRTModule
-
             model_trt = TRTModule()
             model_trt.load_state_dict(torch.load(trt_file))
-
             x = torch.ones(1, 3, test_size[0], test_size[1]).cuda()
             model(x)
             model = model_trt
-        
-        tracker = MIXTracker(self.args)
+
+        tracker = MIXTracker(self.args, rank=rank)
         ori_thresh = self.args.track_thresh
-    
-        for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in enumerate(
-            progress_bar(self.dataloader)
-        ):
+
+        data_list = []
+        results = []
+        video_names = defaultdict(str)
+        
+        if is_main_process():
+            progress_bar = tqdm(self.dataloader)
+        else:
+            progress_bar = iter(self.dataloader)
+            
+        inference_time, track_time = 0, 0
+        n_samples = len(self.dataloader) - 1
+        
+        for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in enumerate(progress_bar):
             with torch.no_grad():
-                # init tracker
                 frame_id = info_imgs[2].item()
                 video_id = info_imgs[3].item()
                 img_file_name = info_imgs[4]
@@ -338,6 +298,7 @@ class MOTEvaluator:
                 
                 if video_name not in video_names:
                     video_names[video_id] = video_name
+                    
                 if frame_id == 1:
                     self.args = set_args(self.args, video_name)
                     if 'MOT17' in video_name:
@@ -345,66 +306,58 @@ class MOTEvaluator:
                         self.args.iou_thresh = 0.2217
                         self.args.match_thresh = 0.7986
                     tracker.re_init(self.args)
-                    if len(results) != 0:
+                    if results:
                         write_results(result_path, results)
                         results = []
 
                 imgs = imgs.type(tensor_type)
 
-                # skip the the last iters since batchsize might be not enough for batch inference
-                is_time_record = cur_iter < len(self.dataloader) - 1
+                is_time_record = cur_iter < n_samples
                 if is_time_record:
-                    start = time.time()
+                    start = time.perf_counter()
 
-                with torch.no_grad():
-                    outputs = model(imgs)
-                if decoder is not None:
+                outputs = model(imgs)
+                if decoder:
                     outputs = decoder(outputs, dtype=outputs.type())
-
                 outputs = postprocess(outputs, self.num_classes, self.confthre, self.nmsthre)
-            
+
                 if is_time_record:
-                    infer_end = time_synchronized()
+                    infer_end = time.perf_counter()
                     inference_time += infer_end - start
 
             output_results = self.convert_to_coco_format(outputs, info_imgs, ids)
             data_list.extend(output_results)
 
-            # run tracking
             if outputs[0] is not None:
+                # online_targets = tracker.update(outputs[0], info_imgs, self.img_size, origin_imgs.squeeze(0).cuda())
                 online_targets = tracker.update(outputs[0], info_imgs, self.img_size, origin_imgs.squeeze(0).cuda())
-                online_tlwhs = []
-                online_ids = []
-                online_scores = []
+                online_tlwhs, online_ids, online_scores = [], [], []
                 for t in online_targets:
-                    tlwh = t.tlwh
-                    tid = t.track_id
+                    tlwh, tid, score = t.tlwh, t.track_id, t.score
                     vertical = tlwh[2] / tlwh[3] > 1.6
                     if tlwh[2] * tlwh[3] > self.args.min_box_area and not vertical:
                         online_tlwhs.append(tlwh)
                         online_ids.append(tid)
-                        online_scores.append(t.score)
-                # save results
+                        online_scores.append(score)
                 results.append((frame_id, online_tlwhs, online_ids, online_scores))
 
             if is_time_record:
-                track_end = time_synchronized()
+                track_end = time.perf_counter()
                 track_time += track_end - infer_end
             
-            if cur_iter == len(self.dataloader) - 1:
-                # timer.toc() ## what is this
-                # online_im = plot_tracking(img_info)
+            if cur_iter == n_samples:
                 write_results(result_path, results)
 
-        # statistics = torch.cuda.FloatTensor([inference_time, track_time, n_samples])
         statistics = torch.tensor([inference_time, track_time, n_samples], dtype=torch.float32, device='cuda')
         if distributed:
             data_list = gather(data_list, dst=0)
             data_list = list(itertools.chain(*data_list))
             torch.distributed.reduce(statistics, dst=0)
 
-        eval_results = self.evaluate_prediction(data_list, statistics)
-        synchronize()
+        eval_results = None
+        # eval_results = self.evaluate_prediction(data_list, statistics)
+        # synchronize()
+    
         return eval_results
 
     def evaluate_mixsort_oc(
