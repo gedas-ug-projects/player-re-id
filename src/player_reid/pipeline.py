@@ -17,6 +17,7 @@ def process_dir(videos_dir, track_output_dir, num_videos=-1):
         format_video_to_coco_dataset(fp, coco_dst_path)
         generate_player_tracks(coco_dst_path, track_dst_path)
         ## TODO: remove temp files
+        
 
 if __name__ == "__main__":
     
