@@ -18,6 +18,7 @@ def process_video(fp, track_output_dir, rank):
     generate_player_tracks(coco_dst_path, track_dst_path, rank)
     shutil.rmtree(coco_dst_path)
 
+
 def process_dir(videos_dir, track_output_dir, num_videos=-1):
     video_files = glob(os.path.join(videos_dir, "*.mp4"))
     if num_videos > 0:
