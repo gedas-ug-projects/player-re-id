@@ -1,9 +1,9 @@
 import json
-import ast
 import os
 import logging
 import sys
 import torch.multiprocessing as mp
+import warnings
 
 from glob import glob
 from concurrent.futures import ThreadPoolExecutor
@@ -12,7 +12,22 @@ from tqdm import tqdm
 from typing import List
 
 MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
-MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
+MINI_CPM_DIR = "/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
+PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
+
+1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with None.
+2. Jersey Colors: List the colors visible on the player's jersey. Format this as a list of color names in lowercase (e.g., ["red", "white"]). If colors are not visible, respond with None.
+3. Race: Determine the race or ethnicity of the player. Choose one from "white", "black", or "mixed". If race is not visible, respond with None.
+4. Position: Identify the player's position. Use one of the following abbreviations: "G" (Guard), "C" (Center), "F" (Forward), "SG" (Shooting Guard), "PF" (Power Forward), or "SF" (Small Forward). If position is not visible, respond with None.
+
+Based on the frame description, produce an output prediction in the following JSON format:
+{
+  "jersey_number": "<predicted_jersey_number>",
+  "jersey_colors": ["<predicted_color_1>", "<predicted_color_2>"],
+  "race": "<predicted_race>",
+  "position": "<predicted_position>"
+}
+[EOS]"""
 
 if os.path.exists(MINI_CPM_DIR):
     sys.path.append(MINI_CPM_DIR)
@@ -22,6 +37,7 @@ else:
 
 from chat import MiniCPMVChat, img2base64
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -38,30 +54,15 @@ def load_model_and_tokenizer(device: int = 0):
 
 def ocr(image, model):
     try:
-        question = """This is an image of a basketball player. Identify the colors of the player's jersey and perform OCR to find the jersey number. 
-        If the jersey number or colors are not visible, respond with None for each missing variable. 
-        Format your result as '{"jersey_colors": ["color1", "color2", ...], "jersey_number": number}[EOS]'. 
-        If multiple colors are present on the jersey, list all the colors. The jersey number should be an integer.""".replace('\n', '')
+        question = PROMPT
         msgs = [{'role': 'user', 'content': question}]
         inputs = {"image": image, "question": json.dumps(msgs)}
         answer = model.chat(inputs)
-        
-        try:
-            result = '{' + answer.split('[EOS]')[0].split('{')[-1]
-        except:
-            result = {
-                "jersey_colors": None,
-                "jersey_number": None
-            }
-            return result
-        return ast.literal_eval(result)
-    except Exception as e:
-        logger.info(f"Failed to perform OCR on image: {e}")
-        result = {
-                "jersey_colors": None,
-                "jersey_number": None
-            }
+        result = answer
         return result
+    except Exception as e:
+        logger.error(f"Failed to perform OCR: {e}")
+        return ""
 
 def load_and_convert_image(fp: str):
     try:
@@ -107,20 +108,22 @@ def process_dir(dirs, device: int = 0, all_results = None):
     for dir_fp in dirs:
         logger.info(f"Processing directory: {dir_fp}")
         output_dir = os.path.join("results", os.path.basename(dir_fp))
-        os.makedirs(output_dir, exis
-                    t_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
         dir_fp, dir_result = ocr_dir(dir_fp, model, output_dir)
         all_results[dir_fp] = dir_result
 
 def main():
     mp.set_start_method('spawn')
-    dirs = glob(os.path.join('/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/sample_tracks_nba_100/__tracks_nba_50_grouped__/_hand-labeled', '*'))
+    
+    tracks_dir = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/_50_game_reid_benchmark_/labeled-tracks'
+    out_fp = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/results.json'
+    dirs = glob(os.path.join(tracks_dir, '*', '*'))[0:1]
     
     manager = mp.Manager()
     all_results = manager.dict()
     
     processes = []
-    num_devices = 8
+    num_devices = 1
 
     for i in range(num_devices):
         sub_dirs_arr = [dirs[j] for j in range(len(dirs)) if j % num_devices == i]
@@ -130,10 +133,8 @@ def main():
     for process in processes:
         process.join()
         
-    print(f"All results: {all_results}")
-
-    result_out_fp = '/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/nba_100_tracks_ocr_results.json'
-    with open(result_out_fp, 'w') as f:
+    logger.info(f"All results: {all_results}")
+    with open(out_fp, 'w') as f:
         for dir_fp, results in all_results.items():
             f.write(f"{dir_fp}: {json.dumps(results)}\n")
     logger.info("Processing completed successfully.")

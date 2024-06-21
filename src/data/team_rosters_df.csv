@@ -1,0 +1,453 @@
+team_id,team_name,player_id,player_name,team_colors,position,jersey_number,race
+1610612738,boston_celtics,202340,"Bradley, Avery","['#007A33', '#BA9653', '#963821', '#000000']",PG,0,black
+1610612738,boston_celtics,203109,"Crowder, Jae","['#007A33', '#BA9653', '#963821', '#000000']",SF,99,black
+1610612738,boston_celtics,203089,"Holland, John","['#007A33', '#BA9653', '#963821', '#000000']",SG,30,black
+1610612738,boston_celtics,1626154,"Hunter, R. J.","['#007A33', '#BA9653', '#963821', '#000000']",SG,28,black
+1610612738,boston_celtics,201973,"Jerebko, Jonas","['#007A33', '#BA9653', '#963821', '#000000']",PF,8,white
+1610612738,boston_celtics,101161,"Johnson, Amir","['#007A33', '#BA9653', '#963821', '#000000']",PF,90,black
+1610612738,boston_celtics,1626175,"Mickey, Jordan","['#007A33', '#BA9653', '#963821', '#000000']",PF,55,black
+1610612738,boston_celtics,203482,"Olynyk, Kelly","['#007A33', '#BA9653', '#963821', '#000000']",C,41,white
+1610612738,boston_celtics,1626179,"Rozier, Terry","['#007A33', '#BA9653', '#963821', '#000000']",PG,12,black
+1610612738,boston_celtics,203935,"Smart, Marcus","['#007A33', '#BA9653', '#963821', '#000000']",PG,36,black
+1610612738,boston_celtics,203096,"Sullinger, Jared","['#007A33', '#BA9653', '#963821', '#000000']",PF,7,black
+1610612738,boston_celtics,202738,"Thomas, Isaiah","['#007A33', '#BA9653', '#963821', '#000000']",PG,4,black
+1610612738,boston_celtics,202323,"Turner, Evan","['#007A33', '#BA9653', '#963821', '#000000']",SF,11,black
+1610612738,boston_celtics,203923,"Young, James","['#007A33', '#BA9653', '#963821', '#000000']",SG,13,black
+1610612738,boston_celtics,203092,"Zeller, Tyler","['#007A33', '#BA9653', '#963821', '#000000']",C,44,white
+1610612751,brooklyn_nets,202711,"Bogdanović, Bojan","['#000000', '#FFFFFF']",G/F,44,white
+1610612751,brooklyn_nets,203900,"Brown, Markel","['#000000', '#FFFFFF']",G,22,black
+1610612751,brooklyn_nets,201961,"Ellington, Wayne","['#000000', '#FFFFFF']",G,21,black
+1610612751,brooklyn_nets,1626178,"Hollis-Jefferson, Rondae","['#000000', '#FFFFFF']",F,24,black
+1610612751,brooklyn_nets,101127,"Jack, Jarrett","['#000000', '#FFFFFF']",G,2,black
+1610612751,brooklyn_nets,203508,"Karasev, Sergey","['#000000', '#FFFFFF']",G/F,10,white
+1610612751,brooklyn_nets,203930,"Kilpatrick, Sean","['#000000', '#FFFFFF']",G,6,black
+1610612751,brooklyn_nets,203499,"Larkin, Shane","['#000000', '#FFFFFF']",G,0,black
+1610612751,brooklyn_nets,201572,"Lopez, Brook","['#000000', '#FFFFFF']",C,11,mixed
+1610612751,brooklyn_nets,1626191,"McCullough, Chris","['#000000', '#FFFFFF']",F,1,black
+1610612751,brooklyn_nets,203186,"Reed, Willie","['#000000', '#FFFFFF']",F/C,33,black
+1610612751,brooklyn_nets,203080,"Robinson, Thomas","['#000000', '#FFFFFF']",F,41,black
+1610612751,brooklyn_nets,101114,"Sims, Henry","['#000000', '#FFFFFF']",F/C,14,black
+1610612751,brooklyn_nets,202388,"Sloan, Donald","['#000000', '#FFFFFF']",G,15,black
+1610612751,brooklyn_nets,201152,"Young, Thaddeus","['#000000', '#FFFFFF']",F,30,black
+1610612752,new_york_knicks,201167,"Afflalo, Arron","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G/F,4,black
+1610612752,new_york_knicks,200811,"Amundson, Lou","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F/C,17,white
+1610612752,new_york_knicks,2546,"Anthony, Carmelo","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F,7,mixed
+1610612752,new_york_knicks,101181,"Calderón, José","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G,3,white
+1610612752,new_york_knicks,203921,"Early, Cleanthony","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F,11,black
+1610612752,new_york_knicks,204038,"Galloway, Langston","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G,2,black
+1610612752,new_york_knicks,1626170,"Grant, Jerian","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G,13,black
+1610612752,new_york_knicks,201577,"Lopez, Robin","['#006BB6', '#F58426', '#BEC0C2', '#000000']",C,8,mixed
+1610612752,new_york_knicks,203124,"O'Quinn, Kyle","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F/C,9,black
+1610612752,new_york_knicks,204001,"Porziņģis, Kristaps","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F/C,6,white
+1610612752,new_york_knicks,202338,"Séraphin, Kevin","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F/C,1,black
+1610612752,new_york_knicks,202498,"Thomas, Lance","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F,42,black
+1610612752,new_york_knicks,2756,"Vujačić, Sasha","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G,18,white
+1610612752,new_york_knicks,202682,"Williams, Derrick","['#006BB6', '#F58426', '#BEC0C2', '#000000']",F,23,black
+1610612752,new_york_knicks,203100,"Wroten, Tony","['#006BB6', '#F58426', '#BEC0C2', '#000000']",G,5,black
+1610612755,philadelphia_76ers,1882,"Brand, Elton","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,42,black
+1610612755,philadelphia_76ers,203477,"Canaan, Isaiah","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G,0,black
+1610612755,philadelphia_76ers,203496,"Covington, Robert","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,33,black
+1610612755,philadelphia_76ers,203954,"Embiid, Joel","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",C,21,black
+1610612755,philadelphia_76ers,203924,"Grant, Jerami","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,39,black
+1610612755,philadelphia_76ers,1626158,"Holmes, Richaun","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,22,black
+1610612755,philadelphia_76ers,201171,"Landry, Carl","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,7,black
+1610612755,philadelphia_76ers,203088,"Marshall, Kendall","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G,5,black
+1610612755,philadelphia_76ers,204456,"McConnell, T. J.","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G,12,white
+1610612755,philadelphia_76ers,203457,"Noel, Nerlens","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F/C,4,black
+1610612755,philadelphia_76ers,1626143,"Okafor, Jahlil","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",C,8,black
+1610612755,philadelphia_76ers,202397,"Smith, Ish","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G,1,black
+1610612755,philadelphia_76ers,203917,"Stauskas, Nik","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G,11,white
+1610612755,philadelphia_76ers,203138,"Thompson, Hollis","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",G/F,31,black
+1610612755,philadelphia_76ers,1626174,"Wood, Christian","['#0000FF', '#FF0000', '#000080', '#C0C0C0']",F,35,black
+1610612761,toronto_raptors,202687,"Biyombo, Bismack","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",C,8,black
+1610612761,toronto_raptors,203998,"Caboclo, Bruno","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F,20,black
+1610612761,toronto_raptors,201960,"Carroll, DeMarre","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F,5,black
+1610612761,toronto_raptors,201942,"DeRozan, DeMar","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G,10,black
+1610612761,toronto_raptors,201949,"Johnson, James","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F,3,black
+1610612761,toronto_raptors,202709,"Joseph, Cory","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G,6,black
+1610612761,toronto_raptors,200768,"Lowry, Kyle","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G,7,black
+1610612761,toronto_raptors,203512,"Nogueira, Lucas","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",C,92,black
+1610612761,toronto_raptors,202335,"Patterson, Patrick","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F/C,54,black
+1610612761,toronto_raptors,1626181,"Powell, Norman","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G,24,black
+1610612761,toronto_raptors,203082,"Ross, Terrence","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G/F,31,black
+1610612761,toronto_raptors,2449,"Scola, Luis","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F,4,white
+1610612761,toronto_raptors,201574,"Thompson, Jason","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",F/C,1,black
+1610612761,toronto_raptors,202685,"Valančiūnas, Jonas","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",C,17,white
+1610612761,toronto_raptors,1626153,"Wright, Delon","['#FF0000', '#000000', '#C0C0C0', '#FFD700']",G,55,black
+1610612741,chicago_bulls,203946,"Bairstow, Cameron","['#CE1141', '#000000']",F/C,41,white
+1610612741,chicago_bulls,201166,"Brooks, Aaron","['#CE1141', '#000000']",G,0,black
+1610612741,chicago_bulls,202710,"Butler, Jimmy","['#CE1141', '#000000']",G/F,21,black
+1610612741,chicago_bulls,2399,"Dunleavy Jr., Mike","['#CE1141', '#000000']",F,34,black
+1610612741,chicago_bulls,1626245,"Felicio, Cristiano","['#CE1141', '#000000']",C,6,black
+1610612741,chicago_bulls,2200,"Gasol, Pau","['#CE1141', '#000000']",F/C,16,white
+1610612741,chicago_bulls,201959,"Gibson, Taj","['#CE1141', '#000000']",F,22,black
+1610612741,chicago_bulls,203200,"Holiday, Justin","['#CE1141', '#000000']",G,7,black
+1610612741,chicago_bulls,203926,"McDermott, Doug","['#CE1141', '#000000']",F,3,white
+1610612741,chicago_bulls,202703,"Mirotić, Nikola","['#CE1141', '#000000']",F,44,white
+1610612741,chicago_bulls,202734,"Moore, E'Twaun","['#CE1141', '#000000']",G,55,black
+1610612741,chicago_bulls,201149,"Noah, Joakim","['#CE1141', '#000000']",C,13,mixed
+1610612741,chicago_bulls,1626171,"Portis, Bobby","['#CE1141', '#000000']",F,5,black
+1610612741,chicago_bulls,201565,"Rose, Derrick","['#CE1141', '#000000']",G,1,black
+1610612741,chicago_bulls,203503,"Snell, Tony","['#CE1141', '#000000']",G/F,20,black
+1610612739,cleveland_cavaliers,203521,"Dellavedova, Matthew","['#6F263D', '#041E42', '#FFB81C', '#000000']",PG,8,white
+1610612739,cleveland_cavaliers,101112,"Frye, Channing","['#6F263D', '#041E42', '#FFB81C', '#000000']",C,9,black
+1610612739,cleveland_cavaliers,202681,"Irving, Kyrie","['#6F263D', '#041E42', '#FFB81C', '#000000']",PG,2,black
+1610612739,cleveland_cavaliers,2544,"James, LeBron","['#6F263D', '#041E42', '#FFB81C', '#000000']",SF,23,black
+1610612739,cleveland_cavaliers,2210,"Jefferson, Richard","['#6F263D', '#041E42', '#FFB81C', '#000000']",SF,24,black
+1610612739,cleveland_cavaliers,1626145,"Jones, Dahntay","['#6F263D', '#041E42', '#FFB81C', '#000000']",SF,30,black
+1610612739,cleveland_cavaliers,2592,"Jones, James","['#6F263D', '#041E42', '#FFB81C', '#000000']",SF,1,black
+1610612739,cleveland_cavaliers,201619,"Kaun, Sasha","['#6F263D', '#041E42', '#FFB81C', '#000000']",C,14,white
+1610612739,cleveland_cavaliers,201567,"Love, Kevin","['#6F263D', '#041E42', '#FFB81C', '#000000']",PF,0,white
+1610612739,cleveland_cavaliers,203895,"McRae, Jordan","['#6F263D', '#041E42', '#FFB81C', '#000000']",PG,12,black
+1610612739,cleveland_cavaliers,202389,"Mozgov, Timofey","['#6F263D', '#041E42', '#FFB81C', '#000000']",C,20,white
+1610612739,cleveland_cavaliers,202697,"Shumpert, Iman","['#6F263D', '#041E42', '#FFB81C', '#000000']",SG,4,black
+1610612739,cleveland_cavaliers,2747,"Smith, J. R.","['#6F263D', '#041E42', '#FFB81C', '#000000']",SG,5,black
+1610612739,cleveland_cavaliers,202684,"Thompson, Tristan","['#6F263D', '#041E42', '#FFB81C', '#000000']",F/C,13,black
+1610612739,cleveland_cavaliers,2590,"Williams, Mo","['#6F263D', '#041E42', '#FFB81C', '#000000']",PG,52,black
+1610612765,detroit_pistons,201202,"Anthony, Joel","['#FF0000', '#4169E1', '#808080', '#000080']",C,50,black
+1610612765,detroit_pistons,203382,"Baynes, Aron","['#FF0000', '#4169E1', '#808080', '#000080']",C,12,white
+1610612765,detroit_pistons,2581,"Blake, Steve","['#FF0000', '#4169E1', '#808080', '#000080']",G,22,white
+1610612765,detroit_pistons,203485,"Brown, Lorenzo","['#FF0000', '#4169E1', '#808080', '#000080']",G,17,black
+1610612765,detroit_pistons,203493,"Bullock, Reggie","['#FF0000', '#4169E1', '#808080', '#000080']",G,25,black
+1610612765,detroit_pistons,203484,"Caldwell-Pope, Kentavious","['#FF0000', '#4169E1', '#808080', '#000080']",G,5,black
+1610612765,detroit_pistons,203915,"Dinwiddie, Spencer","['#FF0000', '#4169E1', '#808080', '#000080']",G,8,black
+1610612765,detroit_pistons,203083,"Drummond, Andre","['#FF0000', '#4169E1', '#808080', '#000080']",C,0,black
+1610612765,detroit_pistons,202699,"Harris, Tobias","['#FF0000', '#4169E1', '#808080', '#000080']",F,34,black
+1610612765,detroit_pistons,1626199,"Hilliard, Darrun","['#FF0000', '#4169E1', '#808080', '#000080']",G,6,black
+1610612765,detroit_pistons,202704,"Jackson, Reggie","['#FF0000', '#4169E1', '#808080', '#000080']",G,1,black
+1610612765,detroit_pistons,1626169,"Johnson, Stanley","['#FF0000', '#4169E1', '#808080', '#000080']",F,3,black
+1610612765,detroit_pistons,201975,"Meeks, Jodie","['#FF0000', '#4169E1', '#808080', '#000080']",G,20,black
+1610612765,detroit_pistons,202694,"Morris, Marcus","['#FF0000', '#4169E1', '#808080', '#000080']",F,13,black
+1610612765,detroit_pistons,201229,"Tolliver, Anthony","['#FF0000', '#4169E1', '#808080', '#000080']",F,43,black
+1610612754,indiana_pacers,202730,"Allen, Lavoy","['#002D72', '#FFFF00', '#C0C0C0']",F,5,black
+1610612754,indiana_pacers,1626176,"Christmas, Rakeem","['#002D72', '#FFFF00', '#C0C0C0']",F,25,black
+1610612754,indiana_pacers,101145,"Ellis, Monta","['#002D72', '#FFFF00', '#C0C0C0']",G,11,black
+1610612754,indiana_pacers,202331,"George, Paul","['#002D72', '#FFFF00', '#C0C0C0']",F,13,black
+1610612754,indiana_pacers,201588,"Hill, George","['#002D72', '#FFFF00', '#C0C0C0']",G,3,black
+1610612754,indiana_pacers,201941,"Hill, Jordan","['#002D72', '#FFFF00', '#C0C0C0']",F,27,black
+1610612754,indiana_pacers,203524,"Hill, Solomon","['#002D72', '#FFFF00', '#C0C0C0']",F,44,black
+1610612754,indiana_pacers,201951,"Lawson, Ty","['#002D72', '#FFFF00', '#C0C0C0']",G,10,black
+1610612754,indiana_pacers,101133,"Mahinmi, Ian","['#002D72', '#FFFF00', '#C0C0C0']",C,28,black
+1610612754,indiana_pacers,101139,"Miles, C. J.","['#002D72', '#FFFF00', '#C0C0C0']",F,0,black
+1610612754,indiana_pacers,203922,"Robinson III, Glenn","['#002D72', '#FFFF00', '#C0C0C0']",F,40,black
+1610612754,indiana_pacers,201155,"Stuckey, Rodney","['#002D72', '#FFFF00', '#C0C0C0']",G,2,black
+1610612754,indiana_pacers,1626167,"Turner, Myles","['#002D72', '#FFFF00', '#C0C0C0']",C,33,black
+1610612754,indiana_pacers,203963,"Whittington, Shayne","['#002D72', '#FFFF00', '#C0C0C0']",C,42,white
+1610612754,indiana_pacers,1626202,"Young, Joe","['#002D72', '#FFFF00', '#C0C0C0']",G,1,black
+1610612749,milwaukee_bucks,203507,"Antetokounmpo, Giannis","['#006847', '#F0EAD6', '#0046AD', '#000000']",SF,34,black
+1610612749,milwaukee_bucks,201573,"Bayless, Jerryd","['#006847', '#F0EAD6', '#0046AD', '#000000']",PG,19,black
+1610612749,milwaukee_bucks,203487,"Carter-Williams, Michael","['#006847', '#F0EAD6', '#0046AD', '#000000']",SG,5,black
+1610612749,milwaukee_bucks,203898,"Ennis, Tyler","['#006847', '#F0EAD6', '#0046AD', '#000000']",PG,11,white
+1610612749,milwaukee_bucks,203089,"Henson, John","['#006847', '#F0EAD6', '#0046AD', '#000000']",PF,31,black
+1610612749,milwaukee_bucks,203996,"Inglis, Damien","['#006847', '#F0EAD6', '#0046AD', '#000000']",SF,17,black
+1610612749,milwaukee_bucks,201564,"Mayo, O. J.","['#006847', '#F0EAD6', '#0046AD', '#000000']",SG,3,black
+1610612749,milwaukee_bucks,203114,"Middleton, Khris","['#006847', '#F0EAD6', '#0046AD', '#000000']",SG,22,black
+1610612749,milwaukee_bucks,202328,"Monroe, Greg","['#006847', '#F0EAD6', '#0046AD', '#000000']",C,15,black
+1610612749,milwaukee_bucks,200779,"Novak, Steve","['#006847', '#F0EAD6', '#0046AD', '#000000']",PF,6,white
+1610612749,milwaukee_bucks,203948,"O'Bryant III, Johnny","['#006847', '#F0EAD6', '#0046AD', '#000000']",PF,77,black
+1610612749,milwaukee_bucks,203953,"Parker, Jabari","['#006847', '#F0EAD6', '#0046AD', '#000000']",SF,12,black
+1610612749,milwaukee_bucks,203101,"Plumlee, Miles","['#006847', '#F0EAD6', '#0046AD', '#000000']",C,18,white
+1610612749,milwaukee_bucks,202349,"Vásquez, Greivis","['#006847', '#F0EAD6', '#0046AD', '#000000']",SG,21,white
+1610612749,milwaukee_bucks,1626173,"Vaughn, Rashad","['#006847', '#F0EAD6', '#0046AD', '#000000']",SG,20,black
+1610612737,atlanta_hawks,203145,"Bazemore, Kent","['#C8102E', '#B3B5B4', '#A1A1A4']",G,24,black
+1610612737,atlanta_hawks,203501,"Hardaway Jr., Tim","['#C8102E', '#B3B5B4', '#A1A1A4']",G,10,black
+1610612737,atlanta_hawks,2550,"Hinrich, Kirk","['#C8102E', '#B3B5B4', '#A1A1A4']",G,12,white
+1610612737,atlanta_hawks,201143,"Horford, Al","['#C8102E', '#B3B5B4', '#A1A1A4']",F/C,15,black
+1610612737,atlanta_hawks,2743,"Humphries, Kris","['#C8102E', '#B3B5B4', '#A1A1A4']",F,43,white
+1610612737,atlanta_hawks,2594,"Korver, Kyle","['#C8102E', '#B3B5B4', '#A1A1A4']",G/F,26,white
+1610612737,atlanta_hawks,200794,"Millsap, Paul","['#C8102E', '#B3B5B4', '#A1A1A4']",F,4,black
+1610612737,atlanta_hawks,203488,"Muscala, Mike","['#C8102E', '#B3B5B4', '#A1A1A4']",F/C,31,white
+1610612737,atlanta_hawks,203934,"Patterson, Lamar","['#C8102E', '#B3B5B4', '#A1A1A4']",G/F,13,black
+1610612737,atlanta_hawks,203471,"Schröder, Dennis","['#C8102E', '#B3B5B4', '#A1A1A4']",G,17,black
+1610612737,atlanta_hawks,203118,"Scott, Mike","['#C8102E', '#B3B5B4', '#A1A1A4']",F,32,black
+1610612737,atlanta_hawks,200757,"Sefolosha, Thabo","['#C8102E', '#B3B5B4', '#A1A1A4']",G/F,25,black
+1610612737,atlanta_hawks,201168,"Splitter, Tiago","['#C8102E', '#B3B5B4', '#A1A1A4']",C,11,white
+1610612737,atlanta_hawks,204002,"Tavares, Walter","['#C8102E', '#B3B5B4', '#A1A1A4']",C,22,black
+1610612737,atlanta_hawks,201952,"Teague, Jeff","['#C8102E', '#B3B5B4', '#A1A1A4']",G,0,black
+1610612766,charlotte_hornets,201587,"Batum, Nicolas","['#1D1160', '#008080', '#808080']",G/F,5,black
+1610612766,charlotte_hornets,203584,"Daniels, Troy","['#1D1160', '#008080', '#808080']",G,30,black
+1610612766,charlotte_hornets,203268,"Gutiérrez, Jorge","['#1D1160', '#008080', '#808080']",G,12,black
+1610612766,charlotte_hornets,201946,"Hansbrough, Tyler","['#1D1160', '#008080', '#808080']",F,50,white
+1610612766,charlotte_hornets,1626151,"Harrison, Aaron","['#1D1160', '#008080', '#808080']",G,9,black
+1610612766,charlotte_hornets,201150,"Hawes, Spencer","['#1D1160', '#008080', '#808080']",C,00,white
+1610612766,charlotte_hornets,2744,"Jefferson, Al","['#1D1160', '#008080', '#808080']",C,25,black
+1610612766,charlotte_hornets,1626163,"Kaminsky, Frank","['#1D1160', '#008080', '#808080']",C,44,white
+1610612766,charlotte_hornets,203077,"Kidd-Gilchrist, Michael","['#1D1160', '#008080', '#808080']",F,14,black
+1610612766,charlotte_hornets,203087,"Lamb, Jeremy","['#1D1160', '#008080', '#808080']",G,3,black
+1610612766,charlotte_hornets,201584,"Lee, Courtney","['#1D1160', '#008080', '#808080']",G,1,black
+1610612766,charlotte_hornets,202391,"Lin, Jeremy","['#1D1160', '#008080', '#808080']",G,7,asian
+1610612766,charlotte_hornets,202689,"Walker, Kemba","['#1D1160', '#008080', '#808080']",G,15,black
+1610612766,charlotte_hornets,101107,"Williams, Marvin","['#1D1160', '#008080', '#808080']",F,2,black
+1610612766,charlotte_hornets,203469,"Zeller, Cody","['#1D1160', '#008080', '#808080']",F/C,40,white
+1610612748,miami_heat,2547,"Bosh, Chris","['#FF0000', '#FFFF00', '#000000']",F,1,black
+1610612748,miami_heat,2736,"Deng, Luol","['#FF0000', '#FFFF00', '#000000']",F,9,black
+1610612748,miami_heat,201609,"Dragić, Goran","['#FF0000', '#FFFF00', '#000000']",G,7,white
+1610612748,miami_heat,101123,"Green, Gerald","['#FF0000', '#FFFF00', '#000000']",G/F,14,black
+1610612748,miami_heat,2617,"Haslem, Udonis","['#FF0000', '#FFFF00', '#000000']",F,40,black
+1610612748,miami_heat,2207,"Johnson, Joe","['#FF0000', '#FFFF00', '#000000']",G/F,2,black
+1610612748,miami_heat,204020,"Johnson, Tyler","['#FF0000', '#FFFF00', '#000000']",G,8,white
+1610612748,miami_heat,201177,"McRoberts, Josh","['#FF0000', '#FFFF00', '#000000']",F,4,white
+1610612748,miami_heat,1626196,"Richardson, Josh","['#FF0000', '#FFFF00', '#000000']",G,0,black
+1610612748,miami_heat,203950,"Stokes, Jarnell (TW)","['#FF0000', '#FFFF00', '#000000']",F/C,12,black
+1610612748,miami_heat,2405,"Stoudemire, Amar'e","['#FF0000', '#FFFF00', '#000000']",C,5,black
+1610612748,miami_heat,2548,"Wade, Dwyane","['#FF0000', '#FFFF00', '#000000']",G,3,black
+1610612748,miami_heat,203148,"Weber, Brianté","['#FF0000', '#FFFF00', '#000000']",G,12,black
+1610612748,miami_heat,202355,"Whiteside, Hassan","['#FF0000', '#FFFF00', '#000000']",C,21,black
+1610612748,miami_heat,1626159,"Winslow, Justise","['#FF0000', '#FFFF00', '#000000']",F,20,black
+1610612748,miami_heat,1626153,"Wright, Dorell","['#FF0000', '#FFFF00', '#000000']",F,11,black
+1610612753,orlando_magic,203473,"Dedmon, Dewayne","['#0077C0', '#C0C0C0', '#000000']",C,3,black
+1610612753,orlando_magic,203095,"Fournier, Evan","['#0077C0', '#C0C0C0', '#000000']",G/F,10,white
+1610612753,orlando_magic,203932,"Gordon, Aaron","['#0077C0', '#C0C0C0', '#000000']",F,00,black
+1610612753,orlando_magic,1626209,"Hezonja, Mario","['#0077C0', '#C0C0C0', '#000000']",G/F,23,white
+1610612753,orlando_magic,101141,"İlyasova, Ersan","['#0077C0', '#C0C0C0', '#000000']",F,7,white
+1610612753,orlando_magic,201943,"Jennings, Brandon","['#0077C0', '#C0C0C0', '#000000']",G,55,black
+1610612753,orlando_magic,203906,"Marble, Devyn","['#0077C0', '#C0C0C0', '#000000']",G/F,11,black
+1610612753,orlando_magic,203894,"Napier, Shabazz","['#0077C0', '#C0C0C0', '#000000']",G,13,black
+1610612753,orlando_magic,203094,"Nicholson, Andrew","['#0077C0', '#C0C0C0', '#000000']",F,44,black
+1610612753,orlando_magic,203506,"Oladipo, Victor","['#0077C0', '#C0C0C0', '#000000']",G,5,black
+1610612753,orlando_magic,203901,"Payton, Elfrid","['#0077C0', '#C0C0C0', '#000000']",G,4,black
+1610612753,orlando_magic,201160,"Smith, Jason","['#0077C0', '#C0C0C0', '#000000']",F/C,14,white
+1610612753,orlando_magic,202696,"Vučević, Nikola","['#0077C0', '#C0C0C0', '#000000']",C,9,white
+1610612753,orlando_magic,201228,"Watson, C. J.","['#0077C0', '#C0C0C0', '#000000']",G,32,black
+1610612764,washington_wizards,101187,"Anderson, Alan","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SG,6,white
+1610612764,washington_wizards,203078,"Beal, Bradley","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SG,3,black
+1610612764,washington_wizards,201162,"Dudley, Jared","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PF,1,black
+1610612764,washington_wizards,204067,"Eddie, Jarell","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SF,8,black
+1610612764,washington_wizards,2400,"Gooden, Drew","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PF,90,black
+1610612764,washington_wizards,101162,"Gortat, Marcin","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",C,13,white
+1610612764,washington_wizards,201581,"Hickson, JJ","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",C,21,black
+1610612764,washington_wizards,202693,"Morris, Markieff","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PF,5,black
+1610612764,washington_wizards,2403,Nenê,"['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PF,42,black
+1610612764,washington_wizards,1626162,"Oubre Jr., Kelly","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SF,12,black
+1610612764,washington_wizards,203490,"Porter, Otto","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SF,22,black
+1610612764,washington_wizards,201196,"Sessions, Ramon","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PG,7,black
+1610612764,washington_wizards,202066,"Temple, Garrett","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SF,17,black
+1610612764,washington_wizards,201977,"Thornton, Marcus","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",SG,15,black
+1610612764,washington_wizards,202322,"Wall, John","['#003DA5', '#FF0000', '#C0C0C0', '#000080']",PG,2,black
+1610612743,denver_nuggets,201589,"Arthur, Darrell","['#003366', '#FFD700', '#B22222', '#87CEEB']",PF,00,black
+1610612743,denver_nuggets,201571,"Augustin, D. J.","['#003366', '#FFD700', '#B22222', '#87CEEB']",PG,12,black
+1610612743,denver_nuggets,203115,"Barton, Will","['#003366', '#FFD700', '#B22222', '#87CEEB']",SG,5,black
+1610612743,denver_nuggets,201163,"Chandler, Wilson","['#003366', '#FFD700', '#B22222', '#87CEEB']",SF,21,black
+1610612743,denver_nuggets,202702,"Faried, Kenneth","['#003366', '#FFD700', '#B22222', '#87CEEB']",PF,35,black
+1610612743,denver_nuggets,201568,"Gallinari, Danilo","['#003366', '#FFD700', '#B22222', '#87CEEB']",SF,8,white
+1610612743,denver_nuggets,203914,"Harris, Gary","['#003366', '#FFD700', '#B22222', '#87CEEB']",SG,14,black
+1610612743,denver_nuggets,203999,"Jokić, Nikola","['#003366', '#FFD700', '#B22222', '#87CEEB']",C,15,white
+1610612743,denver_nuggets,203530,"Lauvergne, Joffrey","['#003366', '#FFD700', '#B22222', '#87CEEB']",C,77,white
+1610612743,denver_nuggets,2034,"Miller, Mike","['#003366', '#FFD700', '#B22222', '#87CEEB']",SG,3,white
+1610612743,denver_nuggets,1626144,"Mudiay, Emmanuel","['#003366', '#FFD700', '#B22222', '#87CEEB']",SG,0,black
+1610612743,denver_nuggets,2749,"Nelson, Jameer","['#003366', '#FFD700', '#B22222', '#87CEEB']",PG,1,black
+1610612743,denver_nuggets,203994,"Nurkić, Jusuf","['#003366', '#FFD700', '#B22222', '#87CEEB']",C,23,white
+1610612743,denver_nuggets,203960,"Sampson, JaKarr","['#003366', '#FFD700', '#B22222', '#87CEEB']",SF,9,black
+1610612743,denver_nuggets,200826,"Toupane, Axel","['#003366', '#FFD700', '#B22222', '#87CEEB']",SG,6,black
+1610612750,minnesota_timberwolves,202357,"Bjelica, Nemanja","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PF,88,white
+1610612750,minnesota_timberwolves,708,"Garnett, Kevin","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PF,21,black
+1610612750,minnesota_timberwolves,203476,"Dieng, Gorgui","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",C,5,black
+1610612750,minnesota_timberwolves,1626145,"Jones, Tyus","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PG,1,black
+1610612750,minnesota_timberwolves,203897,"LaVine, Zach","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",SG,8,black
+1610612750,minnesota_timberwolves,203498,"Muhammad, Shabazz","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",SG,15,black
+1610612750,minnesota_timberwolves,203940,"Payne, Adreian","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PF,33,black
+1610612750,minnesota_timberwolves,201593,"Peković, Nikola","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",C,14,white
+1610612750,minnesota_timberwolves,2419,"Prince, Tayshaun","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",SF,12,black
+1610612750,minnesota_timberwolves,201937,"Rubio, Ricky","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PG,9,white
+1610612750,minnesota_timberwolves,204014,"Rudež, Damjan","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",SF,10,white
+1610612750,minnesota_timberwolves,202397,"Smith, Greg","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",PF,4,black
+1610612750,minnesota_timberwolves,1626157,"Towns, Karl-Anthony","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",C,32,black
+1610612750,minnesota_timberwolves,203952,"Wiggins, Andrew","['#003366', '#005BBF', '#C0C0C0', '#78DBE2']",SG,22,black
+1610612760,oklahoma_city_thunder,203500,"Adams, Steven","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",C,12,white
+1610612760,oklahoma_city_thunder,2555,"Collison, Nick","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",PF,4,white
+1610612760,oklahoma_city_thunder,201142,"Durant, Kevin","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SF,35,black
+1610612760,oklahoma_city_thunder,200751,"Foye, Randy","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SG,6,black
+1610612760,oklahoma_city_thunder,203962,"Huestis, Josh","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SF,34,black
+1610612760,oklahoma_city_thunder,201586,"Ibaka, Serge","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",PF,9,black
+1610612760,oklahoma_city_thunder,202683,"Kanter, Enes","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",PF/C,11,white
+1610612760,oklahoma_city_thunder,203956,"McGary, Mitch","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",C,33,white
+1610612760,oklahoma_city_thunder,203498,"Mohammed, Nazr","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",C,13,black
+1610612760,oklahoma_city_thunder,201627,"Morrow, Anthony","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SG,2,black
+1610612760,oklahoma_city_thunder,1626166,"Payne, Cameron","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",PG,22,black
+1610612760,oklahoma_city_thunder,203460,"Roberson, André","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SG,21,black
+1610612760,oklahoma_city_thunder,202713,"Singler, Kyle","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SF,5,white
+1610612760,oklahoma_city_thunder,203079,"Waiters, Dion","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",SG,3,black
+1610612760,oklahoma_city_thunder,201566,"Westbrook, Russell","['#007AC1', '#FDB927', '#0000FF', '#FFFF00']",PG,0,black
+1610612757,portland_trail_blazers,1626146,"Alexander, Cliff","['#FF0000', '#000000', '#808080']",F,34,black
+1610612757,portland_trail_blazers,202329,"Aminu, Al-Farouq","['#FF0000', '#000000', '#808080']",F,8,black
+1610612757,portland_trail_blazers,1626192,"Connaughton, Pat","['#FF0000', '#000000', '#808080']",G,5,white
+1610612757,portland_trail_blazers,203459,"Crabbe, Allen","['#FF0000', '#000000', '#808080']",F,23,black
+1610612757,portland_trail_blazers,202334,"Davis, Ed","['#FF0000', '#000000', '#808080']",F,17,black
+1610612757,portland_trail_blazers,203090,"Harkless, Maurice","['#FF0000', '#000000', '#808080']",F,4,black
+1610612757,portland_trail_blazers,201945,"Henderson, Gerald","['#FF0000', '#000000', '#808080']",G,9,black
+1610612757,portland_trail_blazers,2549,"Kaman, Chris","['#FF0000', '#000000', '#808080']",C,35,white
+1610612757,portland_trail_blazers,203086,"Leonard, Meyers","['#FF0000', '#000000', '#808080']",F/C,11,white
+1610612757,portland_trail_blazers,203081,"Lillard, Damian","['#FF0000', '#000000', '#808080']",G,0,black
+1610612757,portland_trail_blazers,203468,"McCollum, CJ","['#FF0000', '#000000', '#808080']",G,3,black
+1610612757,portland_trail_blazers,1626242,"Montero, Luis","['#FF0000', '#000000', '#808080']",G,44,black
+1610612757,portland_trail_blazers,203486,"Plumlee, Mason","['#FF0000', '#000000', '#808080']",C,24,white
+1610612757,portland_trail_blazers,203148,"Roberts, Brian","['#FF0000', '#000000', '#808080']",G,2,black
+1610612757,portland_trail_blazers,203943,"Vonleh, Noah","['#FF0000', '#000000', '#808080']",F,21,black
+1610612762,utah_jazz,202344,"Booker, Trevor","['#000080', '#008000', '#FFFF00']",PF,33,black
+1610612762,utah_jazz,203504,"Burke, Trey","['#000080', '#008000', '#FFFF00']",PG,3,black
+1610612762,utah_jazz,202692,"Burks, Alec","['#000080', '#008000', '#FFFF00']",SG,10,black
+1610612762,utah_jazz,203957,"Exum, Dante","['#000080', '#008000', '#FFFF00']",SG,11,black
+1610612762,utah_jazz,202324,"Favors, Derrick","['#000080', '#008000', '#FFFF00']",PF,15,black
+1610612762,utah_jazz,203497,"Gobert, Rudy","['#000080', '#008000', '#FFFF00']",C,27,white
+1610612762,utah_jazz,202330,"Hayward, Gordon","['#000080', '#008000', '#FFFF00']",SF,20,white
+1610612762,utah_jazz,203918,"Hood, Rodney","['#000080', '#008000', '#FFFF00']",SG,5,black
+1610612762,utah_jazz,204060,"Ingles, Joe","['#000080', '#008000', '#FFFF00']",SF,2,white
+1610612762,utah_jazz,203187,"Johnson, Chris","['#000080', '#008000', '#FFFF00']",SG,23,black
+1610612762,utah_jazz,1626168,"Lyles, Trey","['#000080', '#008000', '#FFFF00']",PF,41,mixed
+1610612762,utah_jazz,202714,"Mack, Shelvin","['#000080', '#008000', '#FFFF00']",PG,8,black
+1610612762,utah_jazz,203526,"Neto, Raul","['#000080', '#008000', '#FFFF00']",PG,25,white
+1610612762,utah_jazz,202353,"Pleiß, Tibor","['#000080', '#008000', '#FFFF00']",C,21,white
+1610612762,utah_jazz,203481,"Withey, Jeff","['#000080', '#008000', '#FFFF00']",C,24,white
+1610612744,golden_state_warriors,2571,"Barbosa, Leandro","['#1D428A', '#FFC72C', '#000000']",G,19,white
+1610612744,golden_state_warriors,203084,"Barnes, Harrison","['#1D428A', '#FFC72C', '#000000']",F,40,black
+1610612744,golden_state_warriors,101106,"Bogut, Andrew","['#1D428A', '#FFC72C', '#000000']",C,12,white
+1610612744,golden_state_warriors,203546,"Clark, Ian","['#1D428A', '#FFC72C', '#000000']",G,21,black
+1610612744,golden_state_warriors,201939,"Curry, Stephen","['#1D428A', '#FFC72C', '#000000']",G,30,mixed
+1610612744,golden_state_warriors,203105,"Ezeli, Festus","['#1D428A', '#FFC72C', '#000000']",C,31,black
+1610612744,golden_state_warriors,203110,"Green, Draymond","['#1D428A', '#FFC72C', '#000000']",F,23,black
+1610612744,golden_state_warriors,2738,"Iguodala, Andre","['#1D428A', '#FFC72C', '#000000']",G/F,9,black
+1610612744,golden_state_warriors,2733,"Livingston, Shaun","['#1D428A', '#FFC72C', '#000000']",G,34,black
+1610612744,golden_state_warriors,1626172,"Looney, Kevon","['#1D428A', '#FFC72C', '#000000']",F,36,white
+1610612744,golden_state_warriors,203949,"McAdoo, James Michael","['#1D428A', '#FFC72C', '#000000']",F,20,black
+1610612744,golden_state_warriors,201575,"Rush, Brandon","['#1D428A', '#FFC72C', '#000000']",G/F,4,black
+1610612744,golden_state_warriors,201578,"Speights, Marreese","['#1D428A', '#FFC72C', '#000000']",F/C,5,black
+1610612744,golden_state_warriors,202691,"Thompson, Klay","['#1D428A', '#FFC72C', '#000000']",G,11,black
+1610612744,golden_state_warriors,2760,"Varejão, Anderson","['#1D428A', '#FFC72C', '#000000']",F/C,18,white
+1610612746,los_angeles_clippers,202332,"Aldrich, Cole","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",C,45,white
+1610612746,los_angeles_clippers,201965,"Ayres, Jeff (DL)","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",C,19,black
+1610612746,los_angeles_clippers,2037,"Crawford, Jamal","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SG,11,black
+1610612746,los_angeles_clippers,1626183,"Dawson, Branden","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SF,22,black
+1610612746,los_angeles_clippers,201145,"Green, Jeff","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SF,8,black
+1610612746,los_angeles_clippers,201933,"Griffin, Blake","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",PF,32,mixed
+1610612746,los_angeles_clippers,202325,"Johnson, Wesley","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SF,33,black
+1610612746,los_angeles_clippers,201599,"Jordan, DeAndre","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",C,6,black
+1610612746,los_angeles_clippers,201601,"Mbah a Moute, Luc","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SF,12,black
+1610612746,los_angeles_clippers,101108,"Paul, Chris","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",PG,3,black
+1610612746,los_angeles_clippers,1718,"Pierce, Paul","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SF,34,black
+1610612746,los_angeles_clippers,203143,"Prigioni, Pablo","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",PG,9,white
+1610612746,los_angeles_clippers,200755,"Redick, JJ","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SG,4,white
+1610612746,los_angeles_clippers,203085,"Rivers, Austin","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",PG,25,mixed
+1610612746,los_angeles_clippers,203912,"Wilcox, C. J.","['#FF0000', '#0000FF', '#C0C0C0', '#000000']",SG,30,black
+1610612747,los_angeles_lakers,101138,"Bass, Brandon","['#552583', '#FFD700', '#000000']",PF,2,black
+1610612747,los_angeles_lakers,204028,"Black, Tarik","['#552583', '#FFD700', '#000000']",C,28,black
+1610612747,los_angeles_lakers,1626148,"Brown, Anthony","['#552583', '#FFD700', '#000000']",SF,3,black
+1610612747,los_angeles_lakers,977,"Bryant, Kobe","['#552583', '#FFD700', '#000000']",SF,24,black
+1610612747,los_angeles_lakers,203903,"Clarkson, Jordan","['#552583', '#FFD700', '#000000']",SG,6,mixed
+1610612747,los_angeles_lakers,201579,"Hibbert, Roy","['#552583', '#FFD700', '#000000']",C,17,black
+1610612747,los_angeles_lakers,1626273,"Huertas, Marcelo","['#552583', '#FFD700', '#000000']",PG,9,white
+1610612747,los_angeles_lakers,203527,"Kelly, Ryan","['#552583', '#FFD700', '#000000']",PF,4,white
+1610612747,los_angeles_lakers,1626204,"Nance Jr., Larry","['#552583', '#FFD700', '#000000']",PF,7,black
+1610612747,los_angeles_lakers,203944,"Randle, Julius","['#552583', '#FFD700', '#000000']",PF,30,black
+1610612747,los_angeles_lakers,1626156,"Russell, D'Angelo","['#552583', '#FFD700', '#000000']",PG,1,black
+1610612747,los_angeles_lakers,203135,"Sacre, Robert","['#552583', '#FFD700', '#000000']",C,50,mixed
+1610612747,los_angeles_lakers,101150,"Williams, Lou","['#552583', '#FFD700', '#000000']",SG,23,black
+1610612747,los_angeles_lakers,1897,"World Peace, Metta","['#552583', '#FFD700', '#000000']",SF,37,black
+1610612747,los_angeles_lakers,201156,"Young, Nick","['#552583', '#FFD700', '#000000']",SG,0,black
+1610612756,phoenix_suns,202339,"Bledsoe, Eric","['#800080', '#FFA500', '#000000', '#808080']",G,2,black
+1610612756,phoenix_suns,1626164,"Booker, Devin (R)","['#800080', '#FFA500', '#000000', '#808080']",G,1,mixed
+1610612756,phoenix_suns,201978,"Budinger, Chase","['#800080', '#FFA500', '#000000', '#808080']",F,10,white
+1610612756,phoenix_suns,2199,"Chandler, Tyson","['#800080', '#FFA500', '#000000', '#808080']",C,4,black
+1610612756,phoenix_suns,203462,"Goodwin, Archie","['#800080', '#FFA500', '#000000', '#808080']",G,20,black
+1610612756,phoenix_suns,203098,"Jenkins, John","['#800080', '#FFA500', '#000000', '#808080']",G,23,white
+1610612756,phoenix_suns,202688,"Knight, Brandon","['#800080', '#FFA500', '#000000', '#808080']",G,3,black
+1610612756,phoenix_suns,203458,"Len, Alex","['#800080', '#FFA500', '#000000', '#808080']",C,21,white
+1610612756,phoenix_suns,202720,"Leuer, Jon","['#800080', '#FFA500', '#000000', '#808080']",F/C,30,white
+1610612756,phoenix_suns,101179,"Price, Ronnie","['#800080', '#FFA500', '#000000', '#808080']",G,14,black
+1610612756,phoenix_suns,203141,"Teletović, Mirza","['#800080', '#FFA500', '#000000', '#808080']",F,35,white
+1610612756,phoenix_suns,200782,"Tucker, P. J.","['#800080', '#FFA500', '#000000', '#808080']",G/F,17,black
+1610612756,phoenix_suns,203933,"Warren, T. J.","['#800080', '#FFA500', '#000000', '#808080']",F,12,black
+1610612756,phoenix_suns,101107,"Williams, Alan (R)","['#800080', '#FFA500', '#000000', '#808080']",F/C,15,black
+1610612758,sacramento_kings,203112,"Acy, Quincy","['#800080', '#808080', '#000000']",PF,13,black
+1610612758,sacramento_kings,202341,"Anderson, James","['#800080', '#808080', '#000000']",SG,5,black
+1610612758,sacramento_kings,201158,"Belinelli, Marco","['#800080', '#808080', '#000000']",SG,3,white
+1610612758,sacramento_kings,2406,"Butler, Caron","['#800080', '#808080', '#000000']",SF,31,black
+1610612758,sacramento_kings,201956,"Casspi, Omri","['#800080', '#808080', '#000000']",SF,18,white
+1610612758,sacramento_kings,1626161,"Cauley-Stein, Willie","['#800080', '#808080', '#000000']",C,00,mixed
+1610612758,sacramento_kings,201954,"Collison, Darren","['#800080', '#808080', '#000000']",PG,7,black
+1610612758,sacramento_kings,202326,"Cousins, DeMarcus","['#800080', '#808080', '#000000']",C,15,black
+1610612758,sacramento_kings,203552,"Curry, Seth","['#800080', '#808080', '#000000']",SG,30,mixed
+1610612758,sacramento_kings,1626251,"Dukan, Duje","['#800080', '#808080', '#000000']",SF,26,black
+1610612758,sacramento_kings,200752,"Gay, Rudy","['#800080', '#808080', '#000000']",SF,8,black
+1610612758,sacramento_kings,201585,"Koufos, Kosta","['#800080', '#808080', '#000000']",C,41,white
+1610612758,sacramento_kings,203463,"McLemore, Ben","['#800080', '#808080', '#000000']",SG,23,black
+1610612758,sacramento_kings,203961,"Moreland, Eric","['#800080', '#808080', '#000000']",PF,25,black
+1610612758,sacramento_kings,200765,"Rondo, Rajon","['#800080', '#808080', '#000000']",PG,9,black
+1610612742,dallas_mavericks,1626147,"Anderson, Justin","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G/F,1,black
+1610612742,dallas_mavericks,200826,"Barea, José Juan","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G,5,white
+1610612742,dallas_mavericks,202379,"Evans, Jeremy","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F,21,black
+1610612742,dallas_mavericks,101109,"Felton, Raymond","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G,2,black
+1610612742,dallas_mavericks,2734,"Harris, Devin","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G,34,black
+1610612742,dallas_mavericks,101135,"Lee, David","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F/C,42,white
+1610612742,dallas_mavericks,202083,"Matthews, Wesley","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G,23,black
+1610612742,dallas_mavericks,201580,"McGee, JaVale","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",C,11,black
+1610612742,dallas_mavericks,1626257,"Mejri, Salah","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",C,50,white
+1610612742,dallas_mavericks,1717,"Nowitzki, Dirk","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F,41,white
+1610612742,dallas_mavericks,2585,"Pachulia, Zaza","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",C,27,white
+1610612742,dallas_mavericks,202718,"Parsons, Chandler","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F,25,white
+1610612742,dallas_mavericks,203939,"Powell, Dwight","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F,7,black
+1610612742,dallas_mavericks,101111,"Villanueva, Charlie","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",F,3,black
+1610612742,dallas_mavericks,101114,"Williams, Deron","['#4169E1', '#003DA5', '#C0C0C0', '#000000']",G,8,black
+1610612745,houston_rockets,2772,"Ariza, Trevor","['#FF0000', '#000000', '#C0C0C0']",F,1,black
+1610612745,houston_rockets,203487,"Beasley, Michael","['#FF0000', '#000000', '#C0C0C0']",F,8,black
+1610612745,houston_rockets,201976,"Beverley, Patrick","['#FF0000', '#000000', '#C0C0C0']",G,2,black
+1610612745,houston_rockets,201147,"Brewer, Corey","['#FF0000', '#000000', '#C0C0C0']",G/F,33,black
+1610612745,houston_rockets,203991,"Capela, Clint","['#FF0000', '#000000', '#C0C0C0']",F/C,15,black
+1610612745,houston_rockets,1626155,"Dekker, Sam","['#FF0000', '#000000', '#C0C0C0']",F,7,white
+1610612745,houston_rockets,101106,"Goudelock, Andrew","['#FF0000', '#000000', '#C0C0C0']",G,0,black
+1610612745,houston_rockets,201935,"Harden, James","['#FF0000', '#000000', '#C0C0C0']",G,13,black
+1610612745,houston_rockets,1626149,"Harrell, Montrezl","['#FF0000', '#000000', '#C0C0C0']",F,35,black
+1610612745,houston_rockets,2730,"Howard, Dwight","['#FF0000', '#000000', '#C0C0C0']",C,12,black
+1610612745,houston_rockets,203093,"Jones, Terrence","['#FF0000', '#000000', '#C0C0C0']",F,6,black
+1610612745,houston_rockets,203909,"McDaniels, K. J.","['#FF0000', '#000000', '#C0C0C0']",G/F,32,black
+1610612745,houston_rockets,202700,"Motiejūnas, Donatas","['#FF0000', '#000000', '#C0C0C0']",F/C,20,white
+1610612745,houston_rockets,2746,"Smith, Josh","['#FF0000', '#000000', '#C0C0C0']",F,5,black
+1610612745,houston_rockets,1891,"Terry, Jason","['#FF0000', '#000000', '#C0C0C0']",G,31,black
+1610612763,memphis_grizzlies,203919,"Adams, Jordan","['#0000FF', '#000080', '#FFFF00', '#808080']",SG,3,black
+1610612763,memphis_grizzlies,2754,"Allen, Tony","['#0000FF', '#000080', '#FFFF00', '#808080']",SG,9,black
+1610612763,memphis_grizzlies,2365,"Andersen, Chris","['#0000FF', '#000080', '#FFFF00', '#808080']",C,7,white
+1610612763,memphis_grizzlies,2440,"Barnes, Matt","['#0000FF', '#000080', '#FFFF00', '#808080']",SF,22,black
+1610612763,memphis_grizzlies,1713,"Carter, Vince","['#0000FF', '#000080', '#FFFF00', '#808080']",SF,15,black
+1610612763,memphis_grizzlies,201144,"Conley Jr., Mike","['#0000FF', '#000080', '#FFFF00', '#808080']",PG,11,black
+1610612763,memphis_grizzlies,203955,"Cotton, Bryce","['#0000FF', '#000080', '#FFFF00', '#808080']",PG,8,black
+1610612763,memphis_grizzlies,203919,"Farmar, Jordan","['#0000FF', '#000080', '#FFFF00', '#808080']",PG,4,black
+1610612763,memphis_grizzlies,201188,"Gasol, Marc","['#0000FF', '#000080', '#FFFF00', '#808080']",C,33,white
+1610612763,memphis_grizzlies,203210,"Green, JaMychal","['#0000FF', '#000080', '#FFFF00', '#808080']",PF,0,black
+1610612763,memphis_grizzlies,203798,"Hairston, P. J.","['#0000FF', '#000080', '#FFFF00', '#808080']",SG,19,black
+1610612763,memphis_grizzlies,1626185,"Martin, Jarell","['#0000FF', '#000080', '#FFFF00', '#808080']",PF,10,black
+1610612763,memphis_grizzlies,203932,"Munford, Xavier","['#0000FF', '#000080', '#FFFF00', '#808080']",PG,14,black
+1610612763,memphis_grizzlies,2216,"Randolph, Zach","['#0000FF', '#000080', '#FFFF00', '#808080']",PF,50,black
+1610612763,memphis_grizzlies,202362,"Stephenson, Lance","['#0000FF', '#000080', '#FFFF00', '#808080']",SG,1,black
+1610612763,memphis_grizzlies,201148,"Wright, Brandan","['#0000FF', '#000080', '#FFFF00', '#808080']",PF,34,black
+1610612740,new_orleans_pelicans,201582,"Ajinça, Alexis","['#0C2340', '#C8102E', '#B4975A']",C,42,black
+1610612740,new_orleans_pelicans,201583,"Anderson, Ryan","['#0C2340', '#C8102E', '#B4975A']",PF,33,white
+1610612740,new_orleans_pelicans,201600,"Aşık, Ömer","['#0C2340', '#C8102E', '#B4975A']",C,3,white
+1610612740,new_orleans_pelicans,202337,"Babbitt, Luke","['#0C2340', '#C8102E', '#B4975A']",SF,8,white
+1610612740,new_orleans_pelicans,202708,"Cole, Norris","['#0C2340', '#C8102E', '#B4975A']",PG,30,black
+1610612740,new_orleans_pelicans,201967,"Cunningham, Dante","['#0C2340', '#C8102E', '#B4975A']",SF,44,black
+1610612740,new_orleans_pelicans,203076,"Davis, Anthony","['#0C2340', '#C8102E', '#B4975A']",PF,23,black
+1610612740,new_orleans_pelicans,1626214,"Dejean-Jones, Bryce","['#0C2340', '#C8102E', '#B4975A']",SG,31,black
+1610612740,new_orleans_pelicans,201962,"Douglas, Toney","['#0C2340', '#C8102E', '#B4975A']",PG,16,black
+1610612740,new_orleans_pelicans,203516,"Ennis, James","['#0C2340', '#C8102E', '#B4975A']",SF,4,black
+1610612740,new_orleans_pelicans,201936,"Evans, Tyreke","['#0C2340', '#C8102E', '#B4975A']",SG,1,black
+1610612740,new_orleans_pelicans,204025,"Frazier, Tim","['#0C2340', '#C8102E', '#B4975A']",PG,2,black
+1610612740,new_orleans_pelicans,202087,"Gee, Alonzo","['#0C2340', '#C8102E', '#B4975A']",SF,15,black
+1610612740,new_orleans_pelicans,201569,"Gordon, Eric","['#0C2340', '#C8102E', '#B4975A']",SG,10,black
+1610612740,new_orleans_pelicans,201941,"Hamilton, Jordan","['#0C2340', '#C8102E', '#B4975A']",SF,25,black
+1610612740,new_orleans_pelicans,201950,"Holiday, Jrue","['#0C2340', '#C8102E', '#B4975A']",PG,11,black
+1610612740,new_orleans_pelicans,2570,"Perkins, Kendrick","['#0C2340', '#C8102E', '#B4975A']",C,5,black
+1610612740,new_orleans_pelicans,202347,"Pondexter, Quincy","['#0C2340', '#C8102E', '#B4975A']",G/F,20,black
+1610612759,san_antonio_spurs,200746,"Aldridge, LaMarcus","['#C0C0C0', '#000000']",PF,12,black
+1610612759,san_antonio_spurs,203937,"Anderson, Kyle","['#C0C0C0', '#000000']",SF,1,mixed
+1610612759,san_antonio_spurs,2588,"Bonner, Matt","['#C0C0C0', '#000000']",C,15,white
+1610612759,san_antonio_spurs,2564,"Diaw, Boris","['#C0C0C0', '#000000']",PF,33,black
+1610612759,san_antonio_spurs,1495,"Duncan, Tim","['#C0C0C0', '#000000']",C,21,mixed
+1610612759,san_antonio_spurs,1938,"Ginóbili, Manu","['#C0C0C0', '#000000']",SG,20,white
+1610612759,san_antonio_spurs,201980,"Green, Danny","['#C0C0C0', '#000000']",SG,14,black
+1610612759,san_antonio_spurs,202695,"Leonard, Kawhi","['#C0C0C0', '#000000']",SF,2,black
+1610612759,san_antonio_spurs,1626246,"Marjanović, Boban","['#C0C0C0', '#000000']",C,40,white
+1610612759,san_antonio_spurs,2755,"Martin, Kevin","['#C0C0C0', '#000000']",SG,23,white
+1610612759,san_antonio_spurs,1889,"Miller, Andre","['#C0C0C0', '#000000']",PG,24,black
+1610612759,san_antonio_spurs,201988,"Mills, Patty","['#C0C0C0', '#000000']",PG,8,black
+1610612759,san_antonio_spurs,2225,"Parker, Tony","['#C0C0C0', '#000000']",PG,9,white
+1610612759,san_antonio_spurs,203613,"Simmons, Jonathon","['#C0C0C0', '#000000']",SG,17,black
+1610612759,san_antonio_spurs,2561,"West, David","['#C0C0C0', '#000000']",PF,30,black
