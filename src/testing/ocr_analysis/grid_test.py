@@ -6,20 +6,17 @@ import logging
 import sys
 import torch.multiprocessing as mp
 import warnings
-import random
 
 from glob import glob
-from concurrent.futures import ThreadPoolExecutor
 from PIL import Image, ImageOps
 from tqdm import tqdm
-from typing import List
 
 MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
-MINI_CPM_DIR = "/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
+MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
 PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
 
 1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with None.
-2. Jersey Colors: List the colors visible on the player's jersey. Format this as a list of color names in lowercase (e.g., ["<color_one>", "<color_two>"].
+2. Jersey Colors: List the colors visible on the player's jersey. Format this as a list of color names in lowercase (e.g., ["<color_one>", "<color_two>"]).
 3. Race: Determine the race or ethnicity of the player. Choose one from "white", "black", or "mixed"
 4. Position: Identify the player's position. Use one of the following abbreviations: "G" (Guard), "C" (Center), "F" (Forward), "SG" (Shooting Guard), "PF" (Power Forward), or "SF" (Small Forward).
 
@@ -73,46 +70,20 @@ def load_and_convert_image(fp: str):
         logger.error(f"Failed to load or convert image {fp}: {e}")
         return None
 
-def convert_images_to_pil(images: List[str]):
-    grouped_images = [images[i:i + 4] for i in range(0, len(images), 4) if len(images[i:i + 4]) == 4]
-    return grouped_images
-
-def concatenate_images(image_group):
-    try:
-        pil_images = [ImageOps.exif_transpose(Image.open(fp)) for fp in image_group]
-        widths, heights = zip(*(i.size for i in pil_images))
-        max_width, max_height = max(widths), max(heights)
-        new_image = Image.new('RGB', (2 * max_width, 2 * max_height))
-
-        new_image.paste(pil_images[0], (0, 0))
-        new_image.paste(pil_images[1], (max_width, 0))
-        new_image.paste(pil_images[2], (0, max_height))
-        new_image.paste(pil_images[3], (max_width, max_height))
-
-        return new_image
-    except Exception as e:
-        logger.error(f"Failed to concatenate images: {e}")
-        return None
-
-def process_images(image_groups: List[List[str]], model):
-    results = {}
-    for idx, image_group in enumerate(tqdm(image_groups, total=len(image_groups))):
-        concatenated_image = concatenate_images(image_group)
-        if concatenated_image:
-            rand_idx = random.randint(0, 1000000)
-            temp_fp = f'/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/temp_{rand_idx}.png'
-            concatenated_image.save(temp_fp)
-            image_base64 = img2base64(temp_fp)
-            os.remove(temp_fp)
-            result = ocr(image_base64, model)
-            if result:
-                results[idx] = result
-    return results
+def process_image(image_fp: str, model):
+    image_base64 = load_and_convert_image(image_fp)
+    if image_base64:
+        result = ocr(image_base64, model)
+        return result
+    return None
 
 def ocr_dir(dir_fp: str, model):
     img_paths = glob(os.path.join(dir_fp, '*.jpg'))
-    image_groups = convert_images_to_pil(img_paths)
-    results = process_images(image_groups, model)
+    results = {}
+    for idx, img_path in enumerate(tqdm(img_paths, total=len(img_paths))):
+        result = process_image(img_path, model)
+        if result:
+            results[idx] = result
     logger.info(f"Results for directory {dir_fp}: {results}")
     return dir_fp, results
 
@@ -126,15 +97,15 @@ def process_dir(dirs, device: int = 0, all_results=None):
 def main():
     mp.set_start_method('spawn')
     
-    tracks_dir = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/_50_game_reid_benchmark_/labeled-tracks'
-    out_fp = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/results.json'
-    dirs = glob(os.path.join(tracks_dir, '*', '*'))[0:1]
+    tracks_dir = '/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/_50_game_reid_benchmark_/labeled-tracks'
+    out_fp = '/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/results.json'
+    dirs = glob(os.path.join(tracks_dir, '*', '*'))
     
     manager = mp.Manager()
     all_results = manager.dict()
     
     processes = []
-    num_devices = 1
+    num_devices = 8
 
     for i in range(num_devices):
         sub_dirs_arr = [dirs[j] for j in range(len(dirs)) if j % num_devices == i]
@@ -149,7 +120,6 @@ def main():
         for dir_fp, results in all_results.items():
             f.write(f"{dir_fp}: {json.dumps(results)}\n")
     logger.info("Processing completed successfully.")
-
 
 if __name__ == "__main__":
     main()
