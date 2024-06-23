@@ -11,16 +11,7 @@ from glob import glob
 from PIL import Image, ImageOps
 from tqdm import tqdm
 
-MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
-MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/mini_cpm_testing/mini_cpm/MiniCPM-V"
-PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
-1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with your best guess given your background knowlege of the game of basketball.
-Based on the frame description, produce an output prediction in the following JSON format:
-{
-  "jersey_number": "<predicted_jersey_number>",
-}
-[EOS]"""
-
+MINI_CPM_DIR = '/mnt/opr/levlevi/player-re-id/src/testing/mini_cpm_testing/mini_cpm/MiniCPM-V'
 if os.path.exists(MINI_CPM_DIR):
     sys.path.append(MINI_CPM_DIR)
     os.chdir(MINI_CPM_DIR)
@@ -32,6 +23,16 @@ from chat import MiniCPMVChat, img2base64
 warnings.simplefilter(action='ignore', category=FutureWarning)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
+MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/mini_cpm_testing/mini_cpm/MiniCPM-V"
+PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
+1. Jersey Number: Identify the number on the player's jersey. If the player has no jersey, provide None.
+Based on the frame description, produce an output prediction in the following JSON format:
+{
+  "jersey_number": "<predicted_jersey_number>",
+}
+[EOS]"""
 
 def load_model_and_tokenizer(device: int = 0):
     try:

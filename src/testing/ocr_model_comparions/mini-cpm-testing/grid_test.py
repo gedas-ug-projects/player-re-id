@@ -1,3 +1,5 @@
+import cv2
+import shutil
 import json
 import os
 import logging
@@ -6,26 +8,16 @@ import torch.multiprocessing as mp
 import warnings
 
 from glob import glob
-from concurrent.futures import ThreadPoolExecutor
-from PIL import Image
+from PIL import Image, ImageOps
 from tqdm import tqdm
-from typing import List
 
 MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
-MINI_CPM_DIR = "/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
+MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/mini_cpm_testing/mini_cpm/MiniCPM-V"
 PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
-
-1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with None.
-2. Jersey Colors: List the colors visible on the player's jersey. Format this as a list of color names in lowercase (e.g., ["red", "white"]). If colors are not visible, respond with None.
-3. Race: Determine the race or ethnicity of the player. Choose one from "white", "black", or "mixed". If race is not visible, respond with None.
-4. Position: Identify the player's position. Use one of the following abbreviations: "G" (Guard), "C" (Center), "F" (Forward), "SG" (Shooting Guard), "PF" (Power Forward), or "SF" (Small Forward). If position is not visible, respond with None.
-
+1. Jersey Number: Identify the number on the player's jersey. If the player has no jersey, provide None.
 Based on the frame description, produce an output prediction in the following JSON format:
 {
   "jersey_number": "<predicted_jersey_number>",
-  "jersey_colors": ["<predicted_color_1>", "<predicted_color_2>"],
-  "race": "<predicted_race>",
-  "position": "<predicted_position>"
 }
 [EOS]"""
 
@@ -41,7 +33,6 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-
 def load_model_and_tokenizer(device: int = 0):
     try:
         logger.info("Loading model and tokenizer...")
@@ -52,11 +43,11 @@ def load_model_and_tokenizer(device: int = 0):
         logger.error(f"Failed to load model or tokenizer: {e}")
         raise
 
-def ocr(image, model):
+def ocr(image_base64, model):
     try:
         question = PROMPT
         msgs = [{'role': 'user', 'content': question}]
-        inputs = {"image": image, "question": json.dumps(msgs)}
+        inputs = {"image": image_base64, "question": json.dumps(msgs)}
         answer = model.chat(inputs)
         result = answer
         return result
@@ -71,59 +62,42 @@ def load_and_convert_image(fp: str):
         logger.error(f"Failed to load or convert image {fp}: {e}")
         return None
 
-def convert_images_to_pil(fps: List[str]):
-    with ThreadPoolExecutor() as executor:
-        images = list(executor.map(load_and_convert_image, fps))
-    images_trim = []
-    step = 1
-    index = 0
-    for image in images:
-        if image and index % step == 0:
-            images_trim.append(image)
-        index += 1
-    return images_trim
+def process_image(image_fp: str, model):
+    image_base64 = load_and_convert_image(image_fp)
+    if image_base64:
+        result = ocr(image_base64, model)
+        return result
+    return None
 
-def process_images(images: List[Image.Image], model, output_dir: str):
+def ocr_dir(dir_fp: str, model):
+    img_paths = glob(os.path.join(dir_fp, '*.jpg'))
     results = {}
-    for idx, image in enumerate(tqdm(images, total=len(images))):
-        result = ocr(image, model)
+    for idx, img_path in enumerate(tqdm(img_paths, total=len(img_paths))):
+        result = process_image(img_path, model)
         if result:
             results[idx] = result
-    try:
-        with open(os.path.join(output_dir, f"output_{idx}.json"), 'w') as f:
-            json.dump(results, f)
-    except:
-        logger.error(f"Failed to write results to file: {output_dir}")
-    return results
-
-def ocr_dir(dir_fp: str, model, output_dir: str):
-    img_paths = glob(os.path.join(dir_fp, '*.jpg'))
-    images = convert_images_to_pil(img_paths)
-    results = process_images(images, model, output_dir)
     logger.info(f"Results for directory {dir_fp}: {results}")
     return dir_fp, results
 
-def process_dir(dirs, device: int = 0, all_results = None):
+def process_dir(dirs, device: int = 0, all_results=None):
     model = load_model_and_tokenizer(device)
     for dir_fp in dirs:
         logger.info(f"Processing directory: {dir_fp}")
-        output_dir = os.path.join("results", os.path.basename(dir_fp))
-        os.makedirs(output_dir, exist_ok=True)
-        dir_fp, dir_result = ocr_dir(dir_fp, model, output_dir)
+        dir_fp, dir_result = ocr_dir(dir_fp, model)
         all_results[dir_fp] = dir_result
 
 def main():
     mp.set_start_method('spawn')
     
-    tracks_dir = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/_50_game_reid_benchmark_/labeled-tracks'
-    out_fp = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_analysis/results.json'
-    dirs = glob(os.path.join(tracks_dir, '*', '*'))[0:1]
+    tracks_dir = '/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/_50_game_reid_benchmark_/labeled-tracks'
+    out_fp = '/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/results.json'
+    dirs = glob(os.path.join(tracks_dir, '*', '*'))
     
     manager = mp.Manager()
     all_results = manager.dict()
     
     processes = []
-    num_devices = 1
+    num_devices = 8
 
     for i in range(num_devices):
         sub_dirs_arr = [dirs[j] for j in range(len(dirs)) if j % num_devices == i]
