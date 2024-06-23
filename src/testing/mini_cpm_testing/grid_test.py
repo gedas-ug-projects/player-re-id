@@ -12,20 +12,12 @@ from PIL import Image, ImageOps
 from tqdm import tqdm
 
 MODEL_NAME = 'openbmb/MiniCPM-Llama3-V-2_5'
-MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/ocr_analysis/mini_cpm/MiniCPM-V"
+MINI_CPM_DIR = "/mnt/opr/levlevi/player-re-id/src/testing/mini_cpm_testing/mini_cpm/MiniCPM-V"
 PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
-
-1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with None.
-2. Jersey Colors: List the colors visible on the player's jersey. Format this as a list of color names in lowercase (e.g., ["<color_one>", "<color_two>"]).
-3. Race: Determine the race or ethnicity of the player. Choose one from "white", "black", or "mixed"
-4. Position: Identify the player's position. Use one of the following abbreviations: "G" (Guard), "C" (Center), "F" (Forward), "SG" (Shooting Guard), "PF" (Power Forward), or "SF" (Small Forward).
-
+1. Jersey Number: Identify the number on the player's jersey. If not visible, respond with your best guess given your background knowlege of the game of basketball.
 Based on the frame description, produce an output prediction in the following JSON format:
 {
   "jersey_number": "<predicted_jersey_number>",
-  "jersey_colors": ["<predicted_color_1>", "<predicted_color_2>"],
-  "race": "<predicted_race>",
-  "position": "<predicted_position>"
 }
 [EOS]"""
 
