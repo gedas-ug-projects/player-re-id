@@ -7,7 +7,12 @@
 *.pyc
 *.out
 *.bmp
+*.pt
 *.png
+*.cache
+*.yaml
+*.csv
+*.onnx
 __old__
 __vish__
 launch.json

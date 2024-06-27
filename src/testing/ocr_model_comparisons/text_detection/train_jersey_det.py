@@ -1,11 +1,11 @@
 from ultralytics import YOLO
 
-# Load a model
-model = YOLO("yolov8m.yaml")
-model = YOLO("yolov8m.pt")
+# load a model
+model = YOLO("yolov8x.yaml")
+model = YOLO("yolov8x.pt")
 
-# Use the model
+# use the model
 data_path = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/Jersey-Number-detection-2/data.yaml'
-model.train(data=data_path, epochs=10)  # train the model
-metrics = model.val()  # evaluate model performance on the validation set
+model.train(data=data_path, epochs=100)  # train the model
 path = model.export(format="onnx")  # export the model to ONNX format
+metrics = model.val()  # evaluate model performance on the validation set

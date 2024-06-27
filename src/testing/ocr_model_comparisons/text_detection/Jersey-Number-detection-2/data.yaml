@@ -17,5 +17,5 @@ roboflow:
   version: 2
   workspace: volleyai-actions
 test: ../test/images
-train: Jersey-Number-detection-2/train/images
-val: Jersey-Number-detection-2/valid/images
+train: /playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/Jersey-Number-detection-2/train/images
+val: /playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/Jersey-Number-detection-2/valid/images
