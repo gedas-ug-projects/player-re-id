@@ -6,8 +6,8 @@ from MixSort.tools.track_mixsort_simple import *
 
 warnings.filterwarnings("ignore", message="torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument")
 
-MIXSORT_FP = "/playpen-storage/levlevi/player-re-id/src/player_reid/MixSort"
-DATA_DIR = "/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
+MIXSORT_FP = "/mnt/opr/levlevi/player-re-id/src/player_reid/MixSort"
+DATA_DIR = "/mnt/opr/levlevi/player-re-id/src/player_reid/testing/datasets/nba"
 
 os.chdir(MIXSORT_FP)
 
@@ -51,6 +51,6 @@ def generate_player_tracks(coco_dataset_path: str, track_out_path: str, rank: in
 
 
 if __name__ == '__main__':
-    dataset_fp = '/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba'
-    track_out_fp = '/playpen-storage/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/test.txt'
+    dataset_fp = '/mnt/opr/levlevi/player-re-id/src/player_reid/testing/datasets/nba'
+    track_out_fp = '/mnt/opr/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/test.txt'
     generate_player_tracks(dataset_fp, track_out_fp)

@@ -6,7 +6,7 @@ import sys
 
 THRESH = 0.50
 
-model = YOLO("/playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/jersey_num_det.pt")
+model = YOLO("/playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/runs/detect/train4/weights/best.pt")
 img_dir = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_recognition/nba_100_test_set'
 cropped_imgs_dir = '/playpen-storage/levlevi/player-re-id/src/testing/ocr_model_comparisons/text_detection/cropped_imgs_dir'
 img_fps = glob(f'{img_dir}/*.jpg')
@@ -38,3 +38,4 @@ for idx, result in enumerate(results):
     else:
         cropped_image_bounding_boxes.append((int(x1_min), int(y1_min), int(x2_max), int(y2_max)))
 print(cropped_image_bounding_boxes)
+print(len([x for x in cropped_image_bounding_boxes if x is not None]))

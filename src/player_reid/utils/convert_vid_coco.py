@@ -6,7 +6,7 @@ import logging
 from pathlib import Path
 from PIL import Image
 
-logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ANNOTATIONS_DIR = 'annotations'
 VAL_DIR = 'val'
