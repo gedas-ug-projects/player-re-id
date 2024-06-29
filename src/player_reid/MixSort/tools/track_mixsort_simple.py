@@ -104,10 +104,6 @@ def main(exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0):
     trt_file, decoder = None, None
     evaluator.evaluate_mixsort(model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_path, rank=rank)
     
-    # remove temp dir
-    shutil.rmtree(data_dir)
-    
-    
 
 def compare_dataframes(gts, ts):
     accs, names = [], []
