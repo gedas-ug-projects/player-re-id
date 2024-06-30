@@ -45,4 +45,4 @@ if __name__ == "__main__":
     # nba 15'-16' replays
     vids_dir = '/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays'
     tracks_dir = '/mnt/sun/levlevi/nba-plus-statvu-dataset/player-tracklets'
-    process_dir(vids_dir, tracks_dir, rank=7)
+    process_dir(vids_dir, tracks_dir, rank=3)
