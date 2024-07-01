@@ -40,7 +40,3 @@ def generate_player_tracks(coco_dataset_path: str, track_out_path: str, rank: in
         dist_url=args.dist_url,
         args=(exp, args, num_gpu, coco_dataset_path, track_out_path, rank),
     )
-if __name__ == '__main__':
-    dataset_fp = '/mnt/opr/levlevi/player-re-id/src/player_reid/testing/datasets/nba'
-    track_out_fp = '/mnt/opr/levlevi/player-re-id/src/player_reid/testing/datasets/nba/track_results/test.txt'
-    generate_player_tracks(dataset_fp, track_out_fp)
