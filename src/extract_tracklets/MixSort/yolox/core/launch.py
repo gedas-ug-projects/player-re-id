@@ -27,7 +27,6 @@ def _find_free_port():
     Find an available port of current machine / node.
     """
     import socket
-
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Binding to port 0 will cause the OS to find an available port for us
     sock.bind(("", 0))

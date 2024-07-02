@@ -15,6 +15,7 @@ from yolox.core import launch
 from yolox.exp import get_exp
 from yolox.utils import fuse_model
 from yolox.evaluators import MOTEvaluator
+from yolox.exp.yolox_base import Exp
 
 import motmetrics as mm
 
@@ -60,11 +61,12 @@ def set_seeds(seed):
     cudnn.deterministic = True
     warnings.warn("You have chosen to seed testing. This will turn on the CUDNN deterministic setting.")
 
-def main(exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0):
+def main(exp: Exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0):
     if args.seed is not None:
         set_seeds(args.seed)
 
     is_distributed = num_gpu > 1
+    print(f"Is distributed: {is_distributed}")
     cudnn.benchmark = True
 
     if args.conf is not None:
@@ -74,6 +76,7 @@ def main(exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0):
     if args.tsize is not None:
         exp.test_size = (args.tsize, args.tsize)
 
+    # is this bad?, we seem to get a new model w/ every call to main
     model = exp.get_model()
     val_loader = exp.get_eval_loader(args.batch_size, is_distributed, args.test, return_origin_img=True, data_dir=data_dir)
 

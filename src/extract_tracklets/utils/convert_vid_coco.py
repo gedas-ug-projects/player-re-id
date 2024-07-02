@@ -18,7 +18,7 @@ FRAMES_DIR = 'frames'
 ANNOTATIONS_FILE_NAME = 'val.json'
 SEQINFO_FILE_NAME = 'seqinfo.ini'
 GT_ANNOTATIONS_FP = 'gt.txt'
-IMG_EXT = '.bmp'
+IMG_EXT = '.jpg'
 
 def get_video_metadata(video_path):
     logging.info(f'Getting video metadata for {os.path.basename(video_path)}')

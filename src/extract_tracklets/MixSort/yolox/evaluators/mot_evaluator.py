@@ -282,15 +282,17 @@ class MOTEvaluator:
         video_names = defaultdict(str)
         
         if is_main_process():
-            progress_bar = tqdm(self.dataloader)
+            # progress_bar = tqdm(self.dataloader)
+            progress_bar = iter(self.dataloader)
         else:
             progress_bar = iter(self.dataloader)
             
         inference_time, track_time = 0, 0
         n_samples = len(self.dataloader) - 1
         
-        for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in enumerate(progress_bar):
+        for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in tqdm(enumerate(progress_bar), total=len(progress_bar)):
             with torch.no_grad():
+                
                 frame_id = info_imgs[2].item()
                 video_id = info_imgs[3].item()
                 img_file_name = info_imgs[4]
@@ -355,8 +357,6 @@ class MOTEvaluator:
             torch.distributed.reduce(statistics, dst=0)
 
         eval_results = None
-        # eval_results = self.evaluate_prediction(data_list, statistics)
-        # synchronize()
     
         return eval_results
 

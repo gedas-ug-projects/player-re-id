@@ -21,27 +21,33 @@ def process_video(fp, track_output_dir, rank):
     # Check if the track output file already exists
     if os.path.exists(track_dst_path):
         print(f"Skipping {vid_name}: {track_dst_path} already exists.")
-        return
+        return False
     format_video_to_coco_dataset(fp, coco_dst_path)
     generate_player_tracks(coco_dst_path, track_dst_path, rank)
     shutil.rmtree(coco_dst_path)
+    return True
 
 def process_dir(videos_dir, track_output_dir, num_videos=1, rank=0):
     video_files = glob(os.path.join(videos_dir, "*.mp4"))
     if num_videos > 0:
-        num_videos = int((1/8) * len(video_files))
-        start_idx = rank * num_videos
-        end_idx = start_idx + num_videos if start_idx + num_videos < len(video_files) else len(video_files)
-        video_files = video_files[start_idx:end_idx]
-        print(f"Rank {rank} processing videos {start_idx} to {end_idx}")
+        # num_videos = int((1/8) * len(video_files))
+        # num_videos = int((1/8) * len(video_files))
+        # start_idx = rank * num_videos
+        # end_idx = start_idx + num_videos if start_idx + num_videos < len(video_files) else len(video_files)
+        # video_files = video_files[start_idx:end_idx]
+        # print(f"Rank {rank} processing videos {start_idx} to {end_idx}")
+        pass
     for fp in video_files:
-        process_video(fp, track_output_dir, rank)
+        res = process_video(fp, track_output_dir, rank)
+        if res:
+            break
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some videos.')
     parser.add_argument('--rank', type=int, required=True, help='Rank value to process a subset of videos')
     args = parser.parse_args()
 
-    vids_dir = '/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays'
+    # vids_dir = '/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays'
+    vids_dir = '/mnt/opr/levlevi/player-re-id/__old__/clips'
     tracks_dir = '/mnt/sun/levlevi/nba-plus-statvu-dataset/player-tracklets'
     process_dir(vids_dir, tracks_dir, rank=args.rank)
