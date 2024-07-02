@@ -1,0 +1,1 @@
+MIXSORT_DIR = '/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort'
