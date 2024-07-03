@@ -66,7 +66,6 @@ def main(exp: Exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0)
         set_seeds(args.seed)
 
     is_distributed = num_gpu > 1
-    print(f"Is distributed: {is_distributed}")
     cudnn.benchmark = True
 
     if args.conf is not None:
@@ -97,14 +96,13 @@ def main(exp: Exp, args, num_gpu, data_dir=None, results_path=None, rank: int=0)
         ckpt_file = args.ckpt or os.path.join(data_dir, "best_ckpt.pth.tar")
         ckpt = torch.load(ckpt_file, map_location=f"cuda:{rank}")
         model.load_state_dict(ckpt["model"])
-
     if is_distributed:
         model = DDP(model, device_ids=[rank])
-
     if args.fuse:
         model = fuse_model(model)
 
     trt_file, decoder = None, None
+    model = torch.compile(model)
     evaluator.evaluate_mixsort(model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_path, rank=rank)
     
 

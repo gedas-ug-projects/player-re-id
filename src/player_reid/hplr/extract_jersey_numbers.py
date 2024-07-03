@@ -1,10 +1,13 @@
 import json
 import os
+import torch
 import logging
 import random
 import warnings
+import argparse
 import torch.multiprocessing as mp
 
+from argparse import Namespace
 from glob import glob
 from PIL import Image, ImageOps
 from tqdm import tqdm
@@ -14,6 +17,7 @@ warnings.simplefilter("ignore", FutureWarning)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+TOTAL_GPUS = 8
 BOOTSTRAPS = 9
 PROMPT = """Analyze the basketball player shown in the provided still tracklet frame and describe the following details:
 1. Jersey Number: Identify the number on the player's jersey. If the player has no jersey, provide None.
@@ -23,10 +27,13 @@ Based on the frame description, produce an output prediction in the following JS
 }
 [EOS]"""
 
-def load_model_and_tokenizer(device: int = 0):
+def load_model_and_tokenizer(device: int = 0, compile_model: bool = False):
     try:
         logger.info("Loading model and tokenizer...")
         model = AutoModelForCausalLM.from_pretrained("microsoft/Florence-2-large-ft", trust_remote_code=True, device_map="cuda").to(device).eval()
+        # attempt to speed up inference by compiling model JIT
+        if compile_model:
+            model = torch.compile(model)
         processor = AutoProcessor.from_pretrained("microsoft/Florence-2-large-ft", trust_remote_code=True)
         return model, processor
     except Exception as e:
@@ -92,35 +99,48 @@ def ocr_dir(dir_fp: str, model, processor, deivce):
     logger.info(f"Results for directory {dir_fp}: {results}")
     return dir_fp, results
 
-def process_dir(dirs, device: int = 0, all_results=None):
-    model, processor = load_model_and_tokenizer(device)
+def process_dir(dirs, device: int = 0, all_results=None, compile_model=False):
+    model, processor = load_model_and_tokenizer(device, compile_model)
     for dir_fp in dirs:
         logger.info(f"Processing directory: {dir_fp}")
         dir_fp, dir_result = ocr_dir(dir_fp, model, processor, device)
         all_results[dir_fp] = dir_result
 
-def main():
+def main(args: Namespace):
+    
+    tracklets_dir = args.tracklets_dir
+    results_out_fp = args.results_out_fp
+    num_gpus = args.num_gpus
+    compile_model = args.compile_model
+    
     mp.set_start_method('spawn')
-    tracks_dir = '/mnt/opr/levlevi/player-re-id/src/data/_50_game_reid_benchmark_/labeled-tracks'
-    out_fp = '/mnt/opr/levlevi/player-re-id/src/data/florence_100_track_bm_results.json'
-    dirs = glob(os.path.join(tracks_dir, '*', '*'))
+    dirs = glob(os.path.join(tracklets_dir, '*', '*'))
     manager = mp.Manager()
     all_results = manager.dict()
     processes = []
-    start_device = 4
-    num_devices = 8
-    for i in range(start_device, num_devices):
-        sub_dirs_arr = [dirs[j] for j in range(len(dirs)) if j % num_devices == i]
-        p = mp.Process(target=process_dir, args=(sub_dirs_arr, i, all_results))
+    
+    start_device = TOTAL_GPUS - num_gpus # ex: 8 - 1 = 7
+    for rank in range(start_device, TOTAL_GPUS):
+        sub_dirs_arr = [dirs[j] for j in range(len(dirs)) if j % TOTAL_GPUS == rank]
+        logger.info(f"Rank: {rank}, sub_dirs_arr: {sub_dirs_arr}")
+        p = mp.Process(
+            target=process_dir,
+            args=(sub_dirs_arr, rank, all_results, compile_model))
         p.start()
         processes.append(p)
     for process in processes:
         process.join()
     logger.info(f"All results: {all_results}")
-    with open(out_fp, 'w') as f:
+    with open(results_out_fp, 'w') as f:
         for dir_fp, results in all_results.items():
             f.write(f"{dir_fp}: {json.dumps(results)}\n")
-    logger.info("Processing completed successfully.")
+    logger.info("All jersey numbers extracted.")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Extract jersey numbers from raw tracklets.')
+    parser.add_argument('--tracklets_dir', type=str, required=True)
+    parser.add_argument('--results_out_fp', type=str, required=True)
+    parser.add_argument('--num_gpus', type=int, required=False, default=1)
+    parser.add_argument('--compile_model', type=bool, required=False, default=False)
+    args = parser.parse_args()
+    main(args)
