@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 ### MIXSORT CODE ###
 
 
-def run(exp: Exp, args, coco_dataset_dir=None, results_path=None):
+def run(exp: Exp, args, coco_dataset_dir=None, tracklet_out_path=None):
 
     def set_seeds(seed):
         random.seed(seed)
@@ -65,7 +65,6 @@ def run(exp: Exp, args, coco_dataset_dir=None, results_path=None):
         return_origin_img=True,
         data_dir=coco_dataset_dir,
     )
-
     evaluator = MOTEvaluator(
         args=args,
         dataloader=val_loader,
@@ -74,32 +73,19 @@ def run(exp: Exp, args, coco_dataset_dir=None, results_path=None):
         nmsthre=exp.nmsthre,
         num_classes=exp.num_classes,
     )
-
     torch.cuda.set_device(rank)
     model.cuda(rank)
     model.eval()
-
     if not args.speed and not args.trt:
         ckpt_file = args.ckpt or os.path.join(coco_dataset_dir, "best_ckpt.pth.tar")
         ckpt = torch.load(ckpt_file, map_location=f"cuda:{rank}")
         model.load_state_dict(ckpt["model"])
     if args.fuse:
         model = fuse_model(model)
-
-    trt_file, decoder = None, None
     if args.torch_compile == "True":
         logger.info("Compiling model...")
         model = torch.compile(model)
-    evaluator.evaluate_mixsort(
-        model,
-        is_distributed,
-        args.fp16,
-        trt_file,
-        decoder,
-        exp.test_size,
-        results_path,
-        rank=rank,
-    )
+    evaluator.evaluate_mixsort(model, tracklet_out_path, args)
 
 
 ### MY CODE ###
@@ -142,7 +128,6 @@ def process_dir(args):
         if start_idx + num_videos < len(video_files)
         else len(video_files)
     )
-
     ## MARK: DO NOT USE SUBSET ##
     # video_files = video_files[start_idx:end_idx]
     logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
@@ -191,6 +176,7 @@ if __name__ == "__main__":
         help="Skip redundant videos",
     )
     parser.add_argument("--torch_compile", type=str, required=False, default="False")
+    parser.add_argument("--batch_size", type=int, required=False, default=1)
 
     ### MIXSORT ARGS ###
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
