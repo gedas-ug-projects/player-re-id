@@ -52,8 +52,9 @@ if __name__ == "__main__":
     profile_filename = 'profiling_results.prof'
     # profile the main function
     cProfile.run('main(args.rank)', profile_filename)
-    # read the profiling results and print them
-    with open('profiling_stats.txt', 'w') as stream:
-        p = pstats.Stats(profile_filename, stream=stream)
-        p.sort_stats(pstats.SortKey.CUMULATIVE)
-        p.print_stats()
+    
+    # # read the profiling results and print them
+    # with open('profiling_stats.txt', 'w') as stream:
+    #     p = pstats.Stats(profile_filename, stream=stream)
+    #     p.sort_stats(pstats.SortKey.CUMULATIVE)
+    #     p.print_stats()

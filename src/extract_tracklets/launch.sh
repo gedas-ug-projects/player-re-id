@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for rank in {0..7}
+for rank in {0..3}
 do
     nohup python3 pipeline.py --rank $rank &
     # python3 pipeline.py --rank $rank &
