@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image
 from utils.extract_frames import video_to_frames
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 ANNOTATIONS_DIR = 'annotations'
 VAL_DIR = 'val'

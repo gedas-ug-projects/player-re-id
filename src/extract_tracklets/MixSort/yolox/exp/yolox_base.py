@@ -222,7 +222,7 @@ class Exp(BaseExp):
 
         dataloader_kwargs = {
             "num_workers": self.data_num_workers,
-            "pin_memory": True,
+            "pin_memory": True, # set to False
             "sampler": sampler,
         }
         dataloader_kwargs["batch_size"] = batch_size
