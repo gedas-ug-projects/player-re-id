@@ -10,26 +10,16 @@ import random
 import sys
 import torch.backends.cudnn as cudnn
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '../MixViT'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../MixSort'))
+sys.path.append("/playpen-storage/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT")
 
-from torch.nn.parallel import DistributedDataParallel as DDP
-from MixSort.yolox.exp import get_exp
-from MixSort.yolox.utils import fuse_model
-from MixSort.yolox.evaluators import MOTEvaluator
-from MixSort.yolox.exp.yolox_base import Exp
-
-from run_inference import generate_player_tracks
+from yolox.exp import get_exp
+from yolox.utils import fuse_model
+from yolox.evaluators import MOTEvaluator
+from yolox.exp.yolox_base import Exp
 from utils.convert_vid_coco import format_video_to_coco_dataset
 from glob import glob
-from paths import MIXSORT_DIR, GAME_REPLAYS_DIR
 
-TEMP_COCO_DIR = '/playpen-storage/levlevi/tmp'
-
-os.chdir(MIXSORT_DIR)
-os.makedirs(TEMP_COCO_DIR, exist_ok=True)
 warnings.simplefilter("ignore", category=UserWarning)
-
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
@@ -75,15 +65,16 @@ def run(exp: Exp, args, coco_dataset_dir=None, results_path=None):
     torch.cuda.set_device(rank)
     model.cuda(rank)
     model.eval()
-
+    
     if not args.speed and not args.trt:
         ckpt_file = args.ckpt or os.path.join(coco_dataset_dir, "best_ckpt.pth.tar")
         ckpt = torch.load(ckpt_file, map_location=f"cuda:{rank}")
         model.load_state_dict(ckpt["model"])
     if args.fuse:
         model = fuse_model(model)
-
+        
     trt_file, decoder = None, None
+    logger.info("Compiling model...")
     model = torch.compile(model)
     evaluator.evaluate_mixsort(model, is_distributed, args.fp16, trt_file, decoder, exp.test_size, results_path, rank=rank)
 
@@ -98,30 +89,36 @@ def generate_player_tracks(coco_dataset_dir: str, tracklet_out_path: str, args):
     
 def process_video(fp, args):
     tracklets_out_dir = args.tracklets_out_dir
-    device = args.device
+    temp_coco_dir = args.tracklets_temp_data_dir
     vid_name = os.path.basename(fp).replace('.mp4', '').lower()
-    coco_dst_path = os.path.join(TEMP_COCO_DIR, vid_name)
+    coco_dst_path = os.path.join(temp_coco_dir, vid_name)
     track_dst_path = os.path.join(tracklets_out_dir, f"{vid_name}.txt")
     # check if the track output file already exists
     if os.path.exists(track_dst_path):
         logger.info(f"Skipping {vid_name}: {track_dst_path} already exists.")
         return False
     format_video_to_coco_dataset(fp, coco_dst_path)
-    generate_player_tracks(coco_dst_path, track_dst_path, device)
+    generate_player_tracks(coco_dst_path, track_dst_path, args)
     # remove tmp dir
     shutil.rmtree(coco_dst_path)
     return True
 
-def process_dir(videos_dir, args):
+def process_dir(args):
+    videos_dir = args.videos_src_dir
     device = args.device
     video_files = glob(os.path.join(videos_dir, "*.mp4"))
     num_videos = int((1/8) * len(video_files))
     start_idx = device * num_videos
     end_idx = start_idx + num_videos if start_idx + num_videos < len(video_files) else len(video_files)
-    video_files = video_files[start_idx:end_idx]
+    
+    ## MARK: DO NOT USE SUBSET ##
+    # video_files = video_files[start_idx:end_idx]
     logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
     for fp in video_files:
         res = process_video(fp, args)
+        ### BREAK ###
+        break
+        ### BREAK ###
 
 def main(args):
     process_dir(args)
@@ -132,6 +129,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some videos.')
     parser.add_argument('--tracklets_out_dir', type=str, required=True, help='Tracklets directory')
     parser.add_argument('--videos_src_dir', type=str, required=True, help='Videos to process directory')
+    parser.add_argument('--tracklets_temp_data_dir', type=str, required=True, help='Temporary data directory')
     parser.add_argument('--device', type=int, required=False, default=0, help='GPU device to process videos on')
     parser.add_argument('--profile', type=str, required=False, default='False', help='Enable profiling')
     
