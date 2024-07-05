@@ -68,10 +68,45 @@ class MOTEvaluator:
 
     def evaluate_mixsort(self, model, tracklets_out_path=None, args=None):
 
-        # we probably need to use this somewhere
-        rank = args.local_rank
-        half = args.fp16
+        # MARK: main inference loop
+        def predict(iterable_dataloader):
+            outputs_post_proccessed = []
+            for _, (origin_imgs, imgs, _, info_imgs, _) in tqdm(
+                enumerate(iterable_dataloader),
+                total=len(iterable_dataloader),
+                desc="Creating Tracklets",
+            ):
+                # (5, 32, 3, 720, 1280)
 
+                # MARK: forward pass
+                with torch.no_grad():
+                    frame_id = info_imgs[2]
+                    # TODO: elim?
+                    imgs = imgs.type(tensor_type)
+                    # forward pass
+                    imgs = imgs.cuda().to(device=args.device)
+                    outputs = model(imgs)
+                    outputs_post_proccessed.extend(
+                        [
+                            [
+                                postprocess(
+                                    torch.unsqueeze(outputs[i, :, :], dim=0),
+                                    self.num_classes,
+                                    self.confthre,
+                                    self.nmsthre,
+                                ),
+                                [item[i] for item in info_imgs],
+                                1,
+                                frame_id[i],
+                                origin_imgs[i],
+                            ]
+                            for i in range(outputs.shape[0])
+                        ]
+                    )
+                    torch.cuda.empty_cache()
+            return outputs_post_proccessed
+
+        half = args.fp16
         # assert tracklet path is valid
         assert tracklets_out_path.endswith(
             ".txt"
@@ -85,112 +120,14 @@ class MOTEvaluator:
 
         # TODO: is there slow code in this MixTracker obj?
         tracker: MIXTracker = MIXTracker(self.args)
-        data_list = []
         results = []
 
         # TODO: add explicit typing for dataloader obj
         iterable_dataloader = iter(self.dataloader)
-
-        # Q: how long does it take just to iterate through the dataloader
-        # start_time = time.time()
-        # load_data_batches(iterable_dataloader, args.batch_size)
-        # end_time = time.time()
-        # logger.debug(f"Parsing data took {end_time - start_time} seconds")
-
-        # batch size for forward pass
-        batch_size = args.dataloader_batch_size
+        outputs_post_proccessed = predict(iterable_dataloader)
 
         # [(output_prediction_tensor, img_info_array, id (always 1))]
         outputs_post_proccessed = []
-
-        # MARK: main inference loop
-        for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in tqdm(
-            enumerate(iterable_dataloader),
-            total=len(iterable_dataloader),
-            desc="Creating Tracklets",
-        ):
-            # (5, 32, 3, 720, 1280)
-
-            # MARK: forward pass
-            with torch.no_grad():
-
-                # raw items in data loader
-                # TODO: is there a better way to stack these items
-                # then appending items to a list w/ a for loop?
-                frame_id = info_imgs[2]
-                video_id = info_imgs[3]
-                img_file_name = info_imgs[4]
-
-                # logger.debug(f"info_imgs: {info_imgs}")
-                # print(f"info_imgs: {info_imgs}")
-                # print(f"info_imgs: {len(info_imgs)}")
-                # print(f"info_imgs: {len(info_imgs[0])}")
-                # print(f"ids: {ids.shape}")
-                # print(f"imgs: {imgs.shape}")
-
-                # imgs.type(tensor_type)
-                imgs = imgs.type(tensor_type)
-
-                # forward pass
-                # do we need to copy to GPU?
-                start_time = time.time()
-                imgs = imgs.cuda().to(device=args.device)
-                end_time = time.time()
-                # print(f"copying to GPU took {end_time - start_time} seconds")
-
-                # TODO: what is the optimal batch size?
-                # 1:   1.6780129030399678
-                # 2:   2.5556285711239166
-                # 4:   3.9093613984134867
-
-                start_time = time.time()
-                outputs = model(imgs)
-                end_time = time.time()
-                items_per_sec = batch_size / (end_time - start_time)
-
-                # print(f"forward pass took {end_time - start_time} seconds")
-                # print(f"items per second: {items_per_sec}")
-                # print(f"outputs.shape: {outputs.shape}")
-
-                # MARK: no significant speed-up from parallel processing
-                start_time = time.time()
-                outputs_post_proccessed.extend(
-                    [
-                        [
-                            postprocess(
-                                torch.unsqueeze(outputs[i, :, :], dim=0),
-                                self.num_classes,
-                                self.confthre,
-                                self.nmsthre,
-                            ),
-                            [item[i] for item in info_imgs],
-                            1,
-                            frame_id[i],
-                            origin_imgs[i],
-                        ]
-                        for i in range(outputs.shape[0])
-                    ]
-                )
-                
-                # print(f"outputs_post_proccessed: {outputs_post_proccessed}")
-                end_time = time.time()
-                # print(f"Post processing took {end_time - start_time} seconds")
-
-                start_time = time.time()
-                torch.cuda.empty_cache()
-                end_time = time.time()
-                # print(f"empty cache took {end_time - start_time} seconds")
-                # logger.debug(f"outputs post-proccessed shape: {outputs}")
-
-                # seems to be we are just calculating
-                # TODO: this code needs to modularized
-                # 1. generate all batches from generator as a single iterable tensor
-                # we should perform all expensive copy ops from CPU -> GPU in paralell up front
-                # 2. perform inference on batches and append results (already on GPU) to a list
-                # 3. post process all results
-                # 4. calculate all results
-
-        # print(f"len(outputs_post_proccessed): {len(outputs_post_proccessed)}")
 
         # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
         for result in tqdm(outputs_post_proccessed):
@@ -218,78 +155,8 @@ class MOTEvaluator:
                         online_scores.append(t.score)
                 # save results
                 results.append((frame_id, online_tlwhs, online_ids, online_scores))
-
-            # output, image info, video id
-            # TODO: calculate results
-            # for result in outputs_post_proccessed:
-
-            # output_temp = result[0]
-            # info_img_temp = result[1]
-            # id_temp = result[2]
-
-            # print(f"output_temp: {output_temp}")
-            # print(f"output_temp_shape: {len(output_temp)}")
-            # print(f"info_img_temp: {info_img_temp}")
-
-            # # TODO: can most likely optimize this function
-            # # TODO: do this in paralell
-            # output_results = self.convert_to_coco_format(
-            #     output_temp, info_img_temp, id_temp
-            # )
-
-            # logger.debug(f"output_results: {output_results}")
-            # data_list.extend(output_results)
-            # logger.debug(f"data_list: {data_list}")
-
-            # # what is at o[0]?
-            # if output_temp[0] is not None:
-            #     logger.debug(f"output_temp[0]: {output_temp[0]}")
-
-            #     # what are these online targets?
-            #     # TODO: copy all origin images to cuda as a single tensor
-            #     # TODO: optimize `update` function
-            #     online_targets = tracker.update(
-            #         output_temp[0],
-            #         info_img_temp,
-            #         self.img_size,
-            #         origin_imgs.squeeze(0).cuda().to(device=args.device),
-            #     )
-            #     logger.debug(f"online_targets: {online_targets}")
-
-            #     # what is `online_tlwhs` var?
-            #     # what is `t` temp var?
-            #     online_tlwhs, online_ids, online_scores = [], [], []
-            #     for t in online_targets:
-
-            #         # what is tid, do i care?
-            #         tlwh, tid, score = t.tlwh, t.track_id, t.score
-
-            #         # silly hard coded threshold
-            #         vertical = tlwh[2] / tlwh[3] > 1.6
-            #         if tlwh[2] * tlwh[3] > self.args.min_box_area and not vertical:
-            #             online_tlwhs.append(tlwh)
-            #             online_ids.append(tid)
-            #             online_scores.append(score)
-
-            #     logger.debug(f"online_tlwhs: {online_tlwhs}")
-            #     logger.debug(f"online_ids: {online_ids}")
-            #     logger.debug(f"online_scores: {online_scores}")
-
-            #     # results.append((frame_id, online_tlwhs, online_ids, online_scores))
-            #     results.append(
-            #         (
-            #             id,
-            #             online_tlwhs,
-            #             online_ids,
-            #             online_scores,
-            #         )
-            #     )
-            #     # why write results every forward pass?
-
-        # TODO: write results to file in paralell
+                
         write_results(tracklets_out_path, results)
-
-        # TODO: maybe give this function a meaningful return value?
         return None
 
     # TODO: some explicit typing / documentation of these variable names
