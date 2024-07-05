@@ -1,15 +1,6 @@
 #!/bin/bash
 
-# for rank in {0..3}
-# do
-#     nohup python3 pipeline.py --rank $rank &
-#     python3 pipeline.py --rank $rank &
-# done
-
-# Wait for all background processes to complete
-# wait
-
-export CUDA_VISIBLE_DEVICES=0,1,2
+export CUDA_VISIBLE_DEVICES=1
 cd MixSort/
 
 ## NBA 15'-16' ##
@@ -20,6 +11,8 @@ cd MixSort/
 videos_src_dir="/playpen-storage/levlevi/player-re-id/__old__/clips"
 tracklets_out_dir="/playpen-storage/levlevi/player-re-id/src/extract_tracklets/testing_tracks_out"
 tracklets_temp_data_dir="/mnt/meg/levlevi/tmp"
+dataloader_batch_size=32
+dataloader_workers=32
 device=0
 
 python pipeline.py \
@@ -27,6 +20,8 @@ python pipeline.py \
     --videos_src_dir "$videos_src_dir" \
     --tracklets_temp_data_dir "$tracklets_temp_data_dir" \
     --device "$device" \
+    --dataloader_batch_size "$dataloader_batch_size" \
+    --dataloader_workers "$dataloader_workers" \
     -expn "levi-test-exp" \
     -f "exps/example/mot/yolox_x_sportsmot.py" \
     -n "yolox_x_sportsmot_mix" \

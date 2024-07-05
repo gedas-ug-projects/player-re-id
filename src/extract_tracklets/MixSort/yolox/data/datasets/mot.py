@@ -86,7 +86,6 @@ class MOTDataset(Dataset):
         img_info = (height, width, frame_id, video_id, file_name)
 
         del im_ann, annotations
-
         return (res, img_info, file_name)
 
     def load_anno(self, index):
@@ -94,7 +93,6 @@ class MOTDataset(Dataset):
 
     def pull_item(self, index):
         id_ = self.ids[index]
-
         res, img_info, file_name = self.annotations[index]
         # load image and preprocess
         img_file = os.path.join(
@@ -102,7 +100,6 @@ class MOTDataset(Dataset):
         )
         img = cv2.imread(img_file)
         assert img is not None
-
         return img, res.copy(), img_info, np.array([id_])
 
     @Dataset.resize_getitem

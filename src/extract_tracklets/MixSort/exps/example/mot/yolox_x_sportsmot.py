@@ -1,12 +1,14 @@
 # encoding: utf-8
 import os
-import random
 import torch
-import torch.nn as nn
 import torch.distributed as dist
+import logging
 
 from yolox.exp import Exp as MyExp
 from yolox.data import get_yolox_datadir
+
+logging.basicConfig(level=logging.ERROR, format="%(asctime)s %(levelname)s %(message)s")
+logger = logging.getLogger(__name__)
 
 class Exp(MyExp):
     def __init__(self):
@@ -16,8 +18,10 @@ class Exp(MyExp):
         self.width = 1.25
         self.exp_name = os.path.split(os.path.realpath(__file__))[1].split(".")[0]
         self.train_ann = "train.json"
-        self.val_ann = "val.json"   # change to train.json when running on training set
+        self.val_ann = "val.json"  # change to train.json when running on training set
         self.input_size = (800, 1440)
+
+        # can we reduce this input size?
         self.test_size = (800, 1440)
         self.random_size = (18, 32)
         self.max_epoch = 80
@@ -42,7 +46,7 @@ class Exp(MyExp):
         dataset = MOTDataset(
             data_dir=os.path.join(get_yolox_datadir(), "SportsMOT"),
             json_file=self.train_ann,
-            name='train',
+            name="train",
             img_size=self.input_size,
             preproc=TrainTransform(
                 rgb_means=(0.485, 0.456, 0.406),
@@ -73,9 +77,7 @@ class Exp(MyExp):
         if is_distributed:
             batch_size = batch_size // dist.get_world_size()
 
-        sampler = InfiniteSampler(
-            len(self.dataset), seed=self.seed if self.seed else 0
-        )
+        sampler = InfiniteSampler(len(self.dataset), seed=self.seed if self.seed else 0)
 
         batch_sampler = YoloBatchSampler(
             sampler=sampler,
@@ -90,36 +92,42 @@ class Exp(MyExp):
         train_loader = DataLoader(self.dataset, **dataloader_kwargs)
         return train_loader
 
-    def get_eval_loader(self, batch_size, is_distributed, testdev=False, return_origin_img=False, data_dir=os.path.join(get_yolox_datadir(), "SportsMOT")):
+    def get_eval_loader(
+        self,
+        args,
+        return_origin_img=False,
+        data_dir=os.path.join(get_yolox_datadir(), "SportsMOT"),
+    ):
         from yolox.data import MOTDataset, ValTransform
-
         valdataset = MOTDataset(
-            # data_dir=os.path.join(get_yolox_datadir(), "SportsMOT"),
             data_dir=data_dir,
             json_file=self.val_ann,
             img_size=self.test_size,
-            name='val', # change to train when running on training set
+            name="val",  # change to train when running on training set
             preproc=ValTransform(
                 rgb_means=(0.485, 0.456, 0.406),
                 std=(0.229, 0.224, 0.225),
             ),
             return_origin_img=return_origin_img,
         )
-
-        if is_distributed:
-            batch_size = batch_size // dist.get_world_size()
-            sampler = torch.utils.data.distributed.DistributedSampler(
-                valdataset, shuffle=False
-            )
-        else:
-            sampler = torch.utils.data.SequentialSampler(valdataset)
-
+        logger.info(f"Batch Size: {args.dataloader_batch_size}")
+        batch_size = args.dataloader_batch_size
+        
+        # TODO: use batch sampler?
+            # greater num workers yields faster dataset parsing speeds
+            # dataloader_workers=8 seems to be optimal
+            
+        seq_sampler = torch.utils.data.SequentialSampler(valdataset)
+        
+        # TODO: batch size MUST BE HARD CODED TO 1
+        batch_sampler = torch.utils.data.BatchSampler(seq_sampler, batch_size=1, drop_last=False)
         dataloader_kwargs = {
-            "num_workers": self.data_num_workers,
-            "pin_memory": True,
-            "sampler": sampler,
+            "num_workers": args.dataloader_workers,
+            "pin_memory": True, # need to copy tensors to GPU
+            "sampler": batch_sampler,
+            "batch_size": batch_size,
         }
-        dataloader_kwargs["batch_size"] = batch_size
+        logger.info("Dataloader args are: {}".format(dataloader_kwargs))
         val_loader = torch.utils.data.DataLoader(valdataset, **dataloader_kwargs)
         return val_loader
 

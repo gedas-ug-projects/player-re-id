@@ -17,7 +17,8 @@ sys.path.append(
 from yolox.exp import get_exp
 from yolox.utils import fuse_model
 from yolox.evaluators import MOTEvaluator
-from yolox.exp.yolox_base import Exp
+from yolox.data.datasets.datasets_wrapper import Dataset 
+from exps.example.mot.yolox_x_sportsmot import Exp
 from utils.convert_vid_coco import format_video_to_coco_dataset
 from glob import glob
 
@@ -30,7 +31,7 @@ logger = logging.getLogger(__name__)
 ### MIXSORT CODE ###
 
 
-def run(exp: Exp, args, coco_dataset_dir=None, tracklet_out_path=None):
+def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
 
     def set_seeds(seed):
         random.seed(seed)
@@ -46,9 +47,7 @@ def run(exp: Exp, args, coco_dataset_dir=None, tracklet_out_path=None):
         set_seeds(args.seed)
 
     # hard-coded for now
-    is_distributed = False
     cudnn.benchmark = True
-
     if args.conf is not None:
         exp.test_conf = args.conf
     if args.nms is not None:
@@ -58,11 +57,9 @@ def run(exp: Exp, args, coco_dataset_dir=None, tracklet_out_path=None):
 
     # is this bad?, we seem to get a new model w/ every call to main
     model = exp.get_model()
-    val_loader = exp.get_eval_loader(
-        args.batch_size,
-        is_distributed,
-        args.test,
-        return_origin_img=True,
+    val_loader: Dataset = exp.get_eval_loader(
+        args,
+        return_origin_img=True, # must be true
         data_dir=coco_dataset_dir,
     )
     evaluator = MOTEvaluator(
@@ -176,7 +173,8 @@ if __name__ == "__main__":
         help="Skip redundant videos",
     )
     parser.add_argument("--torch_compile", type=str, required=False, default="False")
-    parser.add_argument("--batch_size", type=int, required=False, default=1)
+    parser.add_argument("--dataloader_batch_size", type=int, required=True, default=1)
+    parser.add_argument("--dataloader_workers", type=int, required=False, default=1)
 
     ### MIXSORT ARGS ###
     parser.add_argument("-expn", "--experiment-name", type=str, default=None)
@@ -290,23 +288,6 @@ if __name__ == "__main__":
         action="store_true",
         help="only use iou for similarity",
     )
-
-    # parser = make_parser()
-    # args = parser.parse_args([
-    #     "-expn", "levi-test-exp",
-    #     "-f", "exps/example/mot/yolox_x_sportsmot.py",
-    #     "-n", "yolox_x_sportsmot_mix",
-    #     "-c", "pretrained/yolox_x_sportsmot_mix.pth.tar",
-    #     "--batch-size", "1",
-    #     "--num_machines", "1",
-    #     "--devices", "1",
-    #     "--test",
-    #     "--conf", "0.01",
-    #     "--nms", "0.7",
-    #     "--tsize", "640",
-    #     "--track_thresh", "0.6",
-    #     "--config track"
-    # ])
 
     args = parser.parse_args()
     profile = args.profile

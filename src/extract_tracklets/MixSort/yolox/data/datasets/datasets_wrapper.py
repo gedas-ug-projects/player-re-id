@@ -110,6 +110,10 @@ class Dataset(torchDataset):
 
         @wraps(getitem_fn)
         def wrapper(self, index):
+            
+            # TODO: hard-coded thing for batch sampler
+            index = index[0]
+    
             if not isinstance(index, int):
                 has_dim = True
                 self._input_dim = index[0]
@@ -118,11 +122,9 @@ class Dataset(torchDataset):
             else:
                 has_dim = False
 
-            ret_val = getitem_fn(self, index)
-
+            ret_val = getitem_fn(self, index)   
             if has_dim:
                 del self._input_dim
-
             return ret_val
 
         return wrapper

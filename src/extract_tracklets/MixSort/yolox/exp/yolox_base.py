@@ -8,8 +8,14 @@ import torch.nn as nn
 
 import os
 import random
+import logging
 
 from .base_exp import BaseExp
+from yolox.data.datasets.datasets_wrapper import Dataset
+from yolox.data.dataloading import DataLoader
+
+logging.basicConfig(level=logging.ERROR, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 # YOLO config file
 class Exp(BaseExp):
@@ -21,6 +27,7 @@ class Exp(BaseExp):
         self.depth = 1.00
         self.width = 1.00
 
+        # once dataloader is loaded, all images already loaded
         # ---------------- dataloader config ---------------- #
         # set worker to 4 for shorter dataloader init time
         self.data_num_workers = 4
@@ -88,7 +95,7 @@ class Exp(BaseExp):
             YoloBatchSampler
         )
 
-        dataset = COCODataset(
+        dataset: Dataset = COCODataset(
             data_dir=None,
             json_file=self.train_ann,
             img_size=self.input_size,
@@ -199,11 +206,13 @@ class Exp(BaseExp):
         )
         return scheduler
 
-    def get_eval_loader(self, batch_size, is_distributed, testdev=False):
+    def get_eval_loader(self, batch_size, is_distributed, testdev=False, data_dir=None):
         from yolox.data import COCODataset, ValTransform
 
-        valdataset = COCODataset(
-            data_dir=None,
+        # take a look at this obj
+        valdataset: Dataset = COCODataset(
+            # data_dir=None,
+            data_dir=data_dir, # this val was set to None??
             json_file=self.val_ann if not testdev else "image_info_test-dev2017.json",
             name="val2017" if not testdev else "test2017",
             img_size=self.test_size,
@@ -221,13 +230,17 @@ class Exp(BaseExp):
             sampler = torch.utils.data.SequentialSampler(valdataset)
 
         dataloader_kwargs = {
-            "num_workers": self.data_num_workers,
+            # "num_workers": self.data_num_workers,
+            "num_workers": self.args.dataloader_num_workers,
             "pin_memory": True, # set to False
             "sampler": sampler,
         }
+        
+        logger.info(f"num_workers: {dataloader_kwargs['num_workers']}")
+        assert False
+        
         dataloader_kwargs["batch_size"] = batch_size
-        val_loader = torch.utils.data.DataLoader(valdataset, **dataloader_kwargs)
-
+        val_loader: DataLoader = torch.utils.data.DataLoader(valdataset, **dataloader_kwargs)
         return val_loader
 
     def get_evaluator(self, batch_size, is_distributed, testdev=False):

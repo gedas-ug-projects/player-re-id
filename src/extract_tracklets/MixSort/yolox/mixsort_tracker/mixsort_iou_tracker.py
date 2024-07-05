@@ -129,7 +129,9 @@ class STrack(BaseTrack):
 
 
 class MIXTracker(object):
-    def __init__(self, args, frame_rate=30, rank=0):
+    
+    # this is probably fine
+    def __init__(self, args, frame_rate=30):
         self.tracked_stracks = []  # type: list[STrack]
         self.lost_stracks = []  # type: list[STrack]
         self.removed_stracks = []  # type: list[STrack]
@@ -152,7 +154,7 @@ class MIXTracker(object):
         self.settings = ws_settings.Settings()
         self.settings.script_name = args.script
         self.settings.config_name = args.config
-        self.rank = rank
+        self.rank = args.device
         
         prj_dir = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "../../MixViT")
@@ -172,6 +174,7 @@ class MIXTracker(object):
         self.network = network.cuda(torch.device(f"cuda:{self.rank}"))
         self.network.eval()
 
+    # do we ever call this?
     def re_init(self, args, frame_rate=30):
         BaseTrack._count = 0 # set to 0 for new video
         self.tracked_stracks = []  # type: list[STrack]
@@ -343,6 +346,8 @@ class MIXTracker(object):
         #             iou[i][j]=vit[i][j]
         # return iou
 
+    # this is function we call the most
+    # is it possible/worthwhile to create a batch update version of this func?
     def update(self, output_results, img_info, img_size, img):
         self.frame_id += 1
         activated_starcks = []
@@ -350,6 +355,7 @@ class MIXTracker(object):
         lost_stracks = []
         removed_stracks = []
 
+        # TODO: make sure we arn't call a to cpu function twice
         if output_results.shape[1] == 5:
             scores = output_results[:, 4]
             bboxes = output_results[:, :4]
