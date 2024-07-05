@@ -121,6 +121,7 @@ class MOTEvaluator:
         device = args.device
         img_size = self.img_size
         
+        # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
         def process_chunk(chunk, tracker, device, min_box_area, img_size):
             results = []
             for result in chunk:
@@ -128,7 +129,7 @@ class MOTEvaluator:
                 info_imgs = result[1]
                 frame_id = result[3]
                 origin_imgs = result[4].squeeze(0).to(device)  # Move origin_imgs to device once
-                if outputs[0] is not None:
+                if outputs is not None and len(outputs) > 0:
                     online_targets = tracker.update(
                         outputs,
                         info_imgs,
@@ -144,53 +145,26 @@ class MOTEvaluator:
                         online_tlwhs, online_ids, online_scores = zip(*valid_targets)
                     else:
                         online_tlwhs, online_ids, online_scores = [], [], []
-
                     results.append((frame_id, online_tlwhs, online_ids, online_scores))
-                return results
+            return results
 
         def chunked_process(outputs_post_processed, chunk_size, tracker, device, min_box_area, img_size):
             results = []
+            if not outputs_post_processed:
+                return results  # Early return if no data
             chunks = [outputs_post_processed[i:i + chunk_size] for i in range(0, len(outputs_post_processed), chunk_size)]
-            with concurrent.futures.ThreadPoolExecutor() as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
                 futures = [executor.submit(process_chunk, chunk, tracker, device, min_box_area, img_size) for chunk in chunks]
                 for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Tracking"):
-                    results.extend(future.result())
+                    try:
+                        results.extend(future.result())
+                    except Exception as e:
+                        print(f"Error processing chunk: {e}")
             return results
         
-        chunk_size = 10
+        chunk_size = 8
         results = chunked_process(outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size)
 
-        # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
-        # for result in tqdm(
-        #     outputs_post_proccessed, total=len(outputs_post_proccessed), desc="Tracking"
-        # ):
-        #     outputs = result[0][0]
-        #     info_imgs = result[1]
-        #     frame_id = result[3]
-        #     origin_imgs = result[4]
-        #     origin_imgs_device = origin_imgs.squeeze(0).to(device)
-
-        #     if outputs[0] is not None:
-        #         online_targets = tracker.update(
-        #             outputs,
-        #             info_imgs,
-        #             self.img_size,
-        #             origin_imgs_device,
-        #         )
-        #         # process the online targets
-        #         valid_targets = [
-        #             (t.tlwh, t.track_id, t.score)
-        #             for t in online_targets
-        #             if t.tlwh[2] * t.tlwh[3] > min_box_area
-        #             and t.tlwh[2] / t.tlwh[3] <= 1.6
-        #         ]
-        #         # unzip the valid targets into separate lists
-        #         if valid_targets:
-        #             online_tlwhs, online_ids, online_scores = zip(*valid_targets)
-        #         else:
-        #             online_tlwhs, online_ids, online_scores = [], [], []
-        #         # append the results
-        #         results.append((frame_id, online_tlwhs, online_ids, online_scores))
         write_results(tracklets_out_path, results)
         return None
 

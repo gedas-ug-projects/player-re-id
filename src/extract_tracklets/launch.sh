@@ -11,8 +11,8 @@ cd MixSort/
 videos_src_dir="/playpen-storage/levlevi/player-re-id/__old__/clips"
 tracklets_out_dir="/playpen-storage/levlevi/player-re-id/src/extract_tracklets/testing_tracks_out"
 tracklets_temp_data_dir="/mnt/meg/levlevi/tmp"
-dataloader_batch_size=4
-dataloader_workers=4
+dataloader_batch_size=8
+dataloader_workers=2
 device=0
 
 python pipeline.py \
