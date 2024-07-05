@@ -1,3 +1,5 @@
+
+import concurrent
 import time
 import torch
 import logging
@@ -77,6 +79,7 @@ class MOTEvaluator:
             ):
                 with torch.no_grad():
                     frame_id = info_imgs[2]
+                    # necessary move from CPU -> GPU
                     imgs = imgs.to(args.device)
                     outputs = model(imgs)
                     batch_outputs = [
@@ -116,38 +119,78 @@ class MOTEvaluator:
 
         min_box_area = self.args.min_box_area
         device = args.device
+        img_size = self.img_size
+        
+        def process_chunk(chunk, tracker, device, min_box_area, img_size):
+            results = []
+            for result in chunk:
+                outputs = result[0][0]
+                info_imgs = result[1]
+                frame_id = result[3]
+                origin_imgs = result[4].squeeze(0).to(device)  # Move origin_imgs to device once
+                if outputs[0] is not None:
+                    online_targets = tracker.update(
+                        outputs,
+                        info_imgs,
+                        img_size,
+                        origin_imgs
+                    )
+                    valid_targets = [
+                        (t.tlwh, t.track_id, t.score)
+                        for t in online_targets
+                        if t.tlwh[2] * t.tlwh[3] > min_box_area and t.tlwh[2] / t.tlwh[3] <= 1.6
+                    ]
+                    if valid_targets:
+                        online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+                    else:
+                        online_tlwhs, online_ids, online_scores = [], [], []
+
+                    results.append((frame_id, online_tlwhs, online_ids, online_scores))
+                return results
+
+        def chunked_process(outputs_post_processed, chunk_size, tracker, device, min_box_area, img_size):
+            results = []
+            chunks = [outputs_post_processed[i:i + chunk_size] for i in range(0, len(outputs_post_processed), chunk_size)]
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                futures = [executor.submit(process_chunk, chunk, tracker, device, min_box_area, img_size) for chunk in chunks]
+                for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Tracking"):
+                    results.extend(future.result())
+            return results
+        
+        chunk_size = 10
+        results = chunked_process(outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size)
 
         # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
-        for result in tqdm(
-            outputs_post_proccessed, total=len(outputs_post_proccessed), desc="Tracking"
-        ):
-            outputs = result[0][0]
-            info_imgs = result[1]
-            frame_id = result[3]
-            origin_imgs = result[4]
-            origin_imgs_device = origin_imgs.squeeze(0).to(device)
+        # for result in tqdm(
+        #     outputs_post_proccessed, total=len(outputs_post_proccessed), desc="Tracking"
+        # ):
+        #     outputs = result[0][0]
+        #     info_imgs = result[1]
+        #     frame_id = result[3]
+        #     origin_imgs = result[4]
+        #     origin_imgs_device = origin_imgs.squeeze(0).to(device)
 
-            if outputs[0] is not None:
-                online_targets = tracker.update(
-                    outputs,
-                    info_imgs,
-                    self.img_size,
-                    origin_imgs_device,
-                )
-                # process the online targets
-                valid_targets = [
-                    (t.tlwh, t.track_id, t.score)
-                    for t in online_targets
-                    if t.tlwh[2] * t.tlwh[3] > min_box_area
-                    and t.tlwh[2] / t.tlwh[3] <= 1.6
-                ]
-                # unzip the valid targets into separate lists
-                if valid_targets:
-                    online_tlwhs, online_ids, online_scores = zip(*valid_targets)
-                else:
-                    online_tlwhs, online_ids, online_scores = [], [], []
-                # append the results
-                results.append((frame_id, online_tlwhs, online_ids, online_scores))
+        #     if outputs[0] is not None:
+        #         online_targets = tracker.update(
+        #             outputs,
+        #             info_imgs,
+        #             self.img_size,
+        #             origin_imgs_device,
+        #         )
+        #         # process the online targets
+        #         valid_targets = [
+        #             (t.tlwh, t.track_id, t.score)
+        #             for t in online_targets
+        #             if t.tlwh[2] * t.tlwh[3] > min_box_area
+        #             and t.tlwh[2] / t.tlwh[3] <= 1.6
+        #         ]
+        #         # unzip the valid targets into separate lists
+        #         if valid_targets:
+        #             online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+        #         else:
+        #             online_tlwhs, online_ids, online_scores = [], [], []
+        #         # append the results
+        #         results.append((frame_id, online_tlwhs, online_ids, online_scores))
         write_results(tracklets_out_path, results)
         return None
 
