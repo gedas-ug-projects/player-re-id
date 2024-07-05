@@ -107,13 +107,10 @@ class MOTEvaluator:
         ), f"Result path must end with .txt, but got {tracklets_out_path}"
 
         model.eval()
-
-        # TODO: is there slow code in this MixTracker obj?
         tracker: MIXTracker = MIXTracker(self.args)
         results = []
 
         # [(output_prediction_tensor, img_info_array, id (always 1))]
-        # TODO: add explicit typing for dataloader obj
         iterable_dataloader = self.dataloader
         outputs_post_proccessed = predict(iterable_dataloader)
 
@@ -164,7 +161,6 @@ class MOTEvaluator:
         
         chunk_size = 8
         results = chunked_process(outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size)
-
         write_results(tracklets_out_path, results)
         return None
 
