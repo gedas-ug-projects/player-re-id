@@ -40,7 +40,6 @@ def write_results(filename, results):
                     s=round(score, 2),
                 )
                 f.write(line)
-    # logger.info('save results to {}'.format(filename))
 
 
 class MOTEvaluator:
@@ -70,77 +69,63 @@ class MOTEvaluator:
 
         # MARK: main inference loop
         def predict(iterable_dataloader):
-            outputs_post_proccessed = []
+            outputs_post_processed = []
             for _, (origin_imgs, imgs, _, info_imgs, _) in tqdm(
                 enumerate(iterable_dataloader),
                 total=len(iterable_dataloader),
                 desc="Creating Tracklets",
             ):
-                # (5, 32, 3, 720, 1280)
-
-                # MARK: forward pass
                 with torch.no_grad():
                     frame_id = info_imgs[2]
-                    # TODO: elim?
-                    imgs = imgs.type(tensor_type)
-                    # forward pass
-                    imgs = imgs.cuda().to(device=args.device)
+                    imgs = imgs.to(args.device)
                     outputs = model(imgs)
-                    outputs_post_proccessed.extend(
+                    batch_outputs = [
                         [
-                            [
-                                postprocess(
-                                    torch.unsqueeze(outputs[i, :, :], dim=0),
-                                    self.num_classes,
-                                    self.confthre,
-                                    self.nmsthre,
-                                ),
-                                [item[i] for item in info_imgs],
-                                1,
-                                frame_id[i],
-                                origin_imgs[i],
-                            ]
-                            for i in range(outputs.shape[0])
+                            postprocess(
+                                torch.unsqueeze(outputs[i], dim=0),
+                                self.num_classes,
+                                self.confthre,
+                                self.nmsthre,
+                            ),
+                            [item[i] for item in info_imgs],
+                            1,
+                            frame_id[i],
+                            origin_imgs[i],
                         ]
-                    )
-                    torch.cuda.empty_cache()
-            return outputs_post_proccessed
+                        for i in range(outputs.shape[0])
+                    ]
+                    outputs_post_processed.extend(batch_outputs)
+            torch.cuda.empty_cache()
+            return outputs_post_processed
 
-        half = args.fp16
         # assert tracklet path is valid
         assert tracklets_out_path.endswith(
             ".txt"
         ), f"Result path must end with .txt, but got {tracklets_out_path}"
 
-        # TODO: half precision, dosen't work rn ):
-        tensor_type = torch.cuda.HalfTensor if half else torch.cuda.FloatTensor
         model.eval()
-        if half:
-            model = model.half()
 
         # TODO: is there slow code in this MixTracker obj?
         tracker: MIXTracker = MIXTracker(self.args)
         results = []
 
+        # [(output_prediction_tensor, img_info_array, id (always 1))]
         # TODO: add explicit typing for dataloader obj
-        iterable_dataloader = iter(self.dataloader)
+        iterable_dataloader = self.dataloader
         outputs_post_proccessed = predict(iterable_dataloader)
 
-        # [(output_prediction_tensor, img_info_array, id (always 1))]
-        outputs_post_proccessed = []
 
         # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
-        for result in tqdm(outputs_post_proccessed):
+        for result in tqdm(
+            outputs_post_proccessed, total=len(outputs_post_proccessed), desc="Tracking"
+        ):
             outputs = result[0][0]
             info_imgs = result[1]
             frame_id = result[3]
             origin_imgs = result[4]
-            # print(f"len outputs: {len(outputs)}")
-            # print(f"outputs: {outputs.shape}")
-            # print(f"origin_imgs: {origin_imgs}")
             if outputs[0] is not None:
                 online_targets = tracker.update(
-                    outputs, info_imgs, self.img_size, origin_imgs.squeeze(0).cuda()
+                    outputs, info_imgs, self.img_size, origin_imgs.squeeze(0).to(device=args.device)
                 )
                 online_tlwhs = []
                 online_ids = []
@@ -155,7 +140,7 @@ class MOTEvaluator:
                         online_scores.append(t.score)
                 # save results
                 results.append((frame_id, online_tlwhs, online_ids, online_scores))
-                
+
         write_results(tracklets_out_path, results)
         return None
 

@@ -40,7 +40,6 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
         warnings.warn(
             "You have chosen to seed testing. This will turn on the CUDNN deterministic setting."
         )
-
     rank = args.device
     if args.seed is not None:
         set_seeds(args.seed)
