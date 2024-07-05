@@ -118,13 +118,12 @@ class Exp(MyExp):
             # dataloader_workers=8 seems to be optimal
             
         seq_sampler = torch.utils.data.SequentialSampler(valdataset)
-        
         # TODO: batch size MUST BE HARD CODED TO 1
-        batch_sampler = torch.utils.data.BatchSampler(seq_sampler, batch_size=1, drop_last=False)
+        # batch_sampler = torch.utils.data.BatchSampler(seq_sampler, batch_size=1, drop_last=False)
         dataloader_kwargs = {
             "num_workers": args.dataloader_workers,
             "pin_memory": True, # need to copy tensors to GPU
-            "sampler": batch_sampler,
+            "sampler": seq_sampler,
             "batch_size": batch_size,
         }
         logger.info("Dataloader args are: {}".format(dataloader_kwargs))

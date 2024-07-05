@@ -112,7 +112,7 @@ class Dataset(torchDataset):
         def wrapper(self, index):
             
             # TODO: hard-coded thing for batch sampler
-            index = index[0]
+            # index = index[0]
     
             if not isinstance(index, int):
                 has_dim = True

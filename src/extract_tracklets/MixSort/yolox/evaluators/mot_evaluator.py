@@ -89,7 +89,7 @@ class MOTEvaluator:
         results = []
 
         # TODO: add explicit typing for dataloader obj
-        iterable_dataloader = self.dataloader
+        iterable_dataloader = iter(self.dataloader)
 
         # Q: how long does it take just to iterate through the dataloader
         # start_time = time.time()
@@ -105,7 +105,7 @@ class MOTEvaluator:
         for cur_iter, (origin_imgs, imgs, _, info_imgs, ids) in tqdm(
             enumerate(iterable_dataloader),
             total=len(iterable_dataloader),
-            desc="Creating tracklets...",
+            desc="Creating Tracklets",
         ):
             # (5, 32, 3, 720, 1280)
             
@@ -164,8 +164,12 @@ class MOTEvaluator:
                         ]
                 end_time = time.time()
                 print(f"Post processing took {end_time - start_time} seconds")
+                
+                start_time = time.time()
+                torch.cuda.empty_cache()
+                end_time = time.time()
+                print(f"empty cache took {end_time - start_time} seconds")
 
-                assert False
                 # logger.debug(f"outputs post-proccessed shape: {outputs}")
 
                 # seems to be we are just calculating
@@ -175,7 +179,6 @@ class MOTEvaluator:
                 # 2. perform inference on batches and append results (already on GPU) to a list
                 # 3. post process all results
                 # 4. calculate all results
-
 
                 # output, image info, video id
         #         # TODO: calculate results

@@ -42,10 +42,8 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
         )
 
     rank = args.device
-
     if args.seed is not None:
         set_seeds(args.seed)
-
     # hard-coded for now
     cudnn.benchmark = True
     if args.conf is not None:
@@ -54,7 +52,6 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
         exp.nmsthre = args.nms
     if args.tsize is not None:
         exp.test_size = (args.tsize, args.tsize)
-
     # is this bad?, we seem to get a new model w/ every call to main
     model = exp.get_model()
     val_loader: Dataset = exp.get_eval_loader(

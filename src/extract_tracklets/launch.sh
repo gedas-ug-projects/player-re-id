@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0,1,2
 cd MixSort/
 
 ## NBA 15'-16' ##
@@ -11,8 +11,8 @@ cd MixSort/
 videos_src_dir="/playpen-storage/levlevi/player-re-id/__old__/clips"
 tracklets_out_dir="/playpen-storage/levlevi/player-re-id/src/extract_tracklets/testing_tracks_out"
 tracklets_temp_data_dir="/mnt/meg/levlevi/tmp"
-dataloader_batch_size=32
-dataloader_workers=32
+dataloader_batch_size=4
+dataloader_workers=4
 device=0
 
 python pipeline.py \
