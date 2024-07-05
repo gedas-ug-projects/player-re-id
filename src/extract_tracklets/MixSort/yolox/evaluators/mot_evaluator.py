@@ -114,6 +114,8 @@ class MOTEvaluator:
         iterable_dataloader = self.dataloader
         outputs_post_proccessed = predict(iterable_dataloader)
 
+        min_box_area = self.args.min_box_area
+        device = args.device
 
         # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
         for result in tqdm(
@@ -123,24 +125,29 @@ class MOTEvaluator:
             info_imgs = result[1]
             frame_id = result[3]
             origin_imgs = result[4]
+            origin_imgs_device = origin_imgs.squeeze(0).to(device)
+
             if outputs[0] is not None:
                 online_targets = tracker.update(
-                    outputs, info_imgs, self.img_size, origin_imgs.squeeze(0).to(device=args.device)
+                    outputs,
+                    info_imgs,
+                    self.img_size,
+                    origin_imgs_device,
                 )
-                online_tlwhs = []
-                online_ids = []
-                online_scores = []
-                for t in online_targets:
-                    tlwh = t.tlwh
-                    tid = t.track_id
-                    vertical = tlwh[2] / tlwh[3] > 1.6
-                    if tlwh[2] * tlwh[3] > self.args.min_box_area and not vertical:
-                        online_tlwhs.append(tlwh)
-                        online_ids.append(tid)
-                        online_scores.append(t.score)
-                # save results
+                # process the online targets
+                valid_targets = [
+                    (t.tlwh, t.track_id, t.score)
+                    for t in online_targets
+                    if t.tlwh[2] * t.tlwh[3] > min_box_area
+                    and t.tlwh[2] / t.tlwh[3] <= 1.6
+                ]
+                # unzip the valid targets into separate lists
+                if valid_targets:
+                    online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+                else:
+                    online_tlwhs, online_ids, online_scores = [], [], []
+                # append the results
                 results.append((frame_id, online_tlwhs, online_ids, online_scores))
-
         write_results(tracklets_out_path, results)
         return None
 
