@@ -78,6 +78,9 @@ class MOTEvaluator:
             outputs = result[0][0]
             info_imgs = result[1]
             frame_id = result[3]
+            
+            # set defaults
+            online_tlwhs, online_ids, online_scores = [], [], []
             origin_imgs = (
                 result[4].squeeze(0).to(device)
             )  # Move origin_imgs to device once
@@ -93,8 +96,6 @@ class MOTEvaluator:
                 ]
                 if valid_targets:
                     online_tlwhs, online_ids, online_scores = zip(*valid_targets)
-                else:
-                    online_tlwhs, online_ids, online_scores = [], [], []
             return (frame_id, online_tlwhs, online_ids, online_scores)
             
         # MARK: main inference loop
@@ -128,7 +129,7 @@ class MOTEvaluator:
                     # track results
                     for result in batch_outputs:
                         # will this work?
-                        results.extend(track(result))
+                        results.append(track(result))
                         
             torch.cuda.empty_cache()
             return results
