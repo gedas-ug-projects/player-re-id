@@ -22,9 +22,10 @@ from exps.example.mot.yolox_x_sportsmot import Exp
 from utils.convert_vid_coco import format_video_to_coco_dataset
 from glob import glob
 
+# TODO: fix logger
 warnings.simplefilter("ignore", category=UserWarning)
 logging.basicConfig(
-    level=logging.ERROR, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -101,7 +102,7 @@ def process_video(fp, args):
     track_dst_path = os.path.join(tracklets_out_dir, f"{vid_name}.txt")
     # check if the track output file already exists
     if skip_redundant == "True" and os.path.exists(track_dst_path):
-        logger.info(f"Skipping {vid_name}: {track_dst_path} already exists.")
+        print(f"Skipping {vid_name}: {track_dst_path} already exists.")
         return False
     format_video_to_coco_dataset(fp, coco_dst_path)
     generate_player_tracks(coco_dst_path, track_dst_path, args)
@@ -121,15 +122,12 @@ def process_dir(args):
         if start_idx + num_videos < len(video_files)
         else len(video_files)
     )
-    ## MARK: DO NOT USE SUBSET ##
+    # TODO: implement greedy processing
+    # MARK: process all videos
     # video_files = video_files[start_idx:end_idx]
     logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
     for fp in video_files:
         res = process_video(fp, args)
-        ### BREAK ###
-        break
-        ### BREAK ###
-
 
 def main(args):
     process_dir(args)

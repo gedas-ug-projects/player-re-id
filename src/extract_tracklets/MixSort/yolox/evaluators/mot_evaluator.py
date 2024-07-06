@@ -1,4 +1,4 @@
-
+import os
 import concurrent
 import time
 import torch
@@ -68,10 +68,38 @@ class MOTEvaluator:
         self.args = args
 
     def evaluate_mixsort(self, model, tracklets_out_path=None, args=None):
-
+        
+        def track(result):
+            
+            min_box_area = self.args.min_box_area
+            device = args.device
+            img_size = self.img_size
+    
+            outputs = result[0][0]
+            info_imgs = result[1]
+            frame_id = result[3]
+            origin_imgs = (
+                result[4].squeeze(0).to(device)
+            )  # Move origin_imgs to device once
+            if outputs is not None and len(outputs) > 0:
+                online_targets = tracker.update(
+                    outputs, info_imgs, img_size, origin_imgs
+                )
+                valid_targets = [
+                    (t.tlwh, t.track_id, t.score)
+                    for t in online_targets
+                    if t.tlwh[2] * t.tlwh[3] > min_box_area
+                    and t.tlwh[2] / t.tlwh[3] <= 1.6
+                ]
+                if valid_targets:
+                    online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+                else:
+                    online_tlwhs, online_ids, online_scores = [], [], []
+            return (frame_id, online_tlwhs, online_ids, online_scores)
+            
         # MARK: main inference loop
         def predict(iterable_dataloader):
-            outputs_post_processed = []
+            results = []
             for _, (origin_imgs, imgs, _, info_imgs, _) in tqdm(
                 enumerate(iterable_dataloader),
                 total=len(iterable_dataloader),
@@ -97,9 +125,13 @@ class MOTEvaluator:
                         ]
                         for i in range(outputs.shape[0])
                     ]
-                    outputs_post_processed.extend(batch_outputs)
+                    # track results
+                    for result in batch_outputs:
+                        # will this work?
+                        results.extend(track(result))
+                        
             torch.cuda.empty_cache()
-            return outputs_post_processed
+            return results
 
         # assert tracklet path is valid
         assert tracklets_out_path.endswith(
@@ -108,63 +140,77 @@ class MOTEvaluator:
 
         model.eval()
         tracker: MIXTracker = MIXTracker(self.args)
-        results = []
 
         # [(output_prediction_tensor, img_info_array, id (always 1))]
         iterable_dataloader = self.dataloader
-        outputs_post_proccessed = predict(iterable_dataloader)
+        results = predict(iterable_dataloader)
 
-        min_box_area = self.args.min_box_area
-        device = args.device
-        img_size = self.img_size
-        
         # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
-        def process_chunk(chunk, tracker, device, min_box_area, img_size):
-            results = []
-            for result in chunk:
-                outputs = result[0][0]
-                info_imgs = result[1]
-                frame_id = result[3]
-                origin_imgs = result[4].squeeze(0).to(device)  # Move origin_imgs to device once
-                if outputs is not None and len(outputs) > 0:
-                    online_targets = tracker.update(
-                        outputs,
-                        info_imgs,
-                        img_size,
-                        origin_imgs
-                    )
-                    valid_targets = [
-                        (t.tlwh, t.track_id, t.score)
-                        for t in online_targets
-                        if t.tlwh[2] * t.tlwh[3] > min_box_area and t.tlwh[2] / t.tlwh[3] <= 1.6
-                    ]
-                    if valid_targets:
-                        online_tlwhs, online_ids, online_scores = zip(*valid_targets)
-                    else:
-                        online_tlwhs, online_ids, online_scores = [], [], []
-                    results.append((frame_id, online_tlwhs, online_ids, online_scores))
-            return results
+        # def process_chunk(chunk, tracker, device, min_box_area, img_size):
+        #     results = []
+        #     for result in chunk:
+        #         outputs = result[0][0]
+        #         info_imgs = result[1]
+        #         frame_id = result[3]
+        #         origin_imgs = (
+        #             result[4].squeeze(0).to(device)
+        #         )  # Move origin_imgs to device once
+        #         if outputs is not None and len(outputs) > 0:
+        #             online_targets = tracker.update(
+        #                 outputs, info_imgs, img_size, origin_imgs
+        #             )
+        #             valid_targets = [
+        #                 (t.tlwh, t.track_id, t.score)
+        #                 for t in online_targets
+        #                 if t.tlwh[2] * t.tlwh[3] > min_box_area
+        #                 and t.tlwh[2] / t.tlwh[3] <= 1.6
+        #             ]
+        #             if valid_targets:
+        #                 online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+        #             else:
+        #                 online_tlwhs, online_ids, online_scores = [], [], []
+        #             results.append((frame_id, online_tlwhs, online_ids, online_scores))
+        #     return results
 
-        def chunked_process(outputs_post_processed, chunk_size, tracker, device, min_box_area, img_size):
-            results = []
-            if not outputs_post_processed:
-                return results  # Early return if no data
-            chunks = [outputs_post_processed[i:i + chunk_size] for i in range(0, len(outputs_post_processed), chunk_size)]
-            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-                futures = [executor.submit(process_chunk, chunk, tracker, device, min_box_area, img_size) for chunk in chunks]
-                for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="Tracking"):
-                    try:
-                        results.extend(future.result())
-                    except Exception as e:
-                        print(f"Error processing chunk: {e}")
-            return results
+        # def chunked_process(
+        #     outputs_post_processed, chunk_size, tracker, device, min_box_area, img_size
+        # ):
+        #     results = []
+        #     if not outputs_post_processed:
+        #         return results  # Early return if no data
+        #     chunks = [
+        #         outputs_post_processed[i : i + chunk_size]
+        #         for i in range(0, len(outputs_post_processed), chunk_size)
+        #     ]
+        #     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        #         futures = [
+        #             executor.submit(
+        #                 process_chunk, chunk, tracker, device, min_box_area, img_size
+        #             )
+        #             for chunk in chunks
+        #         ]
+        #         for future in tqdm(
+        #             concurrent.futures.as_completed(futures),
+        #             total=len(futures),
+        #             desc="Tracking",
+        #         ):
+        #             try:
+        #                 results.extend(future.result())
+        #             except Exception as e:
+        #                 print(f"Error processing chunk: {e}")
+        #     return results
+
+        # chunk_size = 8
+        # results = chunked_process(
+        #     outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size
+        # )
         
-        chunk_size = 8
-        results = chunked_process(outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size)
+        # remove existing tracklet is we are overwriting a file
+        if os.path.isfile(tracklets_out_path):
+            os.remove(tracklets_out_path)
         write_results(tracklets_out_path, results)
         return None
 
-    # TODO: some explicit typing / documentation of these variable names
     def convert_to_coco_format(self, outputs, info_imgs, ids):
         data_list = []
         for output, img_h, img_w, img_id in zip(

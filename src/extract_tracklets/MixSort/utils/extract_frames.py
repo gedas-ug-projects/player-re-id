@@ -48,7 +48,7 @@ def video_to_frames(video_path, frames_dir, overwrite=False, every=1):
     frames_dir = os.path.normpath(frames_dir)
     video_dir, video_filename = os.path.split(video_path)
     os.makedirs(os.path.join(frames_dir, video_filename), exist_ok=True)
-    print("Extracting frames from {}".format(video_filename))
+    print("Extracting Frames From {}".format(video_filename))
     extract_frames(video_path, frames_dir, overwrite=overwrite, every=every)
     return os.path.join(frames_dir, video_filename)
 
