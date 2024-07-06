@@ -144,66 +144,6 @@ class MOTEvaluator:
         # [(output_prediction_tensor, img_info_array, id (always 1))]
         iterable_dataloader = self.dataloader
         results = predict(iterable_dataloader)
-
-        # adapted from: https://github.com/MCG-NJU/MixSort/blob/main/yolox/evaluators/mot_evaluator.py#L227
-        # def process_chunk(chunk, tracker, device, min_box_area, img_size):
-        #     results = []
-        #     for result in chunk:
-        #         outputs = result[0][0]
-        #         info_imgs = result[1]
-        #         frame_id = result[3]
-        #         origin_imgs = (
-        #             result[4].squeeze(0).to(device)
-        #         )  # Move origin_imgs to device once
-        #         if outputs is not None and len(outputs) > 0:
-        #             online_targets = tracker.update(
-        #                 outputs, info_imgs, img_size, origin_imgs
-        #             )
-        #             valid_targets = [
-        #                 (t.tlwh, t.track_id, t.score)
-        #                 for t in online_targets
-        #                 if t.tlwh[2] * t.tlwh[3] > min_box_area
-        #                 and t.tlwh[2] / t.tlwh[3] <= 1.6
-        #             ]
-        #             if valid_targets:
-        #                 online_tlwhs, online_ids, online_scores = zip(*valid_targets)
-        #             else:
-        #                 online_tlwhs, online_ids, online_scores = [], [], []
-        #             results.append((frame_id, online_tlwhs, online_ids, online_scores))
-        #     return results
-
-        # def chunked_process(
-        #     outputs_post_processed, chunk_size, tracker, device, min_box_area, img_size
-        # ):
-        #     results = []
-        #     if not outputs_post_processed:
-        #         return results  # Early return if no data
-        #     chunks = [
-        #         outputs_post_processed[i : i + chunk_size]
-        #         for i in range(0, len(outputs_post_processed), chunk_size)
-        #     ]
-        #     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        #         futures = [
-        #             executor.submit(
-        #                 process_chunk, chunk, tracker, device, min_box_area, img_size
-        #             )
-        #             for chunk in chunks
-        #         ]
-        #         for future in tqdm(
-        #             concurrent.futures.as_completed(futures),
-        #             total=len(futures),
-        #             desc="Tracking",
-        #         ):
-        #             try:
-        #                 results.extend(future.result())
-        #             except Exception as e:
-        #                 print(f"Error processing chunk: {e}")
-        #     return results
-
-        # chunk_size = 8
-        # results = chunked_process(
-        #     outputs_post_proccessed, chunk_size, tracker, device, min_box_area, img_size
-        # )
         
         # remove existing tracklet is we are overwriting a file
         if os.path.isfile(tracklets_out_path):
