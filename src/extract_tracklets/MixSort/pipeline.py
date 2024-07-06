@@ -122,9 +122,7 @@ def process_dir(args):
         if start_idx + num_videos < len(video_files)
         else len(video_files)
     )
-    # TODO: implement greedy processing
-    # MARK: process all videos
-    # video_files = video_files[start_idx:end_idx]
+    video_files = video_files[start_idx:end_idx]
     logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
     for fp in video_files:
         res = process_video(fp, args)
