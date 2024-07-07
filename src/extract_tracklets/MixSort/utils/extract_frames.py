@@ -1,3 +1,4 @@
+import gc
 import cv2
 import os
 import numpy as np
@@ -8,39 +9,25 @@ from concurrent.futures import ThreadPoolExecutor
 def save_frame(frame, save_path, overwrite):
     if not os.path.exists(save_path) or overwrite:
         cv2.imwrite(save_path, cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+    del frame
 
-def extract_frames(video_path, frames_dir, overwrite=False, start=-1, end=-1, every=1):
+def extract_frames(vr, video_path, frames_dir, overwrite=False, start=-1, end=-1, every=1):
+    
+    # basic idea
+        # create new vr for every 100 frames
+    
     video_path = os.path.normpath(video_path)
     frames_dir = os.path.normpath(frames_dir)
     assert os.path.exists(video_path)
-    
-    vr = VideoReader(video_path, ctx=cpu(0))
-                     
-    if start < 0:
-        start = 0
-    if end < 0:
-        end = len(vr)
-    
-    frames_list = list(range(start, end, every))
+                    
     saved_count = 0
-    
-    if every > 25 and len(frames_list) < 1000:
-        frames = vr.get_batch(frames_list).asnumpy()
-        
-        with ThreadPoolExecutor() as executor:
-            for index, frame in zip(frames_list, frames):
-                save_path = os.path.join(frames_dir, "{:010d}.jpg".format(index))
-                executor.submit(save_frame, frame, save_path, overwrite)
-                saved_count += 1
-    else:
-        with ThreadPoolExecutor() as executor:
-            for index in tqdm(range(start, end), desc="Extracting Frames"):
-                frame = vr[index]
-                if index % every == 0:
-                    save_path = os.path.join(frames_dir, "{:010d}.jpg".format(index))
-                    executor.submit(save_frame, frame.asnumpy(), save_path, overwrite)
-                    saved_count += 1
-    
+    with ThreadPoolExecutor(max_workers=1) as executor:
+        for index in range(start, end):
+            frame = vr[index]
+            save_path = os.path.join(frames_dir, "{:010d}.jpg".format(index))
+            executor.submit(save_frame, frame.asnumpy(), save_path, overwrite)
+            saved_count += 1
+            del frame
     return saved_count
 
 def video_to_frames(video_path, frames_dir, overwrite=False, every=1):
@@ -49,7 +36,16 @@ def video_to_frames(video_path, frames_dir, overwrite=False, every=1):
     video_dir, video_filename = os.path.split(video_path)
     os.makedirs(os.path.join(frames_dir, video_filename), exist_ok=True)
     print("Extracting Frames From {}".format(video_filename))
-    extract_frames(video_path, frames_dir, overwrite=overwrite, every=every)
+    
+    vr = VideoReader(video_path, ctx=cpu(0))
+    end = len(vr)
+        
+    step_size = 1000
+    for index in tqdm(range(0, end-step_size, step_size), desc="Extracting Frames"):
+        s = index
+        e = index + step_size
+        extract_frames(vr, video_path, frames_dir, overwrite=overwrite, every=every, start=s, end=e)
+        
     return os.path.join(frames_dir, video_filename)
 
 if __name__ == '__main__':

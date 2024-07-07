@@ -5,16 +5,16 @@ cd MixSort/
 
 ## NBA 15'-16' ##
 # tracklets_out_dir="/mnt/sun/levlevi/player-tracklets-backup/player-tracklets"
-# videos_src_dir="/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays"
+videos_src_dir="/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays"
 
 ## TEST ##
-videos_src_dir="/mnt/opr/levlevi/player-re-id/__old__/clips"
+# videos_src_dir="/mnt/opr/levlevi/player-re-id/__old__/clips"
 tracklets_out_dir="/mnt/opr/levlevi/player-re-id/src/extract_tracklets/testing_tracks_out"
 
 tracklets_temp_data_dir="/mnt/meg/levlevi/tmp"
 dataloader_batch_size=8
-dataloader_workers=2
-torch_compile="False"
+dataloader_workers=4
+torch_compile="True"
 skip_redundant="False"
 
 for rank in {0..0}; do

@@ -79,6 +79,8 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
     if args.torch_compile == "True":
         logger.info("Compiling model...")
         model = torch.compile(model)
+        
+    # TODO: fix memory inefficencies
     evaluator.evaluate_mixsort(model, tracklet_out_path, args)
 
 
@@ -104,12 +106,14 @@ def process_video(fp, args):
     if skip_redundant == "True" and os.path.exists(track_dst_path):
         print(f"Skipping {vid_name}: {track_dst_path} already exists.")
         return False
+    
+    # TODO: fix mem management issues
     format_video_to_coco_dataset(fp, coco_dst_path)
+    assert False
     generate_player_tracks(coco_dst_path, track_dst_path, args)
     # remove tmp dir
     shutil.rmtree(coco_dst_path)
     return True
-
 
 def process_dir(args):
     videos_dir = args.videos_src_dir

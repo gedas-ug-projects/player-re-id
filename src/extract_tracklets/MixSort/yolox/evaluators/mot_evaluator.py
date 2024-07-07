@@ -83,7 +83,7 @@ class MOTEvaluator:
             online_tlwhs, online_ids, online_scores = [], [], []
             origin_imgs = (
                 result[4].squeeze(0).to(device)
-            )  # Move origin_imgs to device once
+            )
             if outputs is not None and len(outputs) > 0:
                 online_targets = tracker.update(
                     outputs, info_imgs, img_size, origin_imgs
@@ -96,12 +96,15 @@ class MOTEvaluator:
                 ]
                 if valid_targets:
                     online_tlwhs, online_ids, online_scores = zip(*valid_targets)
+              
+            # free result      
+            del result
             return (frame_id, online_tlwhs, online_ids, online_scores)
             
         # MARK: main inference loop
         def predict(iterable_dataloader):
             results = []
-            for _, (origin_imgs, imgs, _, info_imgs, _) in tqdm(
+            for _, (origin_imgs, imgs, a, info_imgs, b) in tqdm(
                 enumerate(iterable_dataloader),
                 total=len(iterable_dataloader),
                 desc="Creating Tracklets",
@@ -127,10 +130,19 @@ class MOTEvaluator:
                         ]
                         for i in range(outputs.shape[0])
                     ]
+                    
                     # track results
                     for result in batch_outputs:
                         # will this work?
                         results.append(track(result))
+                        
+                    # free batch_outputs
+                    del batch_outputs
+                    del imgs, outputs
+                    del origin_imgs
+                    del info_imgs
+                    del a, b
+                    torch.cuda.empty_cache()
                         
             torch.cuda.empty_cache()
             return results
@@ -151,6 +163,11 @@ class MOTEvaluator:
         if os.path.isfile(tracklets_out_path):
             os.remove(tracklets_out_path)
         write_results(tracklets_out_path, results)
+        
+        # more freeing of stuff
+        del tracker
+        del iterable_dataloader
+        del results
         
         return None
 
