@@ -11,7 +11,7 @@ import sys
 import torch.backends.cudnn as cudnn
 
 sys.path.append(
-    "/playpen-storage/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
+    "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
 )
 
 from yolox.exp import get_exp
@@ -115,14 +115,13 @@ def process_dir(args):
     videos_dir = args.videos_src_dir
     device = args.device
     video_files = glob(os.path.join(videos_dir, "*.mp4"))
-    num_videos = int((1 / 4) * len(video_files))
+    num_videos = int((1 / 8) * len(video_files))
     start_idx = device * num_videos
     end_idx = (
         start_idx + num_videos
         if start_idx + num_videos < len(video_files)
         else len(video_files)
     )
-    # MARK: process all vids
     # video_files = video_files[start_idx:end_idx]
     logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
     for fp in video_files:

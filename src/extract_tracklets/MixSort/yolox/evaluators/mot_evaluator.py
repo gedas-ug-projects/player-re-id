@@ -110,6 +110,7 @@ class MOTEvaluator:
                     frame_id = info_imgs[2]
                     # necessary move from CPU -> GPU
                     imgs = imgs.to(args.device)
+                    # forward pass
                     outputs = model(imgs)
                     batch_outputs = [
                         [
@@ -150,6 +151,7 @@ class MOTEvaluator:
         if os.path.isfile(tracklets_out_path):
             os.remove(tracklets_out_path)
         write_results(tracklets_out_path, results)
+        
         return None
 
     def convert_to_coco_format(self, outputs, info_imgs, ids):
