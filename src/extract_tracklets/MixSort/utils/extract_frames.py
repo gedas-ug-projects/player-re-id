@@ -23,11 +23,14 @@ def extract_frames(vr, video_path, frames_dir, overwrite=False, start=-1, end=-1
     saved_count = 0
     with ThreadPoolExecutor(max_workers=1) as executor:
         for index in range(start, end):
-            frame = vr[index]
-            save_path = os.path.join(frames_dir, "{:010d}.jpg".format(index))
-            executor.submit(save_frame, frame.asnumpy(), save_path, overwrite)
-            saved_count += 1
-            del frame
+            try:
+                frame = vr[index]
+                save_path = os.path.join(frames_dir, "{:010d}.jpg".format(index))
+                executor.submit(save_frame, frame.asnumpy(), save_path, overwrite)
+                saved_count += 1
+                del frame
+            except:
+                print(f"Error: could not open frame at index {index}")
     return saved_count
 
 def video_to_frames(video_path, frames_dir, overwrite=False, every=1):

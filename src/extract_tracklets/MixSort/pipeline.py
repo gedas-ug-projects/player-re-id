@@ -14,6 +14,7 @@ sys.path.append(
     "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
 )
 
+from typing import List, Set
 from yolox.exp import get_exp
 from yolox.utils import fuse_model
 from yolox.evaluators import MOTEvaluator
@@ -107,32 +108,46 @@ def process_video(fp, args):
         print(f"Skipping {vid_name}: {track_dst_path} already exists.")
         return False
     
-    # TODO: fix mem management issues
     format_video_to_coco_dataset(fp, coco_dst_path)
-    assert False
     generate_player_tracks(coco_dst_path, track_dst_path, args)
     # remove tmp dir
     shutil.rmtree(coco_dst_path)
     return True
 
-def process_dir(args):
-    videos_dir = args.videos_src_dir
-    device = args.device
-    video_files = glob(os.path.join(videos_dir, "*.mp4"))
-    num_videos = int((1 / 8) * len(video_files))
-    start_idx = device * num_videos
-    end_idx = (
-        start_idx + num_videos
-        if start_idx + num_videos < len(video_files)
-        else len(video_files)
-    )
-    # video_files = video_files[start_idx:end_idx]
-    logger.info(f"Rank {device} processing videos {start_idx} to {end_idx}")
-    for fp in video_files:
-        res = process_video(fp, args)
+
+def process_videos_greedy(args):
+    
+    def get_all_processed_vids(tracklets_out_dir: str, tmp_dir: str) -> Set[str]:
+        processed_videos = set([x.split('/')[-1].replace(".txt", "") for x in glob(tracklets_out_dir + '/*.txt')])
+        tmp_dir_videos = set([x.split('/')[-1] for x in glob(tmp_dir + "/*")])
+        all_processed_videos = processed_videos | tmp_dir_videos
+        return all_processed_videos
+
+    def get_all_remaining_vids(videos_src_dir: str, tracklets_out_dir: str, tmp_dir: str) -> List[str]:
+        """
+        Return a list of all video file paths that do not have a tracklet output
+        or that do not have a subdir in the `tmp_dir` folder.
+        """
+        
+        all_processed_videos = get_all_processed_vids(tracklets_out_dir, tmp_dir)
+        return [x for x in glob( videos_src_dir + "/*.mp4") if (x.split('/')[-1].replace('.mp4', '').lower() not in all_processed_videos)]
+    
+    videos_src_dir = args.videos_src_dir
+    tracklets_out_dir = args.tracklets_out_dir
+    tmp_dir = args.tracklets_temp_data_dir
+    
+    # process all videos in a greedy fashion 
+    while True:
+        vid_fps = get_all_remaining_vids(videos_src_dir, tracklets_out_dir, tmp_dir)
+        random.shuffle(vid_fps) # so we don't process the same video by mistake
+        if len(vid_fps) == 0:
+            break
+        fp = vid_fps[0]
+        process_video(fp, args)
+    
 
 def main(args):
-    process_dir(args)
+    process_videos_greedy(args)
 
 
 if __name__ == "__main__":

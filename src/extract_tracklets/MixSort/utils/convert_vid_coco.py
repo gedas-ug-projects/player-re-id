@@ -61,8 +61,11 @@ def create_annotations(video_path: str, image_dir: str, annotations_dir: str):
         prev_image_id = frame_id - 1 if frame_id > 1 else -1
         next_image_id = frame_id + 1 if frame_id < len(frame_files) else -1
         frame_path = os.path.join(image_dir, frame_file)
-        with Image.open(frame_path) as img:
-            width, height = img.size
+        try:
+            with Image.open(frame_path) as img:
+                width, height = img.size
+        except:
+            print(f"Error: could not open image at path: {frame_path}")
         image_data = {
             "file_name": frame_path,
             "id": frame_id,
