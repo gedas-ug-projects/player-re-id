@@ -9,10 +9,17 @@ import torch
 import random
 import sys
 import torch.backends.cudnn as cudnn
+import gc
 
-sys.path.append(
-    "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
-)
+# dynamically append MixViT to path
+if '/mnt/opr/' in os.getcwd():
+    sys.path.append(
+        "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
+    )
+else:
+    sys.path.append(
+        "/playpen-storage/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
+    )
 
 from typing import List, Set
 from yolox.exp import get_exp
