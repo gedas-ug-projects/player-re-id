@@ -74,7 +74,7 @@ class MOTEvaluator:
             min_box_area = self.args.min_box_area
             device = args.device
             img_size = self.img_size
-    
+
             outputs = result[0][0]
             info_imgs = result[1]
             frame_id = result[3]
@@ -82,7 +82,8 @@ class MOTEvaluator:
             # set defaults
             online_tlwhs, online_ids, online_scores = [], [], []
             origin_imgs = (
-                result[4].squeeze(0).to(device)
+                # https://discuss.pytorch.org/t/pytorch-dataloader-memory-leak/187403/6
+                result[4].squeeze(0).to(device, non_blocking=True)
             )
             if outputs is not None and len(outputs) > 0:
                 online_targets = tracker.update(
@@ -97,8 +98,10 @@ class MOTEvaluator:
                 if valid_targets:
                     online_tlwhs, online_ids, online_scores = zip(*valid_targets)
               
-            # free result      
+            # free result
             del result
+            del outputs
+            del info_imgs
             return (frame_id, online_tlwhs, online_ids, online_scores)
             
         # MARK: main inference loop
@@ -112,7 +115,7 @@ class MOTEvaluator:
                 with torch.no_grad():
                     frame_id = info_imgs[2]
                     # necessary move from CPU -> GPU
-                    imgs = imgs.to(args.device)
+                    imgs = imgs.to(args.device, non_blocking=True)
                     # forward pass
                     outputs = model(imgs)
                     batch_outputs = [
@@ -168,7 +171,6 @@ class MOTEvaluator:
         del tracker
         del iterable_dataloader
         del results
-        
         return None
 
     def convert_to_coco_format(self, outputs, info_imgs, ids):

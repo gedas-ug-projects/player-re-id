@@ -12,20 +12,20 @@ import torch.backends.cudnn as cudnn
 import gc
 
 # dynamically append MixViT to path
-if '/mnt/opr/' in os.getcwd():
+if "/mnt/opr/" in os.getcwd():
     sys.path.append(
         "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
     )
 else:
     sys.path.append(
-        "/playpen-storage/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
+        "/mnt/opr/levlevi/player-re-id/src/extract_tracklets/MixSort/MixViT"
     )
 
 from typing import List, Set
 from yolox.exp import get_exp
 from yolox.utils import fuse_model
 from yolox.evaluators import MOTEvaluator
-from yolox.data.datasets.datasets_wrapper import Dataset 
+from yolox.data.datasets.datasets_wrapper import Dataset
 from exps.example.mot.yolox_x_sportsmot import Exp
 from utils.convert_vid_coco import format_video_to_coco_dataset
 from glob import glob
@@ -40,7 +40,7 @@ logger = logging.getLogger(__name__)
 ### MIXSORT CODE ###
 
 
-def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
+def run(exp: Exp, args, coco_dataset_dir: str = "", tracklet_out_path: str = ""):
 
     def set_seeds(seed):
         random.seed(seed)
@@ -49,6 +49,7 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
         warnings.warn(
             "You have chosen to seed testing. This will turn on the CUDNN deterministic setting."
         )
+
     rank = args.device
     if args.seed is not None:
         set_seeds(args.seed)
@@ -64,7 +65,7 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
     model = exp.get_model()
     val_loader: Dataset = exp.get_eval_loader(
         args,
-        return_origin_img=True, # must be true
+        return_origin_img=True,  # must be true
         data_dir=coco_dataset_dir,
     )
     evaluator = MOTEvaluator(
@@ -87,7 +88,6 @@ def run(exp: Exp, args, coco_dataset_dir: str='', tracklet_out_path: str =''):
     if args.torch_compile == "True":
         logger.info("Compiling model...")
         model = torch.compile(model)
-        
     # TODO: fix memory inefficencies
     evaluator.evaluate_mixsort(model, tracklet_out_path, args)
 
@@ -114,7 +114,7 @@ def process_video(fp, args):
     if skip_redundant == "True" and os.path.exists(track_dst_path):
         print(f"Skipping {vid_name}: {track_dst_path} already exists.")
         return False
-    
+
     format_video_to_coco_dataset(fp, coco_dst_path)
     generate_player_tracks(coco_dst_path, track_dst_path, args)
     # remove tmp dir
@@ -123,35 +123,48 @@ def process_video(fp, args):
 
 
 def process_videos_greedy(args):
-    
+
     def get_all_processed_vids(tracklets_out_dir: str, tmp_dir: str) -> Set[str]:
-        processed_videos = set([x.split('/')[-1].replace(".txt", "") for x in glob(tracklets_out_dir + '/*.txt')])
-        tmp_dir_videos = set([x.split('/')[-1] for x in glob(tmp_dir + "/*")])
+        processed_videos = set(
+            [
+                x.split("/")[-1].replace(".txt", "")
+                for x in glob(tracklets_out_dir + "/*.txt")
+            ]
+        )
+        tmp_dir_videos = set([x.split("/")[-1] for x in glob(tmp_dir + "/*")])
         all_processed_videos = processed_videos | tmp_dir_videos
         return all_processed_videos
 
-    def get_all_remaining_vids(videos_src_dir: str, tracklets_out_dir: str, tmp_dir: str) -> List[str]:
+    def get_all_remaining_vids(
+        videos_src_dir: str, tracklets_out_dir: str, tmp_dir: str
+    ) -> List[str]:
         """
         Return a list of all video file paths that do not have a tracklet output
         or that do not have a subdir in the `tmp_dir` folder.
         """
-        
+
         all_processed_videos = get_all_processed_vids(tracklets_out_dir, tmp_dir)
-        return [x for x in glob( videos_src_dir + "/*.mp4") if (x.split('/')[-1].replace('.mp4', '').lower() not in all_processed_videos)]
-    
+        return [
+            x
+            for x in glob(videos_src_dir + "/*.mp4")
+            if (
+                x.split("/")[-1].replace(".mp4", "").lower() not in all_processed_videos
+            )
+        ]
+
     videos_src_dir = args.videos_src_dir
     tracklets_out_dir = args.tracklets_out_dir
     tmp_dir = args.tracklets_temp_data_dir
-    
-    # process all videos in a greedy fashion 
+
+    # process all videos in a greedy fashion
     while True:
         vid_fps = get_all_remaining_vids(videos_src_dir, tracklets_out_dir, tmp_dir)
-        random.shuffle(vid_fps) # so we don't process the same video by mistake
+        random.shuffle(vid_fps)  # so we don't process the same video by mistake
         if len(vid_fps) == 0:
             break
         fp = vid_fps[0]
         process_video(fp, args)
-    
+
 
 def main(args):
     process_videos_greedy(args)

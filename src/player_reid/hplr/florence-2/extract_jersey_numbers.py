@@ -35,10 +35,8 @@ logger = logging.getLogger(__name__)
 
 TOTAL_GPUS = 8
 BOOTSTRAPS = 9
-PROMPT = """Identify the jersey number of the basketball player in the frame. If none, return None. Provide output in JSON format:
-{
-  "jersey_number": "<predicted_jersey_number>"
-}
+PROMPT = """Identify the jersey number of the basketball player in the frame. If none, return None. Output only the digits:
+<jersey_number>
 [EOS]"""
 
 
@@ -117,6 +115,7 @@ def augment_image(image):
 
 
 def is_valid_jersey_number(text):
+    # TODO: what about the number "00"?
     if text.isdigit():
         number = int(text)
         return 0 <= number <= 99

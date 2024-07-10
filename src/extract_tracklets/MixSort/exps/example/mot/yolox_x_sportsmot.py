@@ -122,7 +122,7 @@ class Exp(MyExp):
         # batch_sampler = torch.utils.data.BatchSampler(seq_sampler, batch_size=1, drop_last=False)
         dataloader_kwargs = {
             "num_workers": args.dataloader_workers,
-            "pin_memory": True, # need to copy tensors to GPU
+            "pin_memory": False, # need to copy tensors to GPU
             "sampler": seq_sampler,
             "batch_size": batch_size,
         }
