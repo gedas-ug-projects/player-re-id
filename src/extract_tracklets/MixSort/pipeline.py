@@ -11,6 +11,10 @@ import sys
 import torch.backends.cudnn as cudnn
 import gc
 
+import torch.multiprocessing
+# https://stackoverflow.com/questions/54000317/too-many-files-open
+torch.multiprocessing.set_sharing_strategy('file_system')
+
 # dynamically append MixViT to path
 if "/mnt/opr/" in os.getcwd():
     sys.path.append(

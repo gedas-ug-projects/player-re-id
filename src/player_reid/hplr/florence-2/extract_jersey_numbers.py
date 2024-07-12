@@ -20,6 +20,7 @@ import argparse
 import cProfile
 import pstats
 import torch.multiprocessing as mp
+import time
 
 from argparse import Namespace
 from glob import glob
@@ -45,36 +46,16 @@ def load_model_and_tokenizer(device: int = 0, args=None):
     precision = args.precision
     try:
         logger.info("Loading model and tokenizer...")
-
         # TODO: florence-2 does not have support for quantized models yet
-        if precision == "int4":
-            model = AutoModelForCausalLM.from_pretrained(
+        model = (
+            AutoModelForCausalLM.from_pretrained(
                 "microsoft/Florence-2-large-ft",
                 trust_remote_code=True,
-                quantization_config=BitsAndBytesConfig(
-                    load_in_4bit=True,
-                ),
                 device_map="cuda",
-            ).eval()
-        elif precision == "int8":
-            model = AutoModelForCausalLM.from_pretrained(
-                "microsoft/Florence-2-large-ft",
-                trust_remote_code=True,
-                quantization_config=BitsAndBytesConfig(
-                    load_in_8bit=True,
-                ),
-                device_map="cuda",
-            ).eval()
-        else:
-            model = (
-                AutoModelForCausalLM.from_pretrained(
-                    "microsoft/Florence-2-large-ft",
-                    trust_remote_code=True,
-                    device_map="cuda",
-                )
-                .eval()
-                .to(device)
             )
+            .eval()
+            .to(device)
+        )
         # attempt to speed up inference by compiling model JIT
         if compile_model == "True":
             logger.info("Compiling model...")
@@ -88,40 +69,6 @@ def load_model_and_tokenizer(device: int = 0, args=None):
         raise
 
 
-# how efficent is this function?
-def augment_image(image):
-    angle = random.uniform(-1, 1)
-    image = image.rotate(angle)
-    max_translate = 5
-    translate_x = random.uniform(-max_translate, max_translate)
-    translate_y = random.uniform(-max_translate, max_translate)
-    image = image.transform(
-        image.size, Image.AFFINE, (1, 0, translate_x, 0, 1, translate_y)
-    )
-    scale = random.uniform(0.99, 1.01)
-    new_size = (int(image.size[0] * scale), int(image.size[1] * scale))
-    image = image.resize(new_size, Image.BICUBIC)
-    if scale < 1:
-        pad_x = (image.size[0] - new_size[0]) // 2
-        pad_y = (image.size[1] - new_size[1]) // 2
-        image = ImageOps.expand(image, border=(pad_x, pad_y, pad_x, pad_y))
-    else:
-        crop_x = (new_size[0] - image.size[0]) // 2
-        crop_y = (new_size[1] - image.size[1]) // 2
-        image = image.crop(
-            (crop_x, crop_y, crop_x + image.size[0], crop_y + image.size[1])
-        )
-    return image
-
-
-def is_valid_jersey_number(text):
-    # TODO: what about the number "00"?
-    if text.isdigit():
-        number = int(text)
-        return 0 <= number <= 99
-    return False
-
-
 def ocr(
     image_file_path: str,
     model,
@@ -132,29 +79,19 @@ def ocr(
     precision = args.precision
     bootstraped_results = []
     for _ in range(BOOTSTRAPS):
-        
+
         # TODO: use a torch dataloader obj
+        start = time.time()
         image = Image.open(image_file_path)
         image = augment_image(image)
         if not image:
             return None
 
         # TODO: no florence-2 quantization support
-        if precision == "int4":
-            inputs = processor(text=PROMPT, images=image, return_tensors="pt").to(
-                f"cuda:{device}"
-            )
-            inputs["pixel_values"] = inputs["pixel_values"].half()
-        elif precision == "int8":
-            inputs = processor(text=PROMPT, images=image, return_tensors="pt").to(
-                f"cuda:{device}"
-            )
-            inputs["pixel_values"] = inputs["pixel_values"].half()
-        else:
-            inputs = processor(text=PROMPT, images=image, return_tensors="pt").to(
-                f"cuda:{device}"
-            )
-            
+        inputs = processor(text=PROMPT, images=image, return_tensors="pt").to(
+            f"cuda:{device}"
+        )
+
         # forward pass
         generated_ids = model.generate(
             input_ids=inputs["input_ids"],
@@ -201,7 +138,6 @@ def process_dir(
 
 
 def main(args: Namespace):
-
 
     # TODO: implement greedy processing
     tracklets_dir = args.tracklets_dir
