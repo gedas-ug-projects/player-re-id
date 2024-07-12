@@ -1,29 +1,14 @@
-import json
-import os
 import torch
 import logging
-import random
 import warnings
-import argparse
-import cProfile
-import pstats
-import torch.multiprocessing as mp
-import time
 from typing import Optional, List
 
-from argparse import Namespace
 from glob import glob
-from PIL import Image, ImageOps
+from PIL import Image
 from tqdm import tqdm
-from transformers import AutoProcessor, AutoModelForCausalLM, BitsAndBytesConfig
-from optimum.bettertransformer import BetterTransformer
-from optimum.onnxruntime import ORTModelForCausalLM
-from optimum.onnxruntime.configuration import AutoQuantizationConfig
-from optimum.onnxruntime import ORTOptimizer
+from transformers import AutoProcessor, AutoModelForCausalLM
 
-from transformers import BitsAndBytesConfig
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from torch.cuda.amp import autocast
 
 PROMPT = """Identify the jersey number of the basketball player in the frame. If none, return None. Output only the digits:
 <jersey_number>
@@ -36,61 +21,61 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
 class FlorenceModel:
 
     # ensure we only load our model into memory once
-    global _model, _processor, _compile_model, _model_varient, _half
     _model = None
     _processor = None
     _compile_model = None
-    _model_varient = None
+    _model_variant = None
     _half = None
 
     @staticmethod
     def load_model_and_tokenizer(args=None):
+        if args is None:
+            raise ValueError("Arguments cannot be None")
         if (
-            _model is not None
-            and _processor is not None
-            and _compile_model == args.compile_model
-            and _model_varient == args.model_varient
-            and _half == args.half
+            FlorenceModel._model is not None
+            and FlorenceModel._processor is not None
+            and FlorenceModel._compile_model == args.compile_model
+            and FlorenceModel._model_variant == args.model_variant
+            and FlorenceModel._half == args.half
         ):
-            return _model, _processor
+            return FlorenceModel._model, FlorenceModel._processor
         compile_model = args.compile_model
-        model_varient = args.model_varient
+        model_variant = args.model_variant
         half = args.half
         try:
             logger.info("Loading model and tokenizer...")
             model = AutoModelForCausalLM.from_pretrained(
-                f"microsoft/Florence-2-{model_varient}-ft",  # either 'base' or 'large'
+                f"microsoft/Florence-2-{model_variant}-ft",  # either 'base' or 'large'
                 trust_remote_code=True,
                 device_map="cuda",
             ).eval()
             processor = AutoProcessor.from_pretrained(
-                f"microsoft/Florence-2-{model_varient}-ft",
+                f"microsoft/Florence-2-{model_variant}-ft",
                 trust_remote_code=True,
             )
             if compile_model == "True":
                 model = torch.compile(model)
-            if args.half:
+            if half:
                 model = model.half()
-            _model = model
-            _processor = processor
-            _compile_model = compile_model
-            _model_varient = model_varient
+            FlorenceModel._model = model
+            FlorenceModel._processor = processor
+            FlorenceModel._compile_model = compile_model
+            FlorenceModel._model_variant = model_variant
+            FlorenceModel._half = half
             return model, processor
         except Exception as e:
             logger.error(f"Failed to load model or tokenizer: {e}")
-        raise
-
+            raise e
+        
 
 def ocr(
+    args,
     image_file_paths: List[str],
     model,
     processor,
-    device: int = 0,
-    args: Optional[dict] = None,
 ) -> Optional[List[str]]:
     def load_image(fp):
         try:
@@ -100,7 +85,7 @@ def ocr(
         except Exception as e:
             logger.error(f"Failed to load image {fp}: {e}")
             return None
-        
+    device = args.device
     # all ocr results
     bootstraped_results = []
     # load images (pretty quick)

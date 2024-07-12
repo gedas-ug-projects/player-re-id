@@ -3,7 +3,7 @@ import pandas as pd
 import cv2
 import numpy as np
 from tqdm import tqdm
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from glob import glob
 
 GAME_REPLAYS = "/mnt/sun/levlevi/nba-plus-statvu-dataset/game-replays"
