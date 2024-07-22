@@ -14,7 +14,11 @@ def process_tracklet(args, fp: str, model, processor):
     results = []
     # 1. extract frames from tracklet
     try:
-        tracklet_df = format_tracklets_for_reid(fp, args.video_file_paths_map)
+        video_file_paths = glob(args.replays_dir + "/*.mp4")
+        video_file_paths_map = {
+            os.path.basename(fp).lower(): fp for fp in video_file_paths
+        }
+        tracklet_df = format_tracklets_for_reid(fp, video_file_paths_map)
     except Exception as e:
         print(f"Failed to format tracklet {fp}: {e}")
         return
@@ -67,7 +71,6 @@ def main(args):
     model, processor = FlorenceModel.load_model_and_tokenizer(args)
     while True:
         tracklet_file_paths = get_remaining_tracklet_file_paths(args)
-        print(tracklet_file_paths)
         if len(tracklet_file_paths) == 0:
             break
         random.shuffle(tracklet_file_paths)
@@ -78,6 +81,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--tracklets_dir", type=str, required=True)
+    parser.add_argument("--replays_dir", type=str, required=True)
     parser.add_argument("--results_dir", type=str, required=True)
     parser.add_argument("--temp_dir", type=str, required=True)
     parser.add_argument("--device", type=int, required=False, default=0)

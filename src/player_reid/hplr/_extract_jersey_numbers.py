@@ -69,7 +69,7 @@ class FlorenceModel:
         except Exception as e:
             logger.error(f"Failed to load model or tokenizer: {e}")
             raise e
-        
+
 
 def ocr(
     args,
@@ -78,46 +78,61 @@ def ocr(
     processor,
 ) -> Optional[List[str]]:
     def load_image(fp):
+        logger.debug(f"Loading image {fp}")
         try:
             image = Image.open(fp)
             image.load()
+            logger.debug(f"Successfully loaded image {fp}")
             return image
         except Exception as e:
             logger.error(f"Failed to load image {fp}: {e}")
             return None
     device = args.device
-    # all ocr results
+    logger.debug(f"Using device: {device}")
     bootstraped_results = []
-    # load images (pretty quick)
+    logger.debug("Starting to load images")
+    # load all images using ThreadPoolExecutor
     with ThreadPoolExecutor() as executor:
         images = list(executor.map(load_image, image_file_paths))
     images = [img for img in images if img is not None]
     if not images:
         logger.error("No valid images loaded.")
         return None
-    prompts = [PROMPT] * len(images)
-    inputs = processor(text=prompts, images=images, return_tensors="pt")
-    # copy inputs to device
-    input_ids = inputs["input_ids"].to(device, non_blocking=True)
-    pixel_values = inputs["pixel_values"].to(device, non_blocking=True).half()
-    del inputs
-    # forward pass
-    with torch.no_grad():
-        generated_ids = model.generate(
-            input_ids=input_ids,
-            pixel_values=pixel_values,
-            max_new_tokens=5,
-            do_sample=False,
-            early_stopping=False,
-            num_beams=BOOTSTRAPS,
-            num_return_sequences=BOOTSTRAPS,
-        )
-    # decode the generated text
-    generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
-    # post-process the output
-    for gt, image in zip(generated_text, images):
-        parsed_answer = processor.post_process_generation(
-            gt, task="<OCR>", image_size=(image.width, image.height)
-        )
-        bootstraped_results.append(parsed_answer)
+    logger.debug("Images loaded successfully")
+    # define batch size
+    batch_size = 90
+    total_batches = (len(images) + batch_size - 1) // batch_size
+    # process images in batches
+    for batch_idx in range(total_batches):
+        start_idx = batch_idx * batch_size
+        end_idx = min((batch_idx + 1) * batch_size, len(images))
+        batch_images = images[start_idx:end_idx]
+        prompts = [PROMPT] * len(batch_images)
+        logger.debug(f"Processing batch {batch_idx + 1}/{total_batches}")
+        inputs = processor(text=prompts, images=batch_images, return_tensors="pt")
+        input_ids = inputs["input_ids"].to(device, non_blocking=True)
+        pixel_values = inputs["pixel_values"].to(device, non_blocking=True).half()
+        del inputs
+        logger.debug("Inputs moved to device and processed")
+        with torch.no_grad():
+            logger.debug("Starting model generation")
+            generated_ids = model.generate(
+                input_ids=input_ids,
+                pixel_values=pixel_values,
+                max_new_tokens=5,
+                do_sample=False,
+                early_stopping=False,
+                num_beams=BOOTSTRAPS,
+                num_return_sequences=BOOTSTRAPS,
+            )
+        logger.debug("Model generation completed")
+        generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
+        logger.debug("Generated text decoded")
+        for gt, image in zip(generated_text, batch_images):
+            parsed_answer = processor.post_process_generation(
+                gt, task="<OCR>", image_size=(image.width, image.height)
+            )
+            bootstraped_results.append(parsed_answer)
+            logger.debug(f"Post-processed generation for image {image.filename}")
+    logger.debug("OCR process completed")
     return bootstraped_results if bootstraped_results else None
